@@ -1,0 +1,13 @@
+﻿
+<CascadingAuthenticationState>
+    <Router AppAssembly="@typeof(Program).Assembly">
+        <Found Context="routeData">
+            <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+        </Found>
+        <NotFound>
+            <LayoutView Layout="@typeof(MainLayout)">
+                <img src="https://miro.medium.com/max/875/1*n3TfCNa0f0BFKnkwX4XgrA.jpeg" alt="404img" />
+            </LayoutView>
+        </NotFound>
+    </Router>
+</CascadingAuthenticationState>
