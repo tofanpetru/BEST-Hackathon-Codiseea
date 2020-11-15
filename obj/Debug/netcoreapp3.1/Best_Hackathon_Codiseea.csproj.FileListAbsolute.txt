@@ -404,3 +404,21 @@ C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codisee
 C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.BestHackathonCodiseea - Web Deploy.json
 C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\BestHackathonCodiseea - Web Deploy\mssql1.arm.json
 C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\BestHackathonCodiseea - Web Deploy\profile.arm.json
+C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\BestHackathonCodiseea - Web Deploy\signalr1.arm.json
+C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Connections.Client.dll
+C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\bin\Debug\netcoreapp3.1\Microsoft.Azure.SignalR.Common.dll
+C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\bin\Debug\netcoreapp3.1\Microsoft.Azure.SignalR.dll
+C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\bin\Debug\netcoreapp3.1\Microsoft.Azure.SignalR.Protocols.dll
+C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\obj\Debug\netcoreapp3.1\Best_Hackathon_Codiseea.csproj.CoreCompileInputs.cache
+C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\obj\Debug\netcoreapp3.1\Best_Hackathon_Codiseea.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\obj\Debug\netcoreapp3.1\Best_Hackathon_Codiseea.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\obj\Debug\netcoreapp3.1\RazorDeclaration\Best_Hackathon_Codiseea.dll
+C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\obj\Debug\netcoreapp3.1\Razor\App.razor.g.cs
+C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\obj\Debug\netcoreapp3.1\Razor\Pages\Counter.razor.g.cs
+C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\obj\Debug\netcoreapp3.1\Razor\Pages\FetchData.razor.g.cs
+C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\obj\Debug\netcoreapp3.1\Razor\Pages\Index.razor.g.cs
+C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\obj\Debug\netcoreapp3.1\Razor\Shared\LoginDisplay.razor.g.cs
+C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\obj\Debug\netcoreapp3.1\Razor\Shared\MainLayout.razor.g.cs
+C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\obj\Debug\netcoreapp3.1\Razor\Shared\NavMenu.razor.g.cs
+C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\obj\Debug\netcoreapp3.1\Razor\Shared\SurveyPrompt.razor.g.cs
+C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\obj\Debug\netcoreapp3.1\Razor\_Imports.razor.g.cs
