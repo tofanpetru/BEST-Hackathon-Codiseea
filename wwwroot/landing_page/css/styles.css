@@ -21,6 +21,54 @@ Culori
 - Buttons, icons - blue #00c9db
 - Body text, heading text - light gray #f1f1f8
 ******************************************/
+
+/**************************/
+/*     butonul aplica     */
+/**************************/
+.btn-aplica {
+	color: #fcfcfc;
+	background-color: rgb(184, 43, 43);
+	border-color: rgb(184, 43, 43);
+	text-decoration: none;
+	display: inline-block;
+	font-weight: 400;
+	color: #212529;
+	text-align: center;
+	vertical-align: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	border: 1px solid transparent;
+	padding: 0.745rem 1.40rem;
+	font-size: 1.5rem;
+	line-height: 1.5;
+	border-radius: 0.25rem;
+	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+/*	Butonul mai multe detalii*/
+.btn-aplica-detalii {
+	color: #fcfcfc;
+	background-color: rgb(184, 43, 43);
+	border-color: rgb(184, 43, 43);
+	text-decoration: none;
+	display: inline-block;
+	font-weight: 400;
+	color: #212529;
+	text-align: center;
+	vertical-align: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	border: 1px solid transparent;
+	padding: 0.745rem 0.4rem;
+	font-size: 0.8rem;
+	line-height: 1.5;
+	border-radius: 0.25rem;
+	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
 /**************************/
 /*     Progres - bar      */
 /**************************/
