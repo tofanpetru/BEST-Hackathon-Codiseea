@@ -50,6 +50,10 @@
               "target": "Package",
               "version": "[3.1.9, )"
             },
+            "Microsoft.Azure.SignalR": {
+              "target": "Package",
+              "version": "[1.4.0, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[3.1.9, )"
