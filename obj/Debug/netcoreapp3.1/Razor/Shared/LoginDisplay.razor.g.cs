@@ -79,11 +79,10 @@ using Best_Hackathon_Codiseea.Shared;
         {
             __builder.OpenComponent<Microsoft.AspNetCore.Components.Authorization.AuthorizeView>(0);
             __builder.AddAttribute(1, "Authorized", (Microsoft.AspNetCore.Components.RenderFragment<Microsoft.AspNetCore.Components.Authorization.AuthenticationState>)((context) => (__builder2) => {
-                __builder2.AddMarkupContent(2, "\r\n        ");
-                __builder2.OpenElement(3, "a");
-                __builder2.AddAttribute(4, "href", "Identity/Account/Manage");
-                __builder2.AddContent(5, "Bun venit, ");
-                __builder2.AddContent(6, 
+                __builder2.OpenElement(2, "a");
+                __builder2.AddAttribute(3, "href", "Identity/Account/Manage");
+                __builder2.AddContent(4, "Bun venit, ");
+                __builder2.AddContent(5, 
 #nullable restore
 #line 3 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Shared\LoginDisplay.razor"
                                                       context.User.Identity.Name
@@ -92,16 +91,15 @@ using Best_Hackathon_Codiseea.Shared;
 #line hidden
 #nullable disable
                 );
-                __builder2.AddContent(7, "!");
+                __builder2.AddContent(6, "!");
                 __builder2.CloseElement();
-                __builder2.AddMarkupContent(8, "\r\n        ");
-                __builder2.AddMarkupContent(9, "<form method=\"post\" action=\"Identity/Account/LogOut\">\r\n            <button type=\"submit\" class=\"nav-link btn btn-link\">Deconectare</button>\r\n        </form>\r\n    ");
+                __builder2.AddMarkupContent(7, "\r\n        ");
+                __builder2.AddMarkupContent(8, "<form method=\"post\" action=\"Identity/Account/LogOut\"><button type=\"submit\" class=\"nav-link btn btn-link\">Deconectare</button></form>");
             }
             ));
-            __builder.AddAttribute(10, "NotAuthorized", (Microsoft.AspNetCore.Components.RenderFragment<Microsoft.AspNetCore.Components.Authorization.AuthenticationState>)((context) => (__builder2) => {
-                __builder2.AddMarkupContent(11, "\r\n        ");
-                __builder2.AddMarkupContent(12, "<a href=\"Identity/Account/Register\">Register</a>\r\n        ");
-                __builder2.AddMarkupContent(13, "<a href=\"Identity/Account/Login\">Login</a>\r\n    ");
+            __builder.AddAttribute(9, "NotAuthorized", (Microsoft.AspNetCore.Components.RenderFragment<Microsoft.AspNetCore.Components.Authorization.AuthenticationState>)((context) => (__builder2) => {
+                __builder2.AddMarkupContent(10, "<a href=\"Identity/Account/Register\">Register</a>\r\n        ");
+                __builder2.AddMarkupContent(11, "<a href=\"Identity/Account/Login\">Login</a>");
             }
             ));
             __builder.CloseComponent();

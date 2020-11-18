@@ -79,9 +79,8 @@ using Best_Hackathon_Codiseea.Shared;
         {
             __builder.OpenComponent<Microsoft.AspNetCore.Components.Authorization.CascadingAuthenticationState>(0);
             __builder.AddAttribute(1, "ChildContent", (Microsoft.AspNetCore.Components.RenderFragment)((__builder2) => {
-                __builder2.AddMarkupContent(2, "\r\n    ");
-                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Routing.Router>(3);
-                __builder2.AddAttribute(4, "AppAssembly", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Reflection.Assembly>(
+                __builder2.OpenComponent<Microsoft.AspNetCore.Components.Routing.Router>(2);
+                __builder2.AddAttribute(3, "AppAssembly", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Reflection.Assembly>(
 #nullable restore
 #line 3 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\App.razor"
                           typeof(Program).Assembly
@@ -90,10 +89,9 @@ using Best_Hackathon_Codiseea.Shared;
 #line hidden
 #nullable disable
                 ));
-                __builder2.AddAttribute(5, "Found", (Microsoft.AspNetCore.Components.RenderFragment<Microsoft.AspNetCore.Components.RouteData>)((routeData) => (__builder3) => {
-                    __builder3.AddMarkupContent(6, "\r\n            ");
-                    __builder3.OpenComponent<Microsoft.AspNetCore.Components.Authorization.AuthorizeRouteView>(7);
-                    __builder3.AddAttribute(8, "RouteData", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.RouteData>(
+                __builder2.AddAttribute(4, "Found", (Microsoft.AspNetCore.Components.RenderFragment<Microsoft.AspNetCore.Components.RouteData>)((routeData) => (__builder3) => {
+                    __builder3.OpenComponent<Microsoft.AspNetCore.Components.Authorization.AuthorizeRouteView>(5);
+                    __builder3.AddAttribute(6, "RouteData", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.RouteData>(
 #nullable restore
 #line 5 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\App.razor"
                                             routeData
@@ -102,7 +100,7 @@ using Best_Hackathon_Codiseea.Shared;
 #line hidden
 #nullable disable
                     ));
-                    __builder3.AddAttribute(9, "DefaultLayout", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Type>(
+                    __builder3.AddAttribute(7, "DefaultLayout", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Type>(
 #nullable restore
 #line 5 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\App.razor"
                                                                        typeof(MainLayout)
@@ -112,13 +110,11 @@ using Best_Hackathon_Codiseea.Shared;
 #nullable disable
                     ));
                     __builder3.CloseComponent();
-                    __builder3.AddMarkupContent(10, "\r\n        ");
                 }
                 ));
-                __builder2.AddAttribute(11, "NotFound", (Microsoft.AspNetCore.Components.RenderFragment)((__builder3) => {
-                    __builder3.AddMarkupContent(12, "\r\n            ");
-                    __builder3.OpenComponent<Microsoft.AspNetCore.Components.LayoutView>(13);
-                    __builder3.AddAttribute(14, "Layout", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Type>(
+                __builder2.AddAttribute(8, "NotFound", (Microsoft.AspNetCore.Components.RenderFragment)((__builder3) => {
+                    __builder3.OpenComponent<Microsoft.AspNetCore.Components.LayoutView>(9);
+                    __builder3.AddAttribute(10, "Layout", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Type>(
 #nullable restore
 #line 8 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\App.razor"
                                  typeof(MainLayout)
@@ -127,16 +123,14 @@ using Best_Hackathon_Codiseea.Shared;
 #line hidden
 #nullable disable
                     ));
-                    __builder3.AddAttribute(15, "ChildContent", (Microsoft.AspNetCore.Components.RenderFragment)((__builder4) => {
-                        __builder4.AddMarkupContent(16, "\r\n                <img src=\"https://miro.medium.com/max/875/1*n3TfCNa0f0BFKnkwX4XgrA.jpeg\" alt=\"404img\">\r\n            ");
+                    __builder3.AddAttribute(11, "ChildContent", (Microsoft.AspNetCore.Components.RenderFragment)((__builder4) => {
+                        __builder4.AddMarkupContent(12, "<img src=\"https://miro.medium.com/max/875/1*n3TfCNa0f0BFKnkwX4XgrA.jpeg\" alt=\"404img\">");
                     }
                     ));
                     __builder3.CloseComponent();
-                    __builder3.AddMarkupContent(17, "\r\n        ");
                 }
                 ));
                 __builder2.CloseComponent();
-                __builder2.AddMarkupContent(18, "\r\n");
             }
             ));
             __builder.CloseComponent();
