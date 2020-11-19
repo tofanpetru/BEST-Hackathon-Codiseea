@@ -32,7 +32,9 @@
     <link href="~/landing_page/css/swiper.css" rel="stylesheet">
     <link href="~/landing_page/css/magnific-popup.css" rel="stylesheet">
     <link href="~/landing_page/css/styles.css" rel="stylesheet">
-
+    <link rel='stylesheet' href='https://npmcdn.com/flickity@1.2/dist/flickity.min.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link href="/landing_page/css/style_parteners.css" rel="stylesheet" />
     <!-- Favicon  title -->
     <link rel="icon" href="~/landing_page/images/favicon.png">
 
@@ -51,8 +53,8 @@
             <!-- Text logo -->
             <a class="navbar-brand logo-text page-scroll" style="font-size:1.56rem;" href="#">BEST Hackathon: Codiseea</a>
             <!-- Image Logo
-    <a class="navbar-brand logo-image" href="index.html"><img src="~/landing_page/images/logo.svg" alt="alternative"></a>
-    -->
+            <a class="navbar-brand logo-image" href="index.html"><img src="~/landing_page/images/logo.svg" alt="alternative"></a>
+            -->
             <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -80,7 +82,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        
+
                         <a class="btn-aplica-detalii" href="https://best.utm.md/formular-codiseea/"><medium>Aplica</medium></a>
                     </li>
                 </ul>
@@ -128,7 +130,7 @@
                                         <img class="card-image" src="~/landing_page/images/testimonial-1.jpg" alt="alternative">
                                         <div class="card-body">
                                             <!--<p class="testimonial-text"></p> -->
-                                            <p class="testimonial-author">Baramb Eusebiu - Designer responsible</p>
+                                            <p class="testimonial-author">Baramb Eusebiu- Designer responsible</p>
                                         </div>
                                     </div>
                                 </div> <!-- sf swiper-slide -->
@@ -150,7 +152,7 @@
                                         <img class="card-image" src="~/landing_page/images/testimonial-3.jpg" alt="alternative">
                                         <div class="card-body">
                                             <!--<p class="testimonial-text">Iubesc când oameni își exprimă părerile, ideeile și viziunile. Cineva scrie romane, altcineva face sport de performanță, iar pentru cei din IT sunt hackathoanele.</p> -->
-                                            <p class="testimonial-author">Felix Birca - MO</p>
+                                            <p class="testimonial-author">Felix Birca- MO</p>
                                         </div>
                                     </div>
                                 </div> <!-- sf swiper-slide -->
@@ -161,7 +163,7 @@
                                         <img class="card-image" src="~/landing_page/images/testimonial-4.jpg" alt="alternative">
                                         <div class="card-body">
                                             <!--<p class="testimonial-text"></p> -->
-                                            <p class="testimonial-author">Stefaniuc Nicu - HR</p>
+                                            <p class="testimonial-author">Stefaniuc Nicu- HR</p>
                                         </div>
                                     </div>
                                 </div> <!-- sf swiper-slide -->
@@ -183,7 +185,7 @@
                                         <img class="card-image" src="~/landing_page/images/testimonial-7.jpg" alt="alternative">
                                         <div class="card-body">
                                             <!--<p class="testimonial-text"></p> -->
-                                            <p class="testimonial-author">Creciunel Catalin - Marketing</p>
+                                            <p class="testimonial-author">Creciunel Catalin- Marketing</p>
                                         </div>
                                     </div>
                                 </div> <!-- sf swiper-slide -->
@@ -230,7 +232,7 @@
                     <!-- Video Preview -->
                     <div class="image-container">
                         <div class="video-wrapper">
-                            <a class="popup-youtube" href="https://www.youtube.com/watch?v=Mn5VvRwcbrA&feature=youtu.be&ab_channel=FelixBirca" data-effect="fadeIn">
+                            <a class="popup-youtube" href="https://www.youtube.com/watch?v=XFphgBg8-tI&feature=youtu.be&fbclid=IwAR3rJAz4CSiSlA4SUaWI22560ZU2wQWIZBJDn1PkjiKtWV9TsIkLyXGrwdY&ab_channel=FelixBirca" data-effect="fadeIn">
                                 <img class="img-fluid" src="~/landing_page/images/video-frame.jpg" alt="alternative">
                                 <span class="video-play-button">
                                     <span></span>
@@ -245,8 +247,25 @@
         </div> <!-- sf container -->
     </div> <!-- sf basic-1 -->
     <!-- sf video -->
-    <div class="slider-1 bg-dark-blue">
-        <!-- Poze de la editiile anterioare -->
+
+    <!-- Poze parteneri -->
+    <div class="slider-1 bg-dark-blue" id="parteneriat">
+      
+            <h1 class="parteneri">Partenerii acestui eveniment</h1>
+            <div class="brands-wrap">
+                <div class="brand-carousel" id="brandCarousel">
+                    <div class="gallery-cell"><img src="/landing_page/partener_images/logo_QSys.jpg" /></div>
+                    <div class="gallery-cell"><img src="/landing_page/partener_images/best_logo.png" /></div>
+                    <div class="gallery-cell"><img src="/landing_page/partener_images/LOGO_UTM_2.jpg" /></div>
+                    <div class="gallery-cell"><img src="http://maffrigby.com/wp-content/uploads/2014/07/angularjs-logo-trans.png" /></div>
+                </div>
+            </div>
+
+    </div> <!-- sf slider-1 -->
+    <!-- sf poze parteneri -->
+
+    <!--Inceput poze editii anterioare-->
+    <div class="basic-1">
         <div class="slider-2">
             <div class="container">
                 <div class="row">
@@ -306,7 +325,6 @@
     </div> <!-- End de la pozele anterioare-->
     <!-- Footer -->
     <div class="footer bg-dark-blue">
-        <hr style="background-color: thistle;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -366,6 +384,9 @@
     <!-- sf copyright -->
 
     <script src="_framework/blazor.server.js"></script>
+
+    <script src='https://npmcdn.com/flickity@1.2/dist/flickity.pkgd.min.js'></script>
+    <script src="/landing_page/js/script_slider.js"></script>
 
     <!-- Scripturile site-ului panel -->
     <script src="~/landing_page/js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->

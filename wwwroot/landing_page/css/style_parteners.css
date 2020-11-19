@@ -1,0 +1,86 @@
+
+
+h1.parteneri {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+}
+@media (min-width: 548px) {
+  h1.parteneri {
+    font-size: 3.2vw;
+  }
+}
+
+
+.brands-wrap {
+  padding-top: 10%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.carousel {
+  background: transparent;
+}
+
+.gallery-cell {
+  width: 100%;
+  /* half-width */
+  height: auto;
+  padding: 0 15px;
+  text-align: center;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+@media (min-width: 548px) {
+  .gallery-cell {
+    width: 33.3%;
+  }
+}
+.gallery-cell.is-selected img {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-filter: grayscale(0) blur(0);
+  filter: grayscale(0) blur(0);
+}
+.gallery-cell img {
+  -webkit-transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  /* easeInOutBack */
+  max-width: 250px;
+  display: inline-block;
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
+  -webkit-filter: grayscale(100%) blur(2px);
+  filter: grayscale(100%) blur(2px);
+}
+
+.flickity-prev-next-button.previous {
+  left: -40px;
+}
+
+.flickity-prev-next-button.next {
+  right: -40px;
+}
+
+.brand-carousel {
+  margin: 0 60px;
+  /* space for prev/next buttons */
+}
+
+.flickity-prev-next-button .arrow {
+  fill: white;
+  box-shadow: 0 0 5px black;
+}
+
+.flickity-prev-next-button.no-svg {
+  color: white;
+}
+
+.flickity-prev-next-button {
+  background: transparent;
+}
+.flickity-prev-next-button:hover {
+  background: transparent;
+}
