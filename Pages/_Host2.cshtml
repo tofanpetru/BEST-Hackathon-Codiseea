@@ -12,10 +12,11 @@
 
     <!-- SEO Meta Tags -->
     <meta name="author" content="Tofan Petru">
-    <meta name="descriere" content="BEST Hackathon: Codiseea, ediție  de hackathon organizată de BEST Chișinău. În cadrul evenimentului, echipe a câte 4 participanți vor lucra asupra mai multor sarcini din diferite domenii/ rezolvare de probleme, programare web, securitate informațională și altele. Formatul evenimentului va fi  în stil ”Capture the Flag”, unde este necesară  realizarea sarcinii actuale pentru a putea trece la următoarea, care are un grad mai înalt de dificultate.">
+    <meta name="descriere" content="O competiție IT în stil ”Capture the flag”, în cadrul căreia echipe a câte 4 persoane, ghidate de către un mentor, vor realiza mai multe sarcini într-un timp limitat oferit de organizatori. Astfel, participanții vor avea de parcurs o serie de probe interesante pentru a deveni câștigători, asemeni cum și Odiseu (eroul operei grecești ”Odiseea”) a trecut peste toate obstacolele ca să ajungă acasă.
+Evenimentul va avea loc în perioada 5-6 Decembrie, online.">
 
     <meta property="og:site_name" content="BEST Hackathon: Codiseea" /> <!-- website name -->
-    <meta property="og:site" content="O sa editez" /> <!-- website link?? -->
+    <meta property="og:site" content="https://besthackathoncodiseea.azurewebsites.net/" /> <!-- website link?? -->
     <meta property="og:title" content="BEST Hackathon: Codiseea" /> <!-- title shown in the actual shared post -->
     <meta property="og:description" content="BEST Hackathon: Codiseea, ediție  de hackathon organizată de BEST Chișinău. În cadrul evenimentului, echipe a câte 4 participanți vor lucra asupra mai multor sarcini din diferite domenii/ rezolvare de probleme, programare web, securitate informațională și altele." /> <!-- description shown in the actual shared post -->
     <meta property="og:image" content="https://i.imgur.com/hE1QckR.jpg" /> <!-- image link jpg -->
@@ -32,7 +33,7 @@
     <link href="~/landing_page/css/swiper.css" rel="stylesheet">
     <link href="~/landing_page/css/magnific-popup.css" rel="stylesheet">
     <link href="~/landing_page/css/styles.css" rel="stylesheet">
-    <link rel='stylesheet' href='https://npmcdn.com/flickity@1.2/dist/flickity.min.css'>
+    <link href="~/landing_page/css/slider.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link href="/landing_page/css/style_parteners.css" rel="stylesheet" />
     <!-- Favicon  title -->
@@ -62,28 +63,31 @@
             <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#">Home<span class="sr-only">(current)</span></a>
+                        <a class="nav-link page-scroll" href="#">Acasă<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#Team">Team</a>
+                        <a class="nav-link page-scroll" href="#Team">Echipa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#Preview">Preview</a>
+                        <a class="nav-link page-scroll" href="#Preview">Previzualizare</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#carousel_1z">Photos</a>
+                        <a class="nav-link page-scroll" href="#carousel_1z">Fotografii</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#parteneri>Previzualizare</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Despre</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown01">
                             <a class="dropdown-item page-scroll" href="https://best.utm.md/">BEST Chisinau</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item page-scroll" href="https://best.utm.md/events/">Other events</a>
+                            <a class="dropdown-item page-scroll" href="https://best.utm.md/events/">Alte evenimente</a>
                         </div>
                     </li>
                     <li class="nav-item">
 
-                        <a class="btn-aplica-detalii" href="https://best.utm.md/formular-codiseea/"><medium>Aplica</medium></a>
+                        <a class="btn-aplica-detalii" href="https://best.utm.md/formular-codiseea/"><medium>Aplică</medium></a>
                     </li>
                 </ul>
 
@@ -99,9 +103,9 @@
                     <div class="text-container">
                         <h1>
                             BEST Hackathon : Codiseea<br>
-                            <a class="btn-aplica" href="https://best.utm.md/formular-codiseea/"><medium>Aplica</medium></a>
+                            <a class="btn-aplica" href="https://best.utm.md/formular-codiseea/"><medium>Aplică</medium></a>
                             <br />
-                            <small>Încearcă-ţi cunoştinţele în <span id="js-rotating">programare web, rezolvare de probleme,logica,scripting</span></small>
+                            <small>Încearcă-ţi cunoştinţele în <span id="js-rotating">programare web, rezolvare de probleme,scripting</span></small>
                         </h1>
                     </div> <!-- sf text-container -->
                 </div> <!-- sf coloanei -->
@@ -152,7 +156,7 @@
                                         <img class="card-image" src="~/landing_page/images/testimonial-3.jpg" alt="alternative">
                                         <div class="card-body">
                                             <!--<p class="testimonial-text">Iubesc când oameni își exprimă părerile, ideeile și viziunile. Cineva scrie romane, altcineva face sport de performanță, iar pentru cei din IT sunt hackathoanele.</p> -->
-                                            <p class="testimonial-author">Felix Birca - MO</p>
+                                            <p class="testimonial-author">Felix Birca - Main Organiser</p>
                                         </div>
                                     </div>
                                 </div> <!-- sf swiper-slide -->
@@ -163,7 +167,7 @@
                                         <img class="card-image" src="~/landing_page/images/testimonial-4.jpg" alt="alternative">
                                         <div class="card-body">
                                             <!--<p class="testimonial-text"></p> -->
-                                            <p class="testimonial-author">Stefaniuc Nicu - HR</p>
+                                            <p class="testimonial-author">Stefaniuc Nicu - Human Resources Responsible</p>
                                         </div>
                                     </div>
                                 </div> <!-- sf swiper-slide -->
@@ -196,7 +200,7 @@
                                         <img class="card-image" src="~/landing_page/images/testimonial-6.jpg" alt="alternative">
                                         <div class="card-body">
                                             <!--<p class="testimonial-text"></p> -->
-                                            <p class="testimonial-author">Rotari Augustina - CR</p>
+                                            <p class="testimonial-author">Rotari Augustina - Corporate responsibility</p>
                                         </div>
                                     </div>
                                 </div> <!-- sf swiper-slide -->
@@ -222,8 +226,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2 class="h2-heading">PREVIEW</h2>
-                    <div class="p-heading">Este timpul sa stii cine suntem noi, si ce presupune hackathon-ul de anul acesta</div>
+                    <h2 class="h2-heading">Previzualizare</h2>
+                    <div class="p-heading">E timpul să afli cine suntem noi și ce presupune ediția din acest an de BEST Hackathon</div>
                 </div> <!-- sf coloanei -->
             </div> <!-- sf liniei -->
             <div class="row">
@@ -232,7 +236,7 @@
                     <!-- Video Preview -->
                     <div class="image-container">
                         <div class="video-wrapper">
-                            <a class="popup-youtube" href="https://www.youtube.com/watch?v=XFphgBg8-tI&feature=youtu.be&fbclid=IwAR3rJAz4CSiSlA4SUaWI22560ZU2wQWIZBJDn1PkjiKtWV9TsIkLyXGrwdY&ab_channel=FelixBirca" data-effect="fadeIn">
+                            <a class="popup-youtube" href="https://youtu.be/iwHEWFs1O1M" data-effect="fadeIn">
                                 <img class="img-fluid" src="~/landing_page/images/video-frame.jpg" alt="alternative">
                                 <span class="video-play-button">
                                     <span></span>
@@ -249,14 +253,15 @@
     <!-- sf video -->
 
     <!-- Poze parteneri -->
-    <div class="slider-1 bg-dark-blue" id="parteneriat">
+    <div class="slider-1 bg-dark-blue" id="parteneri">
       
-            <h1 class="parteneri">Partenerii acestui eveniment</h1>
+            <h1 class="parteneri">Partenerii evenimentului</h1>
             <div class="brands-wrap">
                 <div class="brand-carousel" id="brandCarousel">
                     <div class="gallery-cell"><img src="/landing_page/partener_images/best_logo.png" /></div>
                     <div class="gallery-cell"><img src="/landing_page/partener_images/q_systems_transparent.png" /></div>
                     <div class="gallery-cell"><img src="/landing_page/partener_images/utm-logo.png" /></div>
+                    <div class="gallery-cell"><img src="/landing_page/partener_images/agepi.png" /></div>
                 </div>
             </div>
 
@@ -269,7 +274,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h2 class="h2-heading">Poze de la ediţiile anterioare</h2>
+                        <h2 class="h2-heading">Fotografiile de la ediţiile anterioare</h2>
                         <hr class="hr-heading">
                     </div> <!-- sf coloanei -->
                 </div> <!-- sf liniei -->
@@ -328,18 +333,19 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="footer-col first">
-                        <h4>About Hackathon: Codiseea</h4>
+                        <h4>Despre BEST Hackathon: Codiseea</h4>
                         <p class="p-small">
-                            La data de 5-6 Decembrie va avea loc un alt Hackathon marca BEST, intitulat Codiseea, la care tineri programatori își vor dezvolta gândirea strategică.
+                            O competiție IT în stil ”Capture the flag”, în cadrul căreia echipe a câte 4 persoane, ghidate de către un mentor, vor realiza mai multe sarcini într-un timp limitat oferit de organizatori. Astfel, participanții vor avea de parcurs o serie de probe interesante pentru a deveni câștigători, asemeni cum și Odiseu (eroul operei grecești ”Odiseea”) a trecut peste toate obstacolele ca să ajungă acasă.
+                            Evenimentul va avea loc în perioada 5-6 Decembrie, online.
                         </p>
                     </div> <!-- sf footer-col -->
                     <div class="footer-col second">
-                        <h4>Links</h4>
+                        <h4>Link-uri utile</h4>
                         <ul class="list-unstyled li-space-lg p-small">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#Team">Team</a></li>
-                            <li><a href="#Preview">Preview</a></li>
-                            <li><a href="#carousel_1z">Photos</a></li>
+                            <li><a href="#">Acasă</a></li>
+                            <li><a href="#Team">Echipa</a></li>
+                            <li><a href="#Preview">Previzualizare</a></li>
+                            <li><a href="#carousel_1z">Fotografii</a></li>
                             <li><a href="https://best.utm.md/formular-codiseea/">Mai multe detalii</a></li>
                         </ul>
                     </div> <!-- sf footer-col -->
@@ -351,19 +357,12 @@
                             </a>
                         </span>
                         <span class="fa-stack">
-                            <a href="https://twitter.com/best_chisinau">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-twitter fa-stack-1x"></i>
-                            </a>
-                        </span>
-                        <span class="fa-stack">
                             <a href="https://www.instagram.com/best_chisinau/">
                                 <i class="fas fa-circle fa-stack-2x"></i>
                                 <i class="fab fa-instagram fa-stack-1x"></i>
                             </a>
                         </span>
-                        <!--<p class="p-small">Suntem deschisi pentru feedback sau colaborări: <a href="mailto:tofan.petru@iis.utm.md"><strong>tofan.petru@iis.utm.md</strong></a></p>-->
-                        <p class="p-small"><a href="https://best.utm.md/">BEST Chisinau 2020</a></p>
+                        <p class="p-small">Suntem deschiși pentru a primi feedback: <a href="mailto:tofan.petru@iis.utm.md"><strong>tofan.petru@iis.utm.md</strong></a></p>
                     </div> <!-- sf footer-col -->
                 </div> <!-- sf coloanei -->
             </div> <!-- sf liniei -->
@@ -375,7 +374,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <p class="p-small">Copyright <a href="https://www.facebook.com/AxPetru">Tofan Petru </a><a href="https://best.utm.md/">| Best Chisinau 2020</a></p>
+                    <p class="p-small">Copyright <a href="https://www.facebook.com/AxPetru">Tofan Petru </a><a href="https://best.utm.md/">| BEST Chisinau 2020</a></p>
                 </div> <!-- sf coloanei -->
             </div> <!-- enf of row -->
         </div> <!-- sf container -->
@@ -383,9 +382,8 @@
     <!-- sf copyright -->
 
     <script src="_framework/blazor.server.js"></script>
-
-    <script src='https://npmcdn.com/flickity@1.2/dist/flickity.pkgd.min.js'></script>
-    <script src="/landing_page/js/script_slider.js"></script>
+    <script src="~/landing_page/js/fl_slider.js"></script>
+    <script src="~/landing_page/js/script_slider.js"></script>
 
     <!-- Scripturile site-ului panel -->
     <script src="~/landing_page/js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
