@@ -83,9 +83,10 @@ using Best_Hackathon_Codiseea.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 28 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Shared\NavMenu.razor"
+#line 58 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
+    private int stageLevel = 3;
 
     private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
