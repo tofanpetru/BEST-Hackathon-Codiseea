@@ -1,18 +1,20 @@
 ﻿@page "/stageone"
-
+@attribute [Authorize]
 <h3>StageOne</h3>
-<h6>La acest nivel veti avea parte de sarcini simple de logica , in chenarul din partea stanga postati codul sursa 
+<h6>
+    La acest nivel veti avea parte de sarcini simple de logica , in chenarul din partea stanga postati codul sursa
     in chenarul din dreapta rezultatul , daca sunteti siguri , dati click pe submit . o data ce ati dat click sistemul va
     verifica daca raspunsul este corect sau nu . Aveti dreptul la 3 greselui , dupa sarcina se considera neindeplinita si veti
     primi alta . In total la dispozitie aveti 10 sarcini , pentru a trece la urmatorul nivel trebuie sa realizati 6 din ele.
-    Daca nu puteti rezolva o sarcina aveti posibilitatea sa treceti la urmatorea apasand butonul "Urmatoarea sarcina"</h6>
+    Daca nu puteti rezolva o sarcina aveti posibilitatea sa treceti la urmatorea apasand butonul "Urmatoarea sarcina"
+</h6>
 
 <br />
 
 <div class="card">
     <div class="card-body">
         <h4>Status : ...</h4>
-        
+
         <hr />
 
 
@@ -30,7 +32,7 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>
-        
+
     </div>
 </div>
 

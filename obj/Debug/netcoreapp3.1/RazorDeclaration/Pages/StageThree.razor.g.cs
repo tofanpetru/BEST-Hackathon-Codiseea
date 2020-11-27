@@ -75,6 +75,13 @@ using Best_Hackathon_Codiseea.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageThree.razor"
+           [Authorize]
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/stagethree")]
     public partial class StageThree : Microsoft.AspNetCore.Components.ComponentBase
     {

@@ -75,6 +75,13 @@ using Best_Hackathon_Codiseea.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
+           [Authorize]
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/stageone")]
     public partial class StageOne : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -84,7 +91,7 @@ using Best_Hackathon_Codiseea.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 37 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
+#line 39 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
        
     private int okAnswers = 3;
     private int koAnswers = 2;
