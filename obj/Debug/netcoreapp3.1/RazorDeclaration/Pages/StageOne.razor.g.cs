@@ -95,6 +95,35 @@ using Best_Hackathon_Codiseea.Shared;
        
     private int okAnswers = 3;
     private int koAnswers = 2;
+    [Parameter]
+    public string CorrectAnswer { get; set; } = "BESTChisinauhackathonCodiseeadecembrie";
+    public string UserAnswer { get; set; }
+    public string result = "";
+    public bool ButtonDisabled = false;
+
+    void CheckAnswer()
+    {
+
+        if (UserAnswer.Length >= 0)
+        {
+            ButtonDisabled = true;
+            if (UserAnswer.ToLower() == CorrectAnswer.ToLower())
+            {
+                result = "correct";
+            }
+            else
+            {
+                result = "incorrect";
+            }
+        }
+        else
+        {
+            ButtonDisabled = false;
+            result = "No answer";
+        }
+
+
+    } 
 
 #line default
 #line hidden
