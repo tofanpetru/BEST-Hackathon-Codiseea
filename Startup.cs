@@ -36,9 +36,11 @@ namespace Best_Hackathon_Codiseea
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddHttpContextAccessor();
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
+            services.AddScoped<TeamTaskService>();
             //services.AddSingleton<WeatherForecastService>();
             //services.AddSingleton<UserService>();
         }

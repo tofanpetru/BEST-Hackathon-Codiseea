@@ -77,6 +77,27 @@ using Best_Hackathon_Codiseea.Shared;
 #nullable disable
 #nullable restore
 #line 2 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
+using Best_Hackathon_Codiseea.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
+using Best_Hackathon_Codiseea.Data;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
+using Microsoft.AspNetCore.Http;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 7 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
            [Authorize]
 
 #line default
@@ -91,43 +112,73 @@ using Best_Hackathon_Codiseea.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 39 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
+#line 50 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
        
     private int okAnswers = 3;
     private int koAnswers = 2;
+
     [Parameter]
     public string CorrectAnswer { get; set; } = "BESTChisinauhackathonCodiseeadecembrie";
     public string UserAnswer { get; set; }
-    public string result = "";
+
     public bool ButtonDisabled = false;
 
-    void CheckAnswer()
-    {
+    string taskId;
+    string teamName;
+    public string value = "";
+    string points;
+    //date;
 
+    List<TeamTask> teamTasks;
+
+    TeamTask teamTask;
+
+    protected async Task load()
+    {
+        teamTasks = await teamTaskService.GetTasksAsync();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await load();
+    }
+
+    protected async Task CheckAnswer()
+    {
         if (UserAnswer.Length >= 0)
         {
             ButtonDisabled = true;
             if (UserAnswer.ToLower() == CorrectAnswer.ToLower())
             {
-                result = "correct";
+                value = "Correct";
+                TeamTask s = new TeamTask()
+                {
+                    TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
+                    Value = value,
+                    Points = "10",
+                    Date = DateTime.Now
+                };
+
+                await teamTaskService.InsertTeamTaskAsync(s);
+                await load();
             }
             else
             {
-                result = "incorrect";
+                value = "Incorrect";
             }
         }
         else
         {
             ButtonDisabled = false;
-            result = "No answer";
+            value = "None";
         }
-
-
-    } 
+    }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private TeamTaskService teamTaskService { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IHttpContextAccessor httpContextAccessor { get; set; }
     }
 }
 #pragma warning restore 1591

@@ -18,17 +18,16 @@ namespace Best_Hackathon_Codiseea.Data
         {
         }
 
-        /*protected override void OnModelCreating(ModelBuilder builder)
+       /* protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-
             builder.Entity<TeamTask>().HasData(
               new
               {
-                  Id = Guid.NewGuid().ToString(),
                   TeamName = "Test",
                   Value = "Correct",
-                  Points = "10"
+                  Points = "10",
+                  Date = DateTime.Now
               }
             );
         }*/

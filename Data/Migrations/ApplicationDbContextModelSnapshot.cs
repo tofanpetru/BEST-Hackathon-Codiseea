@@ -21,7 +21,7 @@ namespace Best_Hackathon_Codiseea.Data.Migrations
 
             modelBuilder.Entity("Best_Hackathon_Codiseea.Models.TeamTask", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -30,18 +30,15 @@ namespace Best_Hackathon_Codiseea.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Points")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TeamName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Value")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.ToTable("TeamTasks");
                 });

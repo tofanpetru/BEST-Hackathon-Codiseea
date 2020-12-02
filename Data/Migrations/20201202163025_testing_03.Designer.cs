@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Best_Hackathon_Codiseea.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201201125459_functional_bd_hackathon")]
-    partial class functional_bd_hackathon
+    [Migration("20201202163025_testing_03")]
+    partial class testing_03
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,24 +23,24 @@ namespace Best_Hackathon_Codiseea.Data.Migrations
 
             modelBuilder.Entity("Best_Hackathon_Codiseea.Models.TeamTask", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Points")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TeamName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Value")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.ToTable("TeamTasks");
                 });

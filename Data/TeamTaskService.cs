@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Best_Hackathon_Codiseea.Models;
-using System.Threading.Tasks;
 
 namespace Best_Hackathon_Codiseea.Data
 {
@@ -69,7 +68,7 @@ namespace Best_Hackathon_Codiseea.Data
 
         private bool SolutionExists(int id)
         {
-            return _context.TeamTasks.Any(e => e.Id == id);
+            return _context.TeamTasks.Any(e => e.ID == id);
         }
     }
 }

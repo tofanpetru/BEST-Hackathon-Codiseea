@@ -1,4 +1,9 @@
 ﻿@page "/stageone"
+@using Best_Hackathon_Codiseea.Models;
+@using Best_Hackathon_Codiseea.Data;
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor httpContextAccessor
+@inject TeamTaskService teamTaskService
 @attribute [Authorize]
 <h3>StageOne</h3>
 <h6>
@@ -10,10 +15,15 @@
 </h6>
 
 <br />
-
-<div class="card">
+@if (teamTasks == null)
+{
+    <p><em>Loading..</em></p>
+}
+else
+{
+    <div class="card">
     <div class="card-body">
-        <h4>Status : @result</h4>
+        <h4>Status : @value</h4>
 
         <hr />
 
@@ -26,46 +36,75 @@
 
         <div class="row">
             <div class="col-9">
-                <input type="password" class="form-control" id="exampleInputPassword1" @bind="UserAnswer">
+                <input type="password" class="form-control" id="exampleInputPassword1" @bind="@UserAnswer">
             </div>
             <div class="col-3">
-                <button type="submit" class="btn btn-primary" @onclick="CheckAnswer" disabled=@ButtonDisabled>Submit</button>
+                <button type="submit" class="btn btn-primary" @onclick="@CheckAnswer" disabled=@ButtonDisabled>Submit</button>
             </div>
         </div>
 
     </div>
 </div>
+}
 
 @code {
     private int okAnswers = 3;
     private int koAnswers = 2;
+
     [Parameter]
     public string CorrectAnswer { get; set; } = "BESTChisinauhackathonCodiseeadecembrie";
     public string UserAnswer { get; set; }
-    public string result = "";
+
     public bool ButtonDisabled = false;
 
-    void CheckAnswer()
-    {
+    string taskId;
+    string teamName;
+    public string value = "";
+    string points;
+    //date;
 
+    List<TeamTask> teamTasks;
+
+    TeamTask teamTask;
+
+    protected async Task load()
+    {
+        teamTasks = await teamTaskService.GetTasksAsync();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await load();
+    }
+
+    protected async Task CheckAnswer()
+    {
         if (UserAnswer.Length >= 0)
         {
             ButtonDisabled = true;
             if (UserAnswer.ToLower() == CorrectAnswer.ToLower())
             {
-                result = "correct";
+                value = "Correct";
+                TeamTask s = new TeamTask()
+                {
+                    TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
+                    Value = value,
+                    Points = "10",
+                    Date = DateTime.Now
+                };
+
+                await teamTaskService.InsertTeamTaskAsync(s);
+                await load();
             }
             else
             {
-                result = "incorrect";
+                value = "Incorrect";
             }
         }
         else
         {
             ButtonDisabled = false;
-            result = "No answer";
+            value = "None";
         }
-
-
-    } 
+    }
 }

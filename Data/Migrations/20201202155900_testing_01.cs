@@ -2,7 +2,7 @@
 
 namespace Best_Hackathon_Codiseea.Data.Migrations
 {
-    public partial class best_hack : Migration
+    public partial class testing_01 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
