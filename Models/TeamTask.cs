@@ -8,10 +8,12 @@ namespace Best_Hackathon_Codiseea.Models
 {
     public class TeamTask
     {
-        public int ID { get; set; }
+        public string ID { get; set; }
         public string TeamName { get; set; }
+        public string ItemNumber { get; set; }
         public string Value { get; set; }
-        public string Points { get; set; }
+        public int Points { get; set; }
+        public int Attempts { get; set; }
         public DateTime Date { get; set; }
     }
 }

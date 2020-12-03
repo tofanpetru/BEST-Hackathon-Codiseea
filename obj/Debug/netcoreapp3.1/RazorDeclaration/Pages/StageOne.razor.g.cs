@@ -112,16 +112,18 @@ using Microsoft.AspNetCore.Http;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 50 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
+#line 105 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
        
-    private int okAnswers = 3;
-    private int koAnswers = 2;
-
     [Parameter]
     public string CorrectAnswer { get; set; } = "BESTChisinauhackathonCodiseeadecembrie";
-    public string UserAnswer { get; set; }
+    [Parameter]
+    public string CorrectAnswer2 { get; set; } = "test2";
 
-    public bool ButtonDisabled = false;
+    public string UserAnswer { get; set; }
+    public string UserAnswer2 { get; set; }
+
+    public bool HideAnswer = false;
+    public bool HideAnswer2 = false;
 
     string taskId;
     string teamName;
@@ -129,13 +131,28 @@ using Microsoft.AspNetCore.Http;
     string points;
     //date;
 
-    List<TeamTask> teamTasks;
+    public int sum = 0;
+
+    List<TeamTask> teamTasks1;
+    List<TeamTask> teamTasks2;
+    List<TeamTask> teamTasks3;
+    List<TeamTask> teamTasks4;
+    List<TeamTask> teamTasks5;
+
+    List<TeamTask> totalPoints;
 
     TeamTask teamTask;
 
     protected async Task load()
     {
-        teamTasks = await teamTaskService.GetTasksAsync();
+        var teamName = httpContextAccessor.HttpContext.User.Identity.Name;
+        teamTasks1 = await teamTaskService.GetTasksAsync(teamName, "1");
+        teamTasks2 = await teamTaskService.GetTasksAsync(teamName, "2");
+        teamTasks3 = await teamTaskService.GetTasksAsync(teamName, "3");
+        teamTasks4 = await teamTaskService.GetTasksAsync(teamName, "4");
+        teamTasks5 = await teamTaskService.GetTasksAsync(teamName, "5");
+        totalPoints = await teamTaskService.GetTotalPointsAsync(teamName);
+
     }
 
     protected override async Task OnInitializedAsync()
@@ -143,34 +160,57 @@ using Microsoft.AspNetCore.Http;
         await load();
     }
 
-    protected async Task CheckAnswer()
+    protected async Task CheckAnswer(int VerifyTask)
     {
-        if (UserAnswer.Length >= 0)
+        switch (VerifyTask)
         {
-            ButtonDisabled = true;
-            if (UserAnswer.ToLower() == CorrectAnswer.ToLower())
-            {
-                value = "Correct";
-                TeamTask s = new TeamTask()
+            case 1:
+                if (UserAnswer.Length >= 0)
                 {
-                    TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
-                    Value = value,
-                    Points = "10",
-                    Date = DateTime.Now
-                };
+                    if (UserAnswer.ToLower() == CorrectAnswer.ToLower())
+                    {
+                        TeamTask s = new TeamTask()
+                        {
+                            ID = Guid.NewGuid().ToString(),
+                            TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
+                            Value = "Correct",
+                            Points = 10,
+                            ItemNumber = "1",
+                            Date = DateTime.Now,
+                        };
 
-                await teamTaskService.InsertTeamTaskAsync(s);
-                await load();
-            }
-            else
-            {
-                value = "Incorrect";
-            }
-        }
-        else
-        {
-            ButtonDisabled = false;
-            value = "None";
+                        await teamTaskService.InsertTeamTaskAsync(s);
+                        await load();
+                    }
+                    else
+                    {
+                        value = "Incorrect";
+                    }
+                }
+                break;
+            case 2:
+                if (UserAnswer2.Length >= 0)
+                {
+                    if (UserAnswer2.ToLower() == CorrectAnswer2.ToLower())
+                    {
+                        TeamTask s = new TeamTask()
+                        {
+                            ID = Guid.NewGuid().ToString(),
+                            TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
+                            Value = "Correct",
+                            Points = 10,
+                            ItemNumber = "2",
+                            Date = DateTime.Now,
+                        };
+
+                        await teamTaskService.InsertTeamTaskAsync(s);
+                        await load();
+                    }
+                }
+                break;
+            default:
+                value = "False";
+                break;
         }
     }
 

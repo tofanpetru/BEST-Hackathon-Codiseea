@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Best_Hackathon_Codiseea.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201201231116_daw")]
-    partial class daw
+    [Migration("20201203190843_final_hack_fun")]
+    partial class final_hack_fun
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,27 +23,28 @@ namespace Best_Hackathon_Codiseea.Data.Migrations
 
             modelBuilder.Entity("Best_Hackathon_Codiseea.Models.TeamTask", b =>
                 {
-                    b.Property<int>("TaskId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("ID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Attempts")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Points")
-                        .IsRequired()
+                    b.Property<string>("ItemNumber")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Points")
+                        .HasColumnType("int");
+
                     b.Property<string>("TeamName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Value")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("TaskId");
+                    b.HasKey("ID");
 
                     b.ToTable("TeamTasks");
                 });

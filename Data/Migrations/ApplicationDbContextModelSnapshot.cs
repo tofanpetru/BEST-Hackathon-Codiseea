@@ -21,16 +21,20 @@ namespace Best_Hackathon_Codiseea.Data.Migrations
 
             modelBuilder.Entity("Best_Hackathon_Codiseea.Models.TeamTask", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("ID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Attempts")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Points")
+                    b.Property<string>("ItemNumber")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Points")
+                        .HasColumnType("int");
 
                     b.Property<string>("TeamName")
                         .HasColumnType("nvarchar(max)");
