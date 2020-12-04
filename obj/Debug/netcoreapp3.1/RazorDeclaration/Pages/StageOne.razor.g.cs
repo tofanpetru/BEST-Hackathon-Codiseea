@@ -171,17 +171,25 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
     protected async Task load()
     {
         var teamName = httpContextAccessor.HttpContext.User.Identity.Name;
-        teamTasks1 = await teamTaskService.GetTasksAsync(teamName);
-        teamTasks2 = await teamTaskService.GetTasksAsync(teamName);
-        teamTasks3 = await teamTaskService.GetTasksAsync(teamName);
-        teamTasks4 = await teamTaskService.GetTasksAsync(teamName);
-        teamTasks5 = await teamTaskService.GetTasksAsync(teamName);
+        teamTasks1 = await teamTaskService.GetTasksAsync(teamName, "1");
+        teamTasks2 = await teamTaskService.GetTasksAsync(teamName, "2");
+        teamTasks3 = await teamTaskService.GetTasksAsync(teamName, "3");
+        teamTasks4 = await teamTaskService.GetTasksAsync(teamName, "4");
+        teamTasks5 = await teamTaskService.GetTasksAsync(teamName, "5");
 
     }
 
     protected override async Task OnInitializedAsync()
     {
-        await load();
+        try
+        {
+            await load();
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
     }
 
     protected async Task CheckAnswer(int VerifyTask)
