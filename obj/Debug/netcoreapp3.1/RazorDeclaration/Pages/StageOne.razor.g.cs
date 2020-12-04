@@ -112,7 +112,7 @@ using Microsoft.AspNetCore.Http;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 211 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
+#line 208 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
        
     [Parameter]
     public string CorrectAnswer { get; set; } = "bestchisinaucodiseeahackathon2020decembrie";
@@ -187,7 +187,7 @@ using Microsoft.AspNetCore.Http;
             switch (VerifyTask)
             {
                 case 1:
-                    if (UserAnswer.Length >= 0 || UserAnswer == null)
+                    if (!string.IsNullOrEmpty(UserAnswer))
                     {
                         if (UserAnswer.ToLower() == CorrectAnswer.ToLower())
                         {

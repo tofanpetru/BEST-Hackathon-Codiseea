@@ -53,12 +53,9 @@ else
                     <div class="col-9">
                         <input class="form-control" id="exampleInputPassword1" @bind="@UserAnswer">
                     </div>
-                    @if (UserAnswer == null)
-                    {
-                        <div class="col-3">
-                            <button type="submit" disabled="@true" class="btn btn-primary" @onclick="() => CheckAnswer(1)">Submit</button>
-                        </div>
-                    }
+                    <div class="col-3">
+                        <button type="submit" class="btn btn-primary" @onclick="() => CheckAnswer(1)">Submit</button>
+                    </div>
                 </div>
 
             </div>
@@ -282,7 +279,7 @@ else
             switch (VerifyTask)
             {
                 case 1:
-                    if (UserAnswer.Length >= 0 || UserAnswer == null)
+                    if (!string.IsNullOrEmpty(UserAnswer))
                     {
                         if (UserAnswer.ToLower() == CorrectAnswer.ToLower())
                         {
@@ -306,7 +303,7 @@ else
                     }
                     break;
                 case 2:
-                    if (UserAnswer2.Length >= 0 || UserAnswer2 == null)
+                    if (!string.IsNullOrEmpty(UserAnswer2))
                     {
                         if (UserAnswer2.ToLower() == CorrectAnswer2.ToLower())
                         {
@@ -326,7 +323,7 @@ else
                     }
                     break;
                 case 3:
-                    if (UserAnswer3.Length >= 0 || UserAnswer3 == null)
+                    if (!string.IsNullOrEmpty(UserAnswer3))
                     {
                         if (UserAnswer3.ToLower() == CorrectAnswer3.ToLower())
                         {
@@ -346,7 +343,7 @@ else
                     }
                     break;
                 case 4:
-                    if (UserAnswer4.Length >= 0 || UserAnswer4 == null)
+                    if (!string.IsNullOrEmpty(UserAnswer4))
                     {
                         if (UserAnswer4.ToLower() == CorrectAnswer4.ToLower())
                         {
