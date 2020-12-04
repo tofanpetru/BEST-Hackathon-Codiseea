@@ -363,7 +363,7 @@ else
                     }
                     break;
                 case 5:
-                    if (UserAnswer5.Length >= 0 || UserAnswer5 == null)
+                    if (!string.IsNullOrEmpty(UserAnswer5))
                     {
                         if (UserAnswer5.ToLower() == CorrectAnswer5.ToLower())
                         {

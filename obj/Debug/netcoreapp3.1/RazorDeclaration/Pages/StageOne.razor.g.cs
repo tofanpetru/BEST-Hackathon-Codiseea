@@ -211,7 +211,7 @@ using Microsoft.AspNetCore.Http;
                     }
                     break;
                 case 2:
-                    if (UserAnswer2.Length >= 0 || UserAnswer2 == null)
+                    if (!string.IsNullOrEmpty(UserAnswer2))
                     {
                         if (UserAnswer2.ToLower() == CorrectAnswer2.ToLower())
                         {
@@ -231,7 +231,7 @@ using Microsoft.AspNetCore.Http;
                     }
                     break;
                 case 3:
-                    if (UserAnswer3.Length >= 0 || UserAnswer3 == null)
+                    if (!string.IsNullOrEmpty(UserAnswer3))
                     {
                         if (UserAnswer3.ToLower() == CorrectAnswer3.ToLower())
                         {
@@ -251,7 +251,7 @@ using Microsoft.AspNetCore.Http;
                     }
                     break;
                 case 4:
-                    if (UserAnswer4.Length >= 0 || UserAnswer4 == null)
+                    if (!string.IsNullOrEmpty(UserAnswer4))
                     {
                         if (UserAnswer4.ToLower() == CorrectAnswer4.ToLower())
                         {
@@ -271,7 +271,7 @@ using Microsoft.AspNetCore.Http;
                     }
                     break;
                 case 5:
-                    if (UserAnswer5.Length >= 0 || UserAnswer5 == null)
+                    if (!string.IsNullOrEmpty(UserAnswer5))
                     {
                         if (UserAnswer5.ToLower() == CorrectAnswer5.ToLower())
                         {
