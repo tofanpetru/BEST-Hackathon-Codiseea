@@ -112,18 +112,30 @@ using Microsoft.AspNetCore.Http;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 105 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
+#line 206 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
        
     [Parameter]
-    public string CorrectAnswer { get; set; } = "BESTChisinauhackathonCodiseeadecembrie";
+    public string CorrectAnswer { get; set; } = "bestchisinaucodiseeahackathon2020decembrie";
     [Parameter]
-    public string CorrectAnswer2 { get; set; } = "test2";
+    public string CorrectAnswer2 { get; set; } = "58738108";
+    [Parameter]
+    public string CorrectAnswer3 { get; set; } = "9 8 4 1 1 2 44 8 4 5 86 2 4 4";
+    [Parameter]
+    public string CorrectAnswer4 { get; set; } = "text";
+    [Parameter]
+    public string CorrectAnswer5 { get; set; } = "58738108";
 
     public string UserAnswer { get; set; }
     public string UserAnswer2 { get; set; }
+    public string UserAnswer3 { get; set; }
+    public string UserAnswer4 { get; set; }
+    public string UserAnswer5 { get; set; }
 
     public bool HideAnswer = false;
     public bool HideAnswer2 = false;
+    public bool HideAnswer3 = false;
+    public bool HideAnswer4 = false;
+    public bool HideAnswer5 = false;
 
     string taskId;
     string teamName;
@@ -174,7 +186,7 @@ using Microsoft.AspNetCore.Http;
                             ID = Guid.NewGuid().ToString(),
                             TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
                             Value = "Correct",
-                            Points = 10,
+                            Points = 3,
                             ItemNumber = "1",
                             Date = DateTime.Now,
                         };
@@ -198,8 +210,68 @@ using Microsoft.AspNetCore.Http;
                             ID = Guid.NewGuid().ToString(),
                             TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
                             Value = "Correct",
-                            Points = 10,
+                            Points = 5,
                             ItemNumber = "2",
+                            Date = DateTime.Now,
+                        };
+
+                        await teamTaskService.InsertTeamTaskAsync(s);
+                        await load();
+                    }
+                }
+                break;
+            case 3:
+                if (UserAnswer3.Length >= 0)
+                {
+                    if (UserAnswer3.ToLower() == CorrectAnswer3.ToLower())
+                    {
+                        TeamTask s = new TeamTask()
+                        {
+                            ID = Guid.NewGuid().ToString(),
+                            TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
+                            Value = "Correct",
+                            Points = 8,
+                            ItemNumber = "3",
+                            Date = DateTime.Now,
+                        };
+
+                        await teamTaskService.InsertTeamTaskAsync(s);
+                        await load();
+                    }
+                }
+                break;
+            case 4:
+                if (UserAnswer4.Length >= 0)
+                {
+                    if (UserAnswer4.ToLower() == CorrectAnswer4.ToLower())
+                    {
+                        TeamTask s = new TeamTask()
+                        {
+                            ID = Guid.NewGuid().ToString(),
+                            TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
+                            Value = "Correct",
+                            Points = 12,
+                            ItemNumber = "4",
+                            Date = DateTime.Now,
+                        };
+
+                        await teamTaskService.InsertTeamTaskAsync(s);
+                        await load();
+                    }
+                }
+                break;
+            case 5:
+                if (UserAnswer5.Length >= 0)
+                {
+                    if (UserAnswer5.ToLower() == CorrectAnswer5.ToLower())
+                    {
+                        TeamTask s = new TeamTask()
+                        {
+                            ID = Guid.NewGuid().ToString(),
+                            TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
+                            Value = "Correct",
+                            Points = 16,
+                            ItemNumber = "5",
                             Date = DateTime.Now,
                         };
 
