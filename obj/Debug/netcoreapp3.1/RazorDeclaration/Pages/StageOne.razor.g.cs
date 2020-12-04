@@ -112,7 +112,7 @@ using Microsoft.AspNetCore.Http;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 206 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
+#line 211 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
        
     [Parameter]
     public string CorrectAnswer { get; set; } = "bestchisinaucodiseeahackathon2020decembrie";
@@ -169,109 +169,138 @@ using Microsoft.AspNetCore.Http;
 
     protected override async Task OnInitializedAsync()
     {
-        await load();
+        try
+        {
+            await load();
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
     }
 
     protected async Task CheckAnswer(int VerifyTask)
     {
-        switch (VerifyTask)
+        try
         {
-            case 1:
-                if (UserAnswer.ToLower() == CorrectAnswer.ToLower())
-                {
-                    TeamTask s = new TeamTask()
+            switch (VerifyTask)
+            {
+                case 1:
+                    if (UserAnswer.Length >= 0 || UserAnswer == null)
                     {
-                        ID = Guid.NewGuid().ToString(),
-                        TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
-                        Value = "Correct",
-                        Points = 3,
-                        ItemNumber = "1",
-                        Date = DateTime.Now,
-                    };
-
-                    await teamTaskService.InsertTeamTaskAsync(s);
-                    await load();
-                }
-                else
-                {
-                    value = "Incorrect";
-                }
-                break;
-            case 2:
-                if (UserAnswer2.Length >= 0)
-                {
-                    if (UserAnswer2.ToLower() == CorrectAnswer2.ToLower())
-                    {
-                        TeamTask s = new TeamTask()
+                        if (UserAnswer.ToLower() == CorrectAnswer.ToLower())
                         {
-                            ID = Guid.NewGuid().ToString(),
-                            TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
-                            Value = "Correct",
-                            Points = 5,
-                            ItemNumber = "2",
-                            Date = DateTime.Now,
-                        };
+                            TeamTask s = new TeamTask()
+                            {
+                                ID = Guid.NewGuid().ToString(),
+                                TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
+                                Value = "Correct",
+                                Points = 3,
+                                ItemNumber = "1",
+                                Date = DateTime.Now,
+                            };
 
-                        await teamTaskService.InsertTeamTaskAsync(s);
-                        await load();
+                            await teamTaskService.InsertTeamTaskAsync(s);
+                            await load();
+                        }
+                        else
+                        {
+                            value = "Incorrect";
+                        }
                     }
-                }
-                break;
-            case 3:
-                if (UserAnswer3.ToLower() == CorrectAnswer3.ToLower())
-                {
-                    TeamTask s = new TeamTask()
+                    break;
+                case 2:
+                    if (UserAnswer2.Length >= 0 || UserAnswer2 == null)
                     {
-                        ID = Guid.NewGuid().ToString(),
-                        TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
-                        Value = "Correct",
-                        Points = 8,
-                        ItemNumber = "3",
-                        Date = DateTime.Now,
-                    };
+                        if (UserAnswer2.ToLower() == CorrectAnswer2.ToLower())
+                        {
+                            TeamTask s = new TeamTask()
+                            {
+                                ID = Guid.NewGuid().ToString(),
+                                TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
+                                Value = "Correct",
+                                Points = 5,
+                                ItemNumber = "2",
+                                Date = DateTime.Now,
+                            };
 
-                    await teamTaskService.InsertTeamTaskAsync(s);
-                    await load();
-                }
-                break;
-            case 4:
-                if (UserAnswer4.ToLower() == CorrectAnswer4.ToLower())
-                {
-                    TeamTask s = new TeamTask()
+                            await teamTaskService.InsertTeamTaskAsync(s);
+                            await load();
+                        }
+                    }
+                    break;
+                case 3:
+                    if (UserAnswer3.Length >= 0 || UserAnswer3 == null)
                     {
-                        ID = Guid.NewGuid().ToString(),
-                        TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
-                        Value = "Correct",
-                        Points = 15,
-                        ItemNumber = "4",
-                        Date = DateTime.Now,
-                    };
+                        if (UserAnswer3.ToLower() == CorrectAnswer3.ToLower())
+                        {
+                            TeamTask s = new TeamTask()
+                            {
+                                ID = Guid.NewGuid().ToString(),
+                                TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
+                                Value = "Correct",
+                                Points = 8,
+                                ItemNumber = "3",
+                                Date = DateTime.Now,
+                            };
 
-                    await teamTaskService.InsertTeamTaskAsync(s);
-                    await load();
-                }
-                break;
-            case 5:
-                if (UserAnswer5.ToLower() == CorrectAnswer5.ToLower())
-                {
-                    TeamTask s = new TeamTask()
+                            await teamTaskService.InsertTeamTaskAsync(s);
+                            await load();
+                        }
+                    }
+                    break;
+                case 4:
+                    if (UserAnswer4.Length >= 0 || UserAnswer4 == null)
                     {
-                        ID = Guid.NewGuid().ToString(),
-                        TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
-                        Value = "Correct",
-                        Points = 17,
-                        ItemNumber = "5",
-                        Date = DateTime.Now,
-                    };
+                        if (UserAnswer4.ToLower() == CorrectAnswer4.ToLower())
+                        {
+                            TeamTask s = new TeamTask()
+                            {
+                                ID = Guid.NewGuid().ToString(),
+                                TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
+                                Value = "Correct",
+                                Points = 15,
+                                ItemNumber = "4",
+                                Date = DateTime.Now,
+                            };
 
-                    await teamTaskService.InsertTeamTaskAsync(s);
-                    await load();
-                }
-                break;
-            default:
-                value = "False";
-                break;
+                            await teamTaskService.InsertTeamTaskAsync(s);
+                            await load();
+                        }
+                    }
+                    break;
+                case 5:
+                    if (UserAnswer5.Length >= 0 || UserAnswer5 == null)
+                    {
+                        if (UserAnswer5.ToLower() == CorrectAnswer5.ToLower())
+                        {
+                            TeamTask s = new TeamTask()
+                            {
+                                ID = Guid.NewGuid().ToString(),
+                                TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
+                                Value = "Correct",
+                                Points = 17,
+                                ItemNumber = "5",
+                                Date = DateTime.Now,
+                            };
+
+                            await teamTaskService.InsertTeamTaskAsync(s);
+                            await load();
+                        }
+                    }
+                    break;
+                default:
+                    value = "False";
+                    break;
+            }
         }
+        catch (Exception)
+        {
+
+            throw;
+        }
+
     }
 
 #line default
