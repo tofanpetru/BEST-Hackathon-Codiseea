@@ -177,27 +177,24 @@ using Microsoft.AspNetCore.Http;
         switch (VerifyTask)
         {
             case 1:
-                if (UserAnswer.Length >= 0)
+                if (UserAnswer.ToLower() == CorrectAnswer.ToLower())
                 {
-                    if (UserAnswer.ToLower() == CorrectAnswer.ToLower())
+                    TeamTask s = new TeamTask()
                     {
-                        TeamTask s = new TeamTask()
-                        {
-                            ID = Guid.NewGuid().ToString(),
-                            TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
-                            Value = "Correct",
-                            Points = 3,
-                            ItemNumber = "1",
-                            Date = DateTime.Now,
-                        };
+                        ID = Guid.NewGuid().ToString(),
+                        TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
+                        Value = "Correct",
+                        Points = 3,
+                        ItemNumber = "1",
+                        Date = DateTime.Now,
+                    };
 
-                        await teamTaskService.InsertTeamTaskAsync(s);
-                        await load();
-                    }
-                    else
-                    {
-                        value = "Incorrect";
-                    }
+                    await teamTaskService.InsertTeamTaskAsync(s);
+                    await load();
+                }
+                else
+                {
+                    value = "Incorrect";
                 }
                 break;
             case 2:
@@ -221,63 +218,54 @@ using Microsoft.AspNetCore.Http;
                 }
                 break;
             case 3:
-                if (UserAnswer3.Length >= 0)
+                if (UserAnswer3.ToLower() == CorrectAnswer3.ToLower())
                 {
-                    if (UserAnswer3.ToLower() == CorrectAnswer3.ToLower())
+                    TeamTask s = new TeamTask()
                     {
-                        TeamTask s = new TeamTask()
-                        {
-                            ID = Guid.NewGuid().ToString(),
-                            TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
-                            Value = "Correct",
-                            Points = 8,
-                            ItemNumber = "3",
-                            Date = DateTime.Now,
-                        };
+                        ID = Guid.NewGuid().ToString(),
+                        TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
+                        Value = "Correct",
+                        Points = 8,
+                        ItemNumber = "3",
+                        Date = DateTime.Now,
+                    };
 
-                        await teamTaskService.InsertTeamTaskAsync(s);
-                        await load();
-                    }
+                    await teamTaskService.InsertTeamTaskAsync(s);
+                    await load();
                 }
                 break;
             case 4:
-                if (UserAnswer4.Length >= 0)
+                if (UserAnswer4.ToLower() == CorrectAnswer4.ToLower())
                 {
-                    if (UserAnswer4.ToLower() == CorrectAnswer4.ToLower())
+                    TeamTask s = new TeamTask()
                     {
-                        TeamTask s = new TeamTask()
-                        {
-                            ID = Guid.NewGuid().ToString(),
-                            TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
-                            Value = "Correct",
-                            Points = 12,
-                            ItemNumber = "4",
-                            Date = DateTime.Now,
-                        };
+                        ID = Guid.NewGuid().ToString(),
+                        TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
+                        Value = "Correct",
+                        Points = 15,
+                        ItemNumber = "4",
+                        Date = DateTime.Now,
+                    };
 
-                        await teamTaskService.InsertTeamTaskAsync(s);
-                        await load();
-                    }
+                    await teamTaskService.InsertTeamTaskAsync(s);
+                    await load();
                 }
                 break;
             case 5:
-                if (UserAnswer5.Length >= 0)
+                if (UserAnswer5.ToLower() == CorrectAnswer5.ToLower())
                 {
-                    if (UserAnswer5.ToLower() == CorrectAnswer5.ToLower())
+                    TeamTask s = new TeamTask()
                     {
-                        TeamTask s = new TeamTask()
-                        {
-                            ID = Guid.NewGuid().ToString(),
-                            TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
-                            Value = "Correct",
-                            Points = 16,
-                            ItemNumber = "5",
-                            Date = DateTime.Now,
-                        };
+                        ID = Guid.NewGuid().ToString(),
+                        TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
+                        Value = "Correct",
+                        Points = 17,
+                        ItemNumber = "5",
+                        Date = DateTime.Now,
+                    };
 
-                        await teamTaskService.InsertTeamTaskAsync(s);
-                        await load();
-                    }
+                    await teamTaskService.InsertTeamTaskAsync(s);
+                    await load();
                 }
                 break;
             default:
