@@ -112,7 +112,7 @@ using Microsoft.AspNetCore.Http;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 258 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
+#line 256 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
        
     [Parameter]
     public string CorrectAnswer { get; set; } = "58738108";
@@ -172,10 +172,10 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
     {
         var teamName = httpContextAccessor.HttpContext.User.Identity.Name;
         teamTasks1 = await teamTaskService.GetTasksAsync(teamName, "1");
-        teamTasks2 = await teamTaskService.GetTasksAsync(teamName, "2");
-        teamTasks3 = await teamTaskService.GetTasksAsync(teamName, "3");
-        teamTasks4 = await teamTaskService.GetTasksAsync(teamName, "4");
-        teamTasks5 = await teamTaskService.GetTasksAsync(teamName, "5");
+        //teamTasks2 = await teamTaskService.GetTasksAsync(teamName, "2");
+        //teamTasks3 = await teamTaskService.GetTasksAsync(teamName, "3");
+        //teamTasks4 = await teamTaskService.GetTasksAsync(teamName, "4");
+        //teamTasks5 = await teamTaskService.GetTasksAsync(teamName, "5");
 
     }
 
