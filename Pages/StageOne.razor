@@ -107,10 +107,9 @@ else
                 </div>
 
             </div>
-            <br />
         </div>
     </div>
-
+    <br />
     <div class="card">
         <div class="card-body">
             <h4>
@@ -131,11 +130,13 @@ else
             <hr />
             <div hidden="@HideAnswer3">
                 <strong>Problema:</strong>
-                <p>Pe pagina <a href="https://www.instagram.com/best_chisinau/">BEST Chişinău</a> de instagram sunt ascunse bucăți de cheie.</p>
+                <p>Sunt date <a href="https://drive.google.com/u/0/uc?id=13Uuo0yslwXKzi1b0bL3SzIdJRE5OznKq&export=download">două fișiere</a> care conțin cuvinte. Primul fișier conține mai multe cuvinte. Al doilea conține câteva din cuvintele din primul fișier dar literele sunt schimbare cu locul în interiorul cuvintelor.</p>
                 <br />
                 <strong>Sarcina:</strong>
-                <br />
-                <p>Găsiți cheia.</p>
+                <p>
+                    Să se găsească cuvintele care se conțin în ambele șiruri. <br />
+                    Cheia va conține cuvintele concatenate în ordinea din fișierul al doilea.
+                </p>
                 <br />
                 <div class="row">
                     <div class="col-9">
@@ -171,6 +172,46 @@ else
             <hr />
             <div hidden="@HideAnswer4">
                 <strong>Problema:</strong>
+                <p>Pe pagina <a href="https://www.instagram.com/best_chisinau/">BEST Chişinău</a> de instagram sunt ascunse bucăți de cheie.</p>
+                <br />
+                <strong>Sarcina:</strong>
+                <br />
+                <p>Găsiți cheia.</p>
+                <br />
+                <div class="row">
+                    <div class="col-9">
+                        <input class="form-control" @bind="@UserAnswer4">
+                    </div>
+                    <div class="col-3">
+                        <button type="submit" class="btn btn-primary" @onclick="() => CheckAnswer(4)">Submit</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <br />
+
+    <div class="card">
+        <div class="card-body">
+            <h4>
+                5. Status :
+                @foreach (var item in teamTasks5)
+                {
+                    @if (item.Value == "Correct")
+                    {
+                        <span class="text-success">@item.Value</span>
+                        HideAnswer5 = true;
+                    }
+                    else
+                    {
+                        HideAnswer5 = false;
+                    }
+                }
+            </h4>
+            <hr />
+            <div hidden="@HideAnswer5">
+                <strong>Problema:</strong>
                 <p>Mai jos este atașat un fișier text, care conține un fragment din Odiseea lui Homer. Acest <a href="https://drive.google.com/u/0/uc?id=1y8NS47bNU0umd6jhWMLCqwCFhiTImoNX&export=download">fișier</a> a fost criptat în două etape, utilizând doi algoritmi de criptare diferiți.</p>
                 <br />
                 <strong>Sarcina</strong>
@@ -199,10 +240,10 @@ else
                 <div class="row">
                     <form>
                         <div class="col-9">
-                            <textarea class="form-control" @bind="@UserAnswer4"></textarea>
+                            <textarea class="form-control" @bind="@UserAnswer5"></textarea>
                         </div>
                         <div class="col-3">
-                            <button type="submit" class="btn btn-primary" @onclick="() => CheckAnswer(4)">Submit</button>
+                            <button type="submit" class="btn btn-primary" @onclick="() => CheckAnswer(5)">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -214,7 +255,7 @@ else
     <br />
 }
 
-@code { 
+@code {
     [Parameter]
     public string CorrectAnswer { get; set; } = "58738108";
 
@@ -222,10 +263,13 @@ else
     public string CorrectAnswer2 { get; set; } = "9 8 4 1 1 2 44 8 4 5 86 2 4 4";
 
     [Parameter]
-    public string CorrectAnswer3 { get; set; } = "bestchisinaucodiseeahackathon2020decembrie";
+    public string CorrectAnswer3 { get; set; } = "lopatavremeasosindfrumosrotundurechinimenigleznecatargvislas";
 
     [Parameter]
-    public string CorrectAnswer4 { get; set; } = @"YUY
+    public string CorrectAnswer4 { get; set; } = "bestchisinaucodiseeahackathon2020decembrie";
+
+    [Parameter]
+    public string CorrectAnswer5 { get; set; } = @"YUY
 YXYYUrXUX
 
 TY
@@ -237,13 +281,11 @@ TY
 YXW";
 
     [Parameter]
-    public string CorrectAnswer4_Linux { get; set; } = @"^WY^H^X^[^\U^W^L^K^]Y^H^V^H^V
+    public string CorrectAnswer5_Linux { get; set; } = @"^WY^H^X^[^\U^W^L^K^]Y^H^V^H^V
 Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
 ^[^Q^Q^T^Z^P^V^]^MT^QY^K^V
 ^M^Q^PX ^Y
 ^M^UTs^K^PU^X^N^P^V^]X^Z^YY5^\^V^M^W^KX^Z^P^P^H^L^TY^K^X^MY^K^PX^^^T^X^K^L^TW";
-
-    public string CorrectAnswer5 { get; set; } = "58738108";
 
     public string UserAnswer { get; set; }
     public string UserAnswer2 { get; set; }
@@ -280,7 +322,6 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
         teamTasks3 = await teamTaskService.GetTasksAsync(teamName, "3");
         teamTasks4 = await teamTaskService.GetTasksAsync(teamName, "4");
         teamTasks5 = await teamTaskService.GetTasksAsync(teamName, "5");
-        totalPoints = await teamTaskService.GetTotalPointsAsync(teamName);
 
     }
 
@@ -303,7 +344,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                             ID = Guid.NewGuid().ToString(),
                             TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
                             Value = "Correct",
-                            Points = 3,
+                            Points = 1,
                             ItemNumber = "1",
                             Date = DateTime.Now,
                         };
@@ -327,7 +368,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                             ID = Guid.NewGuid().ToString(),
                             TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
                             Value = "Correct",
-                            Points = 5,
+                            Points = 1,
                             ItemNumber = "2",
                             Date = DateTime.Now,
                         };
@@ -347,7 +388,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                             ID = Guid.NewGuid().ToString(),
                             TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
                             Value = "Correct",
-                            Points = 8,
+                            Points = 1,
                             ItemNumber = "3",
                             Date = DateTime.Now,
                         };
@@ -358,16 +399,16 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                 }
                 break;
             case 4:
-                if ((!string.IsNullOrEmpty(UserAnswer4)) && (!string.IsNullOrEmpty(UserAnswer4)))
+                if (!string.IsNullOrEmpty(UserAnswer4))
                 {
-                    if (UserAnswer4.ToLower() == CorrectAnswer4.ToLower() || UserAnswer4.ToLower() == CorrectAnswer4_Linux.ToLower())
+                    if (UserAnswer4.ToLower() == CorrectAnswer4.ToLower())
                     {
                         TeamTask s = new TeamTask()
                         {
                             ID = Guid.NewGuid().ToString(),
                             TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
                             Value = "Correct",
-                            Points = 15,
+                            Points = 1,
                             ItemNumber = "4",
                             Date = DateTime.Now,
                         };
@@ -378,16 +419,16 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                 }
                 break;
             case 5:
-                if (!string.IsNullOrEmpty(UserAnswer5))
+                if (!string.IsNullOrEmpty(UserAnswer5) && (!string.IsNullOrEmpty(UserAnswer5)))
                 {
-                    if (UserAnswer5.ToLower() == CorrectAnswer5.ToLower())
+                    if (UserAnswer5.ToLower() == CorrectAnswer5.ToLower() || UserAnswer5.ToLower() == CorrectAnswer5_Linux.ToLower())
                     {
                         TeamTask s = new TeamTask()
                         {
                             ID = Guid.NewGuid().ToString(),
                             TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
                             Value = "Correct",
-                            Points = 17,
+                            Points = 1,
                             ItemNumber = "5",
                             Date = DateTime.Now,
                         };
