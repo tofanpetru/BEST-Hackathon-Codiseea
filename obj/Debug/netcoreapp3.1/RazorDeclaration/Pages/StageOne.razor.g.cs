@@ -121,7 +121,16 @@ using Microsoft.AspNetCore.Http;
     [Parameter]
     public string CorrectAnswer3 { get; set; } = "9 8 4 1 1 2 44 8 4 5 86 2 4 4";
     [Parameter]
-    public string CorrectAnswer4 { get; set; } = "text";
+    public string CorrectAnswer4 { get; set; } = @"YUY
+YXYYUrXUX
+
+TY
+
+X 
+
+TsUXY5
+XY
+YXW";
     [Parameter]
     public string CorrectAnswer5 { get; set; } = "58738108";
 
