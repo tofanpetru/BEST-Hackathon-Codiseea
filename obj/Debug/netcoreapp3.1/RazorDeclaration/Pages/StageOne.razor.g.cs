@@ -132,6 +132,12 @@ TY
 XY
 YXW";
     [Parameter]
+    public string CorrectAnswer4_Linux { get; set; } = @"^WY^H^X^[^\U^W^L^K^]Y^H^V^H^V
+Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
+^[^Q^Q^T^Z^P^V^]^MT^QY^K^V
+^M^Q^PX ^Y
+^M^UTs^K^PU^X^N^P^V^]X^Z^YY5^\^V^M^W^KX^Z^P^P^H^L^TY^K^X^MY^K^PX^^^T^X^K^L^TW";
+    [Parameter]
     public string CorrectAnswer5 { get; set; } = "58738108";
 
     public string UserAnswer { get; set; }
@@ -262,7 +268,7 @@ YXW";
                 case 4:
                     if (!string.IsNullOrEmpty(UserAnswer4))
                     {
-                        if (UserAnswer4.ToLower() == CorrectAnswer4.ToLower())
+                        if (UserAnswer4.ToLower() == CorrectAnswer4.ToLower() || UserAnswer4.ToLower() == CorrectAnswer4_Linux.ToLower())
                         {
                             TeamTask s = new TeamTask()
                             {

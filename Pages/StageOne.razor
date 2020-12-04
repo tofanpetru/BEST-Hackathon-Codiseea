@@ -51,7 +51,7 @@ else
                 <br />
                 <div class="row">
                     <div class="col-9">
-                        <input class="form-control" id="exampleInputPassword1" @bind="@UserAnswer">
+                        <input class="form-control" @bind="@UserAnswer">
                     </div>
                     <div class="col-3">
                         <button type="submit" class="btn btn-primary" @onclick="() => CheckAnswer(1)">Submit</button>
@@ -91,7 +91,7 @@ else
                 <br />
                 <div class="row">
                     <div class="col-9">
-                        <input class="form-control" id="exampleInputPassword1" @bind="@UserAnswer2">
+                        <input class="form-control" @bind="@UserAnswer2">
                     </div>
                     <div class="col-3">
                         <button type="submit" class="btn btn-primary" @onclick="() => CheckAnswer(2)">Submit</button>
@@ -136,7 +136,7 @@ else
                 <br />
                 <div class="row">
                     <div class="col-9">
-                        <input class="form-control" id="exampleInputPassword1" @bind="@UserAnswer3">
+                        <input class="form-control" @bind="@UserAnswer3">
                     </div>
                     <div class="col-3">
                         <button type="submit" class="btn btn-primary" @onclick="() => CheckAnswer(3)">Submit</button>
@@ -190,12 +190,14 @@ else
                 Textul propus va fi copiat în tocmai ca în sarcină. Textul variantei criptate se recomandă de a fi salvat într-un fișier de unde să fie ulterior copiat și inserat în câmpul cheii.
                 <br />
                 <div class="row">
-                    <div class="col-9">
-                        <textarea @bind="@UserAnswer4"></textarea>
-                    </div>
-                    <div class="col-3">
-                        <button type="submit" class="btn btn-primary" @onclick="() => CheckAnswer(4)">Submit</button>
-                    </div>
+                    <form>
+                        <div class="col-9">
+                            <textarea class="form-control"  @bind="@UserAnswer4"></textarea>
+                        </div>
+                        <div class="col-3">
+                            <button type="submit" class="btn btn-primary" @onclick="() => CheckAnswer(4)">Submit</button>
+                        </div>
+                    </form>
                 </div>
 
             </div>
@@ -223,6 +225,12 @@ TY
 TsUXY5
 XY
 YXW";
+    [Parameter]
+    public string CorrectAnswer4_Linux { get; set; } = @"^WY^H^X^[^\U^W^L^K^]Y^H^V^H^V
+Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
+^[^Q^Q^T^Z^P^V^]^MT^QY^K^V
+^M^Q^PX ^Y
+^M^UTs^K^PU^X^N^P^V^]X^Z^YY5^\^V^M^W^KX^Z^P^P^H^L^TY^K^X^MY^K^PX^^^T^X^K^L^TW";
     [Parameter]
     public string CorrectAnswer5 { get; set; } = "58738108";
 
@@ -354,7 +362,7 @@ YXW";
                 case 4:
                     if (!string.IsNullOrEmpty(UserAnswer4))
                     {
-                        if (UserAnswer4.ToLower() == CorrectAnswer4.ToLower())
+                        if (UserAnswer4.ToLower() == CorrectAnswer4.ToLower() || UserAnswer4.ToLower() == CorrectAnswer4_Linux.ToLower())
                         {
                             TeamTask s = new TeamTask()
                             {
