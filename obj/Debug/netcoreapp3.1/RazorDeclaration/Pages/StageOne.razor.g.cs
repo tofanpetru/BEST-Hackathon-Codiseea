@@ -112,7 +112,7 @@ using Microsoft.AspNetCore.Http;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 208 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
+#line 217 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
        
     [Parameter]
     public string CorrectAnswer { get; set; } = "bestchisinaucodiseeahackathon2020decembrie";
@@ -137,20 +137,20 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
 ^[^Q^Q^T^Z^P^V^]^MT^QY^K^V
 ^M^Q^PX ^Y
 ^M^UTs^K^PU^X^N^P^V^]X^Z^YY5^\^V^M^W^KX^Z^P^P^H^L^TY^K^X^MY^K^PX^^^T^X^K^L^TW";
-    [Parameter]
-    public string CorrectAnswer5 { get; set; } = "58738108";
 
-    public string UserAnswer { get; set; }
-    public string UserAnswer2 { get; set; }
-    public string UserAnswer3 { get; set; }
-    public string UserAnswer4 { get; set; }
-    public string UserAnswer5 { get; set; }
+    //public string CorrectAnswer5 { get; set; } = "58738108";
+
+    public string UserAnswer { get; set; } = "";
+    public string UserAnswer2 { get; set; } = "";
+    public string UserAnswer3 { get; set; } = "";
+    public string UserAnswer4 { get; set; } = "";
+    //public string UserAnswer5 { get; set; } = "";
 
     public bool HideAnswer = false;
     public bool HideAnswer2 = false;
     public bool HideAnswer3 = false;
     public bool HideAnswer4 = false;
-    public bool HideAnswer5 = false;
+    //public bool HideAnswer5 = false;
 
     string taskId;
     string teamName;
@@ -177,7 +177,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
         teamTasks2 = await teamTaskService.GetTasksAsync(teamName, "2");
         teamTasks3 = await teamTaskService.GetTasksAsync(teamName, "3");
         teamTasks4 = await teamTaskService.GetTasksAsync(teamName, "4");
-        teamTasks5 = await teamTaskService.GetTasksAsync(teamName, "5");
+        //teamTasks5 = await teamTaskService.GetTasksAsync(teamName, "5");
         totalPoints = await teamTaskService.GetTotalPointsAsync(teamName);
 
     }
@@ -286,25 +286,25 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                     }
                     break;
                 case 5:
-                    if (!string.IsNullOrEmpty(UserAnswer5))
+                /*if (!string.IsNullOrEmpty(UserAnswer5))
+                {
+                    if (UserAnswer5.ToLower() == CorrectAnswer5.ToLower())
                     {
-                        if (UserAnswer5.ToLower() == CorrectAnswer5.ToLower())
+                        TeamTask s = new TeamTask()
                         {
-                            TeamTask s = new TeamTask()
-                            {
-                                ID = Guid.NewGuid().ToString(),
-                                TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
-                                Value = "Correct",
-                                Points = 17,
-                                ItemNumber = "5",
-                                Date = DateTime.Now,
-                            };
+                            ID = Guid.NewGuid().ToString(),
+                            TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
+                            Value = "Correct",
+                            Points = 17,
+                            ItemNumber = "5",
+                            Date = DateTime.Now,
+                        };
 
-                            await teamTaskService.InsertTeamTaskAsync(s);
-                            await load();
-                        }
+                        await teamTaskService.InsertTeamTaskAsync(s);
+                        await load();
                     }
-                    break;
+                }
+                break;*/
                 default:
                     value = "False";
                     break;

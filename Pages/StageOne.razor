@@ -27,46 +27,6 @@ else
         <div class="card-body">
             <h4>
                 1. Status :
-                @foreach (var item in teamTasks1)
-                {
-                    @if (item.Value == "Correct")
-                    {
-                        <span class="text-success">@item.Value</span>
-                        HideAnswer = true;
-                    }
-                    else
-                    {
-                        HideAnswer = false;
-                    }
-                }
-            </h4>
-            <hr />
-            <div hidden="@HideAnswer">
-                Problema :
-                Pe pagina BestChisinau de instagram sunt ascunse bucăți de cheie.
-                <br />
-                Sarcina:
-                <br />
-                Găsiți cheia.
-                <br />
-                <div class="row">
-                    <div class="col-9">
-                        <input class="form-control" @bind="@UserAnswer">
-                    </div>
-                    <div class="col-3">
-                        <button type="submit" class="btn btn-primary" @onclick="() => CheckAnswer(1)">Submit</button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <br />
-
-    <div class="card">
-        <div class="card-body">
-            <h4>
-                2. Status :
                 @foreach (var item in teamTasks2)
                 {
                     @if (item.Value == "Correct")
@@ -82,12 +42,12 @@ else
             </h4>
             <hr />
             <div hidden="@HideAnswer2">
-                Problema:
-                BEST Chișinău iubește culoarea roșu.
+                <strong>Problema:</strong>
+                <p>BEST Chișinău iubește culoarea roșu.</p>
                 <br />
-                Sarcina:
+                <strong>Sarcina:</strong>
                 <br />
-                Trebuie să calculați suma componentelor roșii din fiecare pixel a imaginii
+                <p>Trebuie să calculați suma componentelor roșii din fiecare pixel a <a href="https://drive.google.com/u/0/uc?id=1HPxGU2uXfbxHAyRan4cHtHuOaS8EKNWq&export=download">imaginii</a></p>
                 <br />
                 <div class="row">
                     <div class="col-9">
@@ -105,7 +65,7 @@ else
     <div class="card">
         <div class="card-body">
             <h4>
-                3. Status :
+                2. Status :
                 @foreach (var item in teamTasks3)
                 {
                     @if (item.Value == "Correct")
@@ -121,18 +81,21 @@ else
             </h4>
             <hr />
             <div hidden="@HideAnswer3">
-                Problema succesului:
-                Se dă un şir de numere care ar reprezenta succesul unei persoane. Succesul este atunci când valorile din subşir sunt în ordine crescătoare. Pentru că nimeni nu este ideal, după fiecare acţiune executată cu succes, urmează insuccesul - o valoare mai mică de cât precedenta.
-                Toate acestea se vor repeta una după alta până când se va întâlni valoarea 0, rezultând sfarşitul şirului.
+                <strong>Problema succesului:</strong>
+                <p>
+                    Se dă un şir de numere care ar reprezenta succesul unei persoane. Succesul este atunci când valorile din subşir sunt în ordine crescătoare. Pentru că nimeni nu este ideal, după fiecare acţiune executată cu succes, urmează insuccesul - o valoare mai mică de cât precedenta.
+                    Toate acestea se vor repeta una după alta până când se va întâlni valoarea 0, rezultând sfarşitul şirului.
+                </p>
                 <br />
-                Sarcina:
-                Se va afişa succesul în ordine inversă celei de introducer, separate prin spaţiu.
-                Exemplu:
-                Intrare: 1 2 10 3 7 5 4 3 0
-                Ieşire:  10 2 1 7 3 8 4 2 2
-                Numerele 1,2,10 reprezintă succesul, respectiv ca date de ieşire se vor inversa (10,2,1), dupa urmează nr 3 şi reprezintă eşecul, iar 7 reprezintă succesul, iar 5,4,3 reprezintă eşecul. La sfarşitul şirului de numere, în locul lui 0 va fi numărul de succese, în cazul nostru este nr 2.
+                <strong>Sarcina:</strong>
+                <p>Se va afişa succesul în ordine inversă celei de introducer, separate prin spaţiu.</p>
+                <strong>Exemplu:</strong>
+                <p>Intrare: 1 2 10 3 7 5 4 3 0</p>
+                <p>Ieşire:  10 2 1 7 3 8 4 2 2</p>
                 <br />
-                Datele de intrare pentru determinarea cheii: 1 1 4 8 9 2 4 8 44 5 86 2 4 0
+                <p>Numerele 1,2,10 reprezintă succesul, respectiv ca date de ieşire se vor inversa (10,2,1), dupa urmează nr 3 şi reprezintă eşecul, iar 7 reprezintă succesul, iar 5,4,3 reprezintă eşecul. La sfarşitul şirului de numere, în locul lui 0 va fi numărul de succese, în cazul nostru este nr 2.</p>
+                <br />
+                <p>Datele de intrare pentru determinarea cheii: 1 1 4 8 9 2 4 8 44 5 86 2 4 0</p>
                 <br />
                 <div class="row">
                     <div class="col-9">
@@ -144,8 +107,49 @@ else
                 </div>
 
             </div>
+            <br />
         </div>
     </div>
+
+    <div class="card">
+        <div class="card-body">
+            <h4>
+                3. Status :
+                @foreach (var item in teamTasks1)
+                {
+                    @if (item.Value == "Correct")
+                    {
+                        <span class="text-success">@item.Value</span>
+                        HideAnswer = true;
+                    }
+                    else
+                    {
+                        HideAnswer = false;
+                    }
+                }
+            </h4>
+            <hr />
+            <div hidden="@HideAnswer">
+                <strong>Problema:</strong>
+                <p>Pe pagina <a href="https://www.instagram.com/best_chisinau/">BEST Chişinău</a> de instagram sunt ascunse bucăți de cheie.</p>
+                <br />
+                <strong>Sarcina:</strong>
+                <br />
+                <p>Găsiți cheia.</p>
+                <br />
+                <div class="row">
+                    <div class="col-9">
+                        <input class="form-control" @bind="@UserAnswer">
+                    </div>
+                    <div class="col-3">
+                        <button type="submit" class="btn btn-primary" @onclick="() => CheckAnswer(1)">Submit</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <br />
 
     <div class="card">
         <div class="card-body">
@@ -166,33 +170,36 @@ else
             </h4>
             <hr />
             <div hidden="@HideAnswer4">
-                Problema:
-                Mai jos este atașat un fișier text, care conține un fragment din Odiseea lui Homer. Acest(link la gdrive out.txt) fișier a fost criptat în două etape, utilizând doi algoritmi de criptare diferiți.
+                <strong>Problema:</strong>
+                <p>Mai jos este atașat un fișier text, care conține un fragment din Odiseea lui Homer. Acest <a href="https://drive.google.com/u/0/uc?id=1y8NS47bNU0umd6jhWMLCqwCFhiTImoNX&export=download">fișier</a> a fost criptat în două etape, utilizând doi algoritmi de criptare diferiți.</p>
                 <br />
-                Sarcina:
+                <strong>Sarcina</strong>
                 <br />
-                Să se descifreze fragmentul inițial. După ce a fost descifrat, utilizând aceiași algoritmi se va cripta următoarea secvență:
+                <p>Să se descifreze fragmentul inițial. După ce a fost descifrat, utilizând aceiași algoritmi se va cripta următoarea secvență:</p>
+                <br />
+                <p>
+                    o pace-ntre popor si el a pus,<br />
+                    atene deci, schimbindu-i sortii pasul,<br />
+                    si-avind ca Mentor chipul sau si glasul.<br />
+                </p>
+                <br />
+                <strong>Note:</strong>
+                <p>Prima etapă de decriptare:</p>
+                <p>Se folosește un algoritm simetric, iar lungimea cheii este de 16 biți. În rezultatul decriptării va trebui să obțineți un text care conține doar caractere afișabile.</p>
+                <p>
+                    A doua etapă: <br />
+                    i = i <br />
+                    v = a, dar a != v <br />
+                </p>
+                <p>Textul inițial conține nume de personaje, munți și alte substantive proprii din Odiseea. Toate sunt scrise cu litere minuscule.</p>
 
-                o pace-ntre popor si el a pus,
-                atene deci, schimbindu-i sortii pasul,
-                si-avind ca Mentor chipul sau si glasul.
-
-                Note:
-                Prima etapă de decriptare:
-                Se folosește un algoritm simetric, iar lungimea cheii este de NNN biți. În rezultatul decriptării va trebui să obțineți un text care conține doar caractere afișabile.
-
-                A doua etapă:
-                i = i
-                v = a, dar a != v
-                Textul inițial conține nume de personaje, munți și alte substantive proprii din Odiseea. Toate sunt scrise cu litere minuscule.
-
-                Criptarea:
-                Textul propus va fi copiat în tocmai ca în sarcină. Textul variantei criptate se recomandă de a fi salvat într-un fișier de unde să fie ulterior copiat și inserat în câmpul cheii.
+                <strong>Criptarea:</strong>
+                <p>Textul propus va fi copiat în tocmai ca în sarcină. Textul variantei criptate se recomandă de a fi salvat într-un fișier de unde să fie ulterior copiat și inserat în câmpul cheii.</p>
                 <br />
                 <div class="row">
                     <form>
                         <div class="col-9">
-                            <textarea class="form-control"  @bind="@UserAnswer4"></textarea>
+                            <textarea class="form-control" @bind="@UserAnswer4"></textarea>
                         </div>
                         <div class="col-3">
                             <button type="submit" class="btn btn-primary" @onclick="() => CheckAnswer(4)">Submit</button>
@@ -232,19 +239,19 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
 ^M^Q^PX ^Y
 ^M^UTs^K^PU^X^N^P^V^]X^Z^YY5^\^V^M^W^KX^Z^P^P^H^L^TY^K^X^MY^K^PX^^^T^X^K^L^TW";
 
-    //public string CorrectAnswer5 { get; set; } = "58738108";
+    public string CorrectAnswer5 { get; set; } = "58738108";
 
-    public string UserAnswer { get; set; } = "";
-    public string UserAnswer2 { get; set; } = "";
-    public string UserAnswer3 { get; set; } = "";
-    public string UserAnswer4 { get; set; } = "";
-    //public string UserAnswer5 { get; set; } = "";
+    public string UserAnswer { get; set; }
+    public string UserAnswer2 { get; set; }
+    public string UserAnswer3 { get; set; }
+    public string UserAnswer4 { get; set; }
+    public string UserAnswer5 { get; set; }
 
     public bool HideAnswer = false;
     public bool HideAnswer2 = false;
     public bool HideAnswer3 = false;
     public bool HideAnswer4 = false;
-    //public bool HideAnswer5 = false;
+    public bool HideAnswer5 = false;
 
     string taskId;
     string teamName;
@@ -271,28 +278,18 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
         teamTasks2 = await teamTaskService.GetTasksAsync(teamName, "2");
         teamTasks3 = await teamTaskService.GetTasksAsync(teamName, "3");
         teamTasks4 = await teamTaskService.GetTasksAsync(teamName, "4");
-        //teamTasks5 = await teamTaskService.GetTasksAsync(teamName, "5");
+        teamTasks5 = await teamTaskService.GetTasksAsync(teamName, "5");
         totalPoints = await teamTaskService.GetTotalPointsAsync(teamName);
 
     }
 
     protected override async Task OnInitializedAsync()
     {
-        try
-        {
-            await load();
-        }
-        catch (Exception)
-        {
-
-            throw;
-        }
+        await load();
     }
 
     protected async Task CheckAnswer(int VerifyTask)
     {
-        try
-        {
             switch (VerifyTask)
             {
                 case 1:
@@ -380,7 +377,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                     }
                     break;
                 case 5:
-                /*if (!string.IsNullOrEmpty(UserAnswer5))
+                if (!string.IsNullOrEmpty(UserAnswer5))
                 {
                     if (UserAnswer5.ToLower() == CorrectAnswer5.ToLower())
                     {
@@ -398,17 +395,10 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                         await load();
                     }
                 }
-                break;*/
+                break;
                 default:
                     value = "False";
                     break;
             }
         }
-        catch (Exception)
-        {
-
-            throw;
-        }
-
-    }
 }
