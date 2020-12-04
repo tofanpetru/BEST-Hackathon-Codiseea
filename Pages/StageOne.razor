@@ -5,16 +5,15 @@
 @inject IHttpContextAccessor httpContextAccessor
 @inject TeamTaskService teamTaskService
 @attribute [Authorize]
-<h3>StageOne</h3>
+<h3>Bun venit la BEST Hackathon Codiseea !</h3>
 <h6>
-    Bun venit în prima etapă.
+    Ne bucurăm că sunteţi alături de noi, pentru a începe cel mai fain drum, dar şi cel mai dificil.
+    La această etapă trebuie să vă adaptaţi, pentru a înfrunta alternativul creaturilor mitice, adică problemele logice.
 </h6>
-<p>
-    La această etapă aţi acumulat :
-    <span class="text-sm-center text-danger">
-
-    </span> puncte
-</p>
+<h6>
+    Alte detalii:
+    Soluţiile se vor introduce în chenarele de mai jos, iar după ce aţi introdus soluţia, butonaţi "Submit".
+</h6>
 
 <br />
 <br />
@@ -43,7 +42,8 @@ else
             </h4>
             <hr />
             <div hidden="@HideAnswer">
-                Task : Pe pagina bestchisinau de instagram sunt ascunse bucăți de cheie.
+                Problema :
+                Pe pagina BestChisinau de instagram sunt ascunse bucăți de cheie.
                 <br />
                 Sarcina:
                 <br />
@@ -82,11 +82,12 @@ else
             </h4>
             <hr />
             <div hidden="@HideAnswer2">
-                Task : Hei hei hei.
+                Problema:
+                BEST Chișinău iubește culoarea roșu.
                 <br />
                 Sarcina:
                 <br />
-                Găsiți cheia.
+                Trebuie să calculați suma componentelor roșii din fiecare pixel a imaginii
 
                 <div class="row">
                     <div class="col-9">
@@ -100,19 +101,131 @@ else
             </div>
         </div>
     </div>
+    <br />
+    <div class="card">
+        <div class="card-body">
+            <h4>
+                3. Status :
+                @foreach (var item in teamTasks3)
+                {
+                    @if (item.Value == "Correct")
+                    {
+                        <span class="text-success">@item.Value</span>
+                        HideAnswer3 = true;
+                    }
+                    else
+                    {
+                        HideAnswer3 = false;
+                    }
+                }
+            </h4>
+            <hr />
+            <div hidden="@HideAnswer3">
+                Problema succesului:
+                Se dă un şir de numere care ar reprezenta succesul unei persoane. Succesul este atunci când valorile din subşir sunt în ordine crescătoare. Pentru că nimeni nu este ideal, după fiecare acţiune executată cu succes, urmează insuccesul - o valoare mai mică de cât precedenta.
+                Toate acestea se vor repeta una după alta până când se va întâlni valoarea 0, rezultând sfarşitul şirului.
+                <br />
+                Sarcina:
+                Se va afişa succesul în ordine inversă celei de introducer, separate prin spaţiu.
+                Exemplu:
+                Intrare: 1 2 10 3 7 5 4 3 0
+                Ieşire:  10 2 1 7 3 8 4 2 2
+                Numerele 1,2,10 reprezintă succesul, respectiv ca date de ieşire se vor inversa (10,2,1), dupa urmează nr 3 şi reprezintă eşecul, iar 7 reprezintă succesul, iar 5,4,3 reprezintă eşecul. La sfarşitul şirului de numere, în locul lui 0 va fi numărul de succese, în cazul nostru este nr 2.
+                <br />
+                Datele de intrare pentru determinarea cheii: 1 1 4 8 9 2 4 8 44 5 86 2 4 0
+
+                <div class="row">
+                    <div class="col-9">
+                        <input class="form-control" id="exampleInputPassword1" @bind="@UserAnswer3">
+                    </div>
+                    <div class="col-3">
+                        <button type="submit" class="btn btn-primary" @onclick="() => CheckAnswer(3)">Submit</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <h4>
+                4. Status :
+                @foreach (var item in teamTasks4)
+                {
+                    @if (item.Value == "Correct")
+                    {
+                        <span class="text-success">@item.Value</span>
+                        HideAnswer4 = true;
+                    }
+                    else
+                    {
+                        HideAnswer4 = false;
+                    }
+                }
+            </h4>
+            <hr />
+            <div hidden="@HideAnswer4">
+                Problema:
+                Mai jos este atașat un fișier text, care conține un fragment din Odiseea lui Homer. Acest(link la gdrive out.txt) fișier a fost criptat în două etape, utilizând doi algoritmi de criptare diferiți.
+                <br />
+                Sarcina:
+                <br />
+                Să se descifreze fragmentul inițial. După ce a fost descifrat, utilizând aceiași algoritmi se va cripta următoarea secvență:
+
+                o pace-ntre popor si el a pus,
+                atene deci, schimbindu-i sortii pasul,
+                si-avind ca Mentor chipul sau si glasul.
+
+                Note:
+                Prima etapă de decriptare:
+                Se folosește un algoritm simetric, iar lungimea cheii este de NNN biți. În rezultatul decriptării va trebui să obțineți un text care conține doar caractere afișabile.
+
+                A doua etapă:
+                i = i
+                v = a, dar a != v
+                Textul inițial conține nume de personaje, munți și alte substantive proprii din Odiseea. Toate sunt scrise cu litere minuscule.
+
+                Criptarea:
+                Textul propus va fi copiat în tocmai ca în sarcină. Textul variantei criptate se recomandă de a fi salvat într-un fișier de unde să fie ulterior copiat și inserat în câmpul cheii.
+
+                <div class="row">
+                    <div class="col-9">
+                        <input class="form-control" id="exampleInputPassword1" @bind="@UserAnswer4">
+                    </div>
+                    <div class="col-3">
+                        <button type="submit" class="btn btn-primary" @onclick="() => CheckAnswer(4)">Submit</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 }
 
 @code {
     [Parameter]
-    public string CorrectAnswer { get; set; } = "BESTChisinauhackathonCodiseeadecembrie";
+    public string CorrectAnswer { get; set; } = "bestchisinaucodiseeahackathon2020decembrie";
     [Parameter]
-    public string CorrectAnswer2 { get; set; } = "test2";
+    public string CorrectAnswer2 { get; set; } = "58738108";
+    [Parameter]
+    public string CorrectAnswer3 { get; set; } = "9 8 4 1 1 2 44 8 4 5 86 2 4 4";
+    [Parameter]
+    public string CorrectAnswer4 { get; set; } = "text";
+    [Parameter]
+    public string CorrectAnswer5 { get; set; } = "58738108";
 
     public string UserAnswer { get; set; }
     public string UserAnswer2 { get; set; }
+    public string UserAnswer3 { get; set; }
+    public string UserAnswer4 { get; set; }
+    public string UserAnswer5 { get; set; }
 
     public bool HideAnswer = false;
     public bool HideAnswer2 = false;
+    public bool HideAnswer3 = false;
+    public bool HideAnswer4 = false;
+    public bool HideAnswer5 = false;
 
     string taskId;
     string teamName;
@@ -163,7 +276,7 @@ else
                             ID = Guid.NewGuid().ToString(),
                             TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
                             Value = "Correct",
-                            Points = 10,
+                            Points = 3,
                             ItemNumber = "1",
                             Date = DateTime.Now,
                         };
@@ -187,8 +300,68 @@ else
                             ID = Guid.NewGuid().ToString(),
                             TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
                             Value = "Correct",
-                            Points = 10,
+                            Points = 5,
                             ItemNumber = "2",
+                            Date = DateTime.Now,
+                        };
+
+                        await teamTaskService.InsertTeamTaskAsync(s);
+                        await load();
+                    }
+                }
+                break;
+            case 3:
+                if (UserAnswer3.Length >= 0)
+                {
+                    if (UserAnswer3.ToLower() == CorrectAnswer3.ToLower())
+                    {
+                        TeamTask s = new TeamTask()
+                        {
+                            ID = Guid.NewGuid().ToString(),
+                            TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
+                            Value = "Correct",
+                            Points = 8,
+                            ItemNumber = "3",
+                            Date = DateTime.Now,
+                        };
+
+                        await teamTaskService.InsertTeamTaskAsync(s);
+                        await load();
+                    }
+                }
+                break;
+            case 4:
+                if (UserAnswer4.Length >= 0)
+                {
+                    if (UserAnswer4.ToLower() == CorrectAnswer4.ToLower())
+                    {
+                        TeamTask s = new TeamTask()
+                        {
+                            ID = Guid.NewGuid().ToString(),
+                            TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
+                            Value = "Correct",
+                            Points = 12,
+                            ItemNumber = "4",
+                            Date = DateTime.Now,
+                        };
+
+                        await teamTaskService.InsertTeamTaskAsync(s);
+                        await load();
+                    }
+                }
+                break;
+            case 5:
+                if (UserAnswer5.Length >= 0)
+                {
+                    if (UserAnswer5.ToLower() == CorrectAnswer5.ToLower())
+                    {
+                        TeamTask s = new TeamTask()
+                        {
+                            ID = Guid.NewGuid().ToString(),
+                            TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
+                            Value = "Correct",
+                            Points = 16,
+                            ItemNumber = "5",
                             Date = DateTime.Now,
                         };
 
