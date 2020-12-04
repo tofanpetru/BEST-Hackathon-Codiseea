@@ -126,7 +126,7 @@ using Microsoft.AspNetCore.Http;
     [Parameter]
     public string CorrectAnswer4 { get; set; } = "bestchisinaucodiseeahackathon2020decembrie";
 
-     [Parameter]
+    [Parameter]
     public string CorrectAnswer5 { get; set; } = @"YUY
 YXYYUrXUX
 
@@ -168,19 +168,14 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
     List<TeamTask> teamTasks4;
     List<TeamTask> teamTasks5;
 
-    List<TeamTask> totalPoints;
-
-    TeamTask teamTask;
-
     protected async Task load()
     {
         var teamName = httpContextAccessor.HttpContext.User.Identity.Name;
-        teamTasks1 = await teamTaskService.GetTasksAsync(teamName, "1");
-        teamTasks2 = await teamTaskService.GetTasksAsync(teamName, "2");
-        teamTasks3 = await teamTaskService.GetTasksAsync(teamName, "3");
-        teamTasks4 = await teamTaskService.GetTasksAsync(teamName, "4");
-        teamTasks5 = await teamTaskService.GetTasksAsync(teamName, "5");
-        totalPoints = await teamTaskService.GetTotalPointsAsync(teamName);
+        teamTasks1 = await teamTaskService.GetTasksAsync(teamName);
+        teamTasks2 = await teamTaskService.GetTasksAsync(teamName);
+        teamTasks3 = await teamTaskService.GetTasksAsync(teamName);
+        teamTasks4 = await teamTaskService.GetTasksAsync(teamName);
+        teamTasks5 = await teamTaskService.GetTasksAsync(teamName);
 
     }
 
@@ -258,7 +253,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                 }
                 break;
             case 4:
-                if ((!string.IsNullOrEmpty(UserAnswer4)) && (!string.IsNullOrEmpty(UserAnswer4)))
+                if (!string.IsNullOrEmpty(UserAnswer4))
                 {
                     if (UserAnswer4.ToLower() == CorrectAnswer4.ToLower())
                     {
@@ -278,7 +273,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                 }
                 break;
             case 5:
-                if (!string.IsNullOrEmpty(UserAnswer5))
+                if (!string.IsNullOrEmpty(UserAnswer5) && (!string.IsNullOrEmpty(UserAnswer5)))
                 {
                     if (UserAnswer5.ToLower() == CorrectAnswer5.ToLower() || UserAnswer5.ToLower() == CorrectAnswer5_Linux.ToLower())
                     {
