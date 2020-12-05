@@ -63,7 +63,7 @@
             <p>Se va afişa succesul în ordine inversă celei de introducer, separate prin spaţiu.</p>
             <strong>Exemplu:</strong>
             <p>Intrare: 1 2 10 3 7 5 4 3 0</p>
-            <p>Ieşire:  10 2 1 7 3 8 4 2 2</p>
+            <p>Ieşire:  10 2 1 3 7 3 4 5 2</p>
             <br />
             <p>Numerele 1,2,10 reprezintă succesul, respectiv ca date de ieşire se vor inversa (10,2,1), dupa urmează nr 3 şi reprezintă eşecul, iar 7 reprezintă succesul, iar 5,4,3 reprezintă eşecul. La sfarşitul şirului de numere, în locul lui 0 va fi numărul de succese, în cazul nostru este nr 2.</p>
             <br />
@@ -188,7 +188,7 @@
     public string CorrectAnswer { get; set; } = "58738108";
 
     [Parameter]
-    public string CorrectAnswer2 { get; set; } = "9 8 4 1 1 2 44 8 4 5 86 2 4 4";
+    public string CorrectAnswer2 { get; set; } = "9 8 4 1 1 2 44 8 4 5 86 4 2 4";
 
     [Parameter]
     public string CorrectAnswer3 { get; set; } = "lopatavremeasosindfrumosrotundurechinimenigleznecatargvislas";
@@ -257,11 +257,11 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                 {
                     if (UserAnswer2.ToLower() == CorrectAnswer2.ToLower())
                     {
-                        value = "Correct";
+                        value2 = "Correct";
                     }
                     else
                     {
-                        value = "Incorrect";
+                        value2 = "Incorrect";
                     }
                 }
                 break;
@@ -270,11 +270,11 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                 {
                     if (UserAnswer3.ToLower() == CorrectAnswer3.ToLower())
                     {
-                        value = "Correct";
+                        value3 = "Correct";
                     }
                     else
                     {
-                        value = "Incorrect";
+                        value3 = "Incorrect";
                     }
                 }
                 break;
@@ -283,11 +283,11 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                 {
                     if (UserAnswer4.ToLower() == CorrectAnswer4.ToLower())
                     {
-                        value = "Correct";
+                        value4 = "Correct";
                     }
                     else
                     {
-                        value = "Incorrect";
+                        value4 = "Incorrect";
                     }
                 }
                 break;
@@ -296,11 +296,11 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                 {
                     if (UserAnswer5.ToLower() == CorrectAnswer5.ToLower())
                     {
-                        value = "Correct";
+                        value5 = "Correct";
                     }
                     else
                     {
-                        value = "Incorrect";
+                        value5 = "Incorrect";
                     }
                 }
                 break;
