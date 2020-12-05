@@ -191,7 +191,7 @@ else
         </div>
     </div>
     <br />
-   /* <div class="card">
+   <div class="card">
         <div class="card-body">
             <h4>
                 5. Status : @{ if (!string.IsNullOrEmpty(value5)) {<span class="text-danger">@value5</span>}}
@@ -247,7 +247,7 @@ else
 
             </div>
         </div>
-    </div>*/
+    </div>
     <br />
     <br />
 }
@@ -309,13 +309,19 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
 
     protected async Task load()
     {
+        try
+        {
             var teamName = httpContextAccessor.HttpContext.User.Identity.Name;
-            teamTasks1 = await teamTaskService.GetTasksAsync(teamName, "1");
-            teamTasks2 = await teamTaskService.GetTasksAsync(teamName, "2");
-            teamTasks3 = await teamTaskService.GetTasksAsync(teamName, "3");
-            teamTasks4 = await teamTaskService.GetTasksAsync(teamName, "4");
-            //teamTasks5 = await teamTaskService.GetTasksAsync(teamName, "5");
+            teamTasks1 = await teamTaskService?.GetTasksAsync(teamName, "1");
+            teamTasks2 = await teamTaskService?.GetTasksAsync(teamName, "2");
+            teamTasks3 = await teamTaskService?.GetTasksAsync(teamName, "3");
+            teamTasks4 = await teamTaskService?.GetTasksAsync(teamName, "4");
+            teamTasks5 = await teamTaskService?.GetTasksAsync(teamName, "5");
+        }
+        catch (NullReferenceException)
+        {
 
+        }
     }
 
     protected override async Task OnInitializedAsync()
@@ -431,7 +437,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                     }
                 }
                 break;
-            /*case 5:
+            case 5:
                 if (!string.IsNullOrEmpty(UserAnswer5) && (!string.IsNullOrEmpty(UserAnswer5)))
                 {
                     if (UserAnswer5.ToLower() == CorrectAnswer5.ToLower() || UserAnswer5.ToLower() == CorrectAnswer5_Linux.ToLower())
@@ -454,7 +460,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                         value5 = "Incorrect";
                     }
                 }
-                break;*/
+                break;
             default:
                 value = "False";
                 break;
