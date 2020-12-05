@@ -168,34 +168,19 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
     List<TeamTask> teamTasks4;
     List<TeamTask> teamTasks5;
 
-    protected async Task load()
-    {
-        try
-        {
-            var teamName = httpContextAccessor.HttpContext.User.Identity.Name;
-            teamTasks1 = await teamTaskService?.GetTasksAsync(teamName, "1");
-            teamTasks2 = await teamTaskService?.GetTasksAsync(teamName, "2");
-            teamTasks3 = await teamTaskService?.GetTasksAsync(teamName, "3");
-            teamTasks4 = await teamTaskService?.GetTasksAsync(teamName, "4");
-            teamTasks5 = await teamTaskService?.GetTasksAsync(teamName, "5");
-        }
-        catch (NullReferenceException)
-        {
-
-        }
-    }
-
     protected override async Task OnInitializedAsync()
     {
-        try
-        {
-            await load();
-        }
-        catch (NullReferenceException)
-        {
+        await load();
+    }
 
-            throw;
-        }
+    protected async Task load()
+    {
+        var teamName = httpContextAccessor.HttpContext.User.Identity.Name;
+        teamTasks1 = await teamTaskService?.GetTasksAsync(teamName, "1");
+        teamTasks2 = await teamTaskService?.GetTasksAsync(teamName, "2");
+        teamTasks3 = await teamTaskService?.GetTasksAsync(teamName, "3");
+        teamTasks4 = await teamTaskService?.GetTasksAsync(teamName, "4");
+        teamTasks5 = await teamTaskService?.GetTasksAsync(teamName, "5");
     }
 
     protected async Task CheckAnswer(int VerifyTask)

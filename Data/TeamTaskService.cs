@@ -16,7 +16,6 @@ namespace Best_Hackathon_Codiseea.Data
 
         public async Task<List<TeamTask>> GetTasksAsync(string teamName, string items)
         {
-            //var items = new List<string> { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
             var result = _context.TeamTasks.Where(e => e.TeamName == teamName).Where(e => items.Contains(e.ItemNumber));
             return await Task.FromResult(result.ToList());
         }
