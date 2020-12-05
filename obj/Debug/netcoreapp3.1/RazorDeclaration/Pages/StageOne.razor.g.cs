@@ -170,12 +170,19 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
 
     protected async Task load()
     {
-        var teamName = httpContextAccessor.HttpContext.User.Identity.Name;
-        teamTasks1 = await teamTaskService.GetTasksAsync(teamName, "1");
-        teamTasks2 = await teamTaskService.GetTasksAsync(teamName, "2");
-        teamTasks3 = await teamTaskService.GetTasksAsync(teamName, "3");
-        teamTasks4 = await teamTaskService.GetTasksAsync(teamName, "4");
-        teamTasks5 = await teamTaskService.GetTasksAsync(teamName, "5");
+        try
+        {
+            var teamName = httpContextAccessor.HttpContext.User.Identity.Name;
+            teamTasks1 = await teamTaskService.GetTasksAsync(teamName, "1");
+            teamTasks2 = await teamTaskService.GetTasksAsync(teamName, "2");
+            teamTasks3 = await teamTaskService.GetTasksAsync(teamName, "3");
+            teamTasks4 = await teamTaskService.GetTasksAsync(teamName, "4");
+            //teamTasks5 = await teamTaskService.GetTasksAsync(teamName, "5");
+        }
+        catch (NullReferenceException)
+        {
+
+        }
 
     }
 
@@ -185,7 +192,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
         {
             await load();
         }
-        catch (Exception)
+        catch (NullReferenceException)
         {
 
             throw;
@@ -240,7 +247,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                     }
                     else
                     {
-                        value = "Incorrect";
+                        value2 = "Incorrect";
                     }
                 }
                 break;
@@ -264,7 +271,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                     }
                     else
                     {
-                        value = "Incorrect";
+                        value3 = "Incorrect";
                     }
                 }
                 break;
@@ -288,7 +295,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                     }
                     else
                     {
-                        value = "Incorrect";
+                        value4 = "Incorrect";
                     }
                 }
                 break;
@@ -312,7 +319,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                     }
                     else
                     {
-                        value = "Incorrect";
+                        value5 = "Incorrect";
                     }
                 }
                 break;
