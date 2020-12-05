@@ -124,7 +124,7 @@ using Microsoft.AspNetCore.Http;
     public string CorrectAnswer3 { get; set; } = "lopatavremeasosindfrumosrotundurechinimenigleznecatargvislas";
 
     [Parameter]
-    public string CorrectAnswer4 { get; set; } = "bestchisinaucodiseeahackathon2020decembrie";
+    public string CorrectAnswer4 { get; set; } = "OGPTRUTSFVUJSPZPOCGGHTYNXYUTEDMXVZAETZEMWTCKIFUPCVNBPCPYLNQLSABMOGLSRCNXLKNKFSZNNRGUTFSPRINEBYYSJROBDJAQXDZUYKUEGMERFUHHXDFDQHRBLXTFMNOQPGKUCNXTHWESFMKMIWXZEWOOKSPJTWATRKHHUQSFZHVRLOAMPNHDRVAQPORHQQCQHWLDAVJSAURWFRNNISWDDJMZPGTMPRRZKIPRZGTDZBERCYTOLHPRWCVWQGDMIPWLQILCCQEWCUWRMQDLXPOOIVEVYOYDKTVRM";
 
     [Parameter]
     public string CorrectAnswer5 { get; set; } = @"YUY
@@ -157,7 +157,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
     public bool HideAnswer4 = false;
     public bool HideAnswer5 = false;
 
-    public string value = "";
+    public string value,value2,value3,value4,value5 = "Incomplete";
     //date;
 
     public int sum = 0;
@@ -172,10 +172,10 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
     {
         var teamName = httpContextAccessor.HttpContext.User.Identity.Name;
         teamTasks1 = await teamTaskService.GetTasksAsync(teamName, "1");
-        //teamTasks2 = await teamTaskService.GetTasksAsync(teamName, "2");
-        //teamTasks3 = await teamTaskService.GetTasksAsync(teamName, "3");
-        //teamTasks4 = await teamTaskService.GetTasksAsync(teamName, "4");
-        //teamTasks5 = await teamTaskService.GetTasksAsync(teamName, "5");
+        teamTasks2 = await teamTaskService.GetTasksAsync(teamName, "2");
+        teamTasks3 = await teamTaskService.GetTasksAsync(teamName, "3");
+        teamTasks4 = await teamTaskService.GetTasksAsync(teamName, "4");
+        teamTasks5 = await teamTaskService.GetTasksAsync(teamName, "5");
 
     }
 
@@ -238,6 +238,10 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                         await teamTaskService.InsertTeamTaskAsync(s);
                         await load();
                     }
+                    else
+                    {
+                        value = "Incorrect";
+                    }
                 }
                 break;
             case 3:
@@ -257,6 +261,10 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
 
                         await teamTaskService.InsertTeamTaskAsync(s);
                         await load();
+                    }
+                    else
+                    {
+                        value = "Incorrect";
                     }
                 }
                 break;
@@ -278,6 +286,10 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                         await teamTaskService.InsertTeamTaskAsync(s);
                         await load();
                     }
+                    else
+                    {
+                        value = "Incorrect";
+                    }
                 }
                 break;
             case 5:
@@ -297,6 +309,10 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
 
                         await teamTaskService.InsertTeamTaskAsync(s);
                         await load();
+                    }
+                    else
+                    {
+                        value = "Incorrect";
                     }
                 }
                 break;
