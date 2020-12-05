@@ -112,7 +112,7 @@ using Microsoft.AspNetCore.Http;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 181 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
+#line 186 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
        
     [Parameter]
     public string CorrectAnswer { get; set; } = "58738108";
@@ -152,7 +152,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
     public bool HideAnswer4 = false;
     public bool HideAnswer5 = false;
 
-    public string value,value2,value3,value4,value5 = "";
+    public string value, value2, value3, value4, value5 = "";
     //date;
 
     public int sum = 0;
@@ -163,7 +163,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
     List<TeamTask> teamTasks4;
     List<TeamTask> teamTasks5;
 
-   
+
 
     protected async Task CheckAnswer(int VerifyTask)
     {
