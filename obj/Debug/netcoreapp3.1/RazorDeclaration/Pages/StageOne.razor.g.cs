@@ -175,12 +175,12 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
 
     protected async Task load()
     {
-        var teamName = httpContextAccessor.HttpContext.User.Identity.Name;
-        teamTasks1 = await teamTaskService?.GetTasksAsync(teamName, "1");
-        teamTasks2 = await teamTaskService?.GetTasksAsync(teamName, "2");
-        teamTasks3 = await teamTaskService?.GetTasksAsync(teamName, "3");
-        teamTasks4 = await teamTaskService?.GetTasksAsync(teamName, "4");
-        teamTasks5 = await teamTaskService?.GetTasksAsync(teamName, "5");
+        //var teamName = await httpContextAccessor.HttpContext.User.Identity.Name;
+        teamTasks1 = await teamTaskService?.GetTasksAsync(httpContextAccessor.HttpContext.User.Identity.Name, "1");
+        teamTasks2 = await teamTaskService?.GetTasksAsync(httpContextAccessor.HttpContext.User.Identity.Name, "2");
+        teamTasks3 = await teamTaskService?.GetTasksAsync(httpContextAccessor.HttpContext.User.Identity.Name, "3");
+        teamTasks4 = await teamTaskService?.GetTasksAsync(httpContextAccessor.HttpContext.User.Identity.Name, "4");
+        teamTasks5 = await teamTaskService?.GetTasksAsync(httpContextAccessor.HttpContext.User.Identity.Name, "5");
     }
 
     protected async Task CheckAnswer(int VerifyTask)

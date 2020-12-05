@@ -77,6 +77,27 @@ using Best_Hackathon_Codiseea.Shared;
 #nullable disable
 #nullable restore
 #line 2 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageTwo.razor"
+using Best_Hackathon_Codiseea.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageTwo.razor"
+using Best_Hackathon_Codiseea.Data;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageTwo.razor"
+using Microsoft.AspNetCore.Http;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 7 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageTwo.razor"
            [Authorize]
 
 #line default
@@ -90,6 +111,213 @@ using Best_Hackathon_Codiseea.Shared;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 259 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageTwo.razor"
+       
+    [Parameter]
+    public string CorrectAnswer { get; set; } = "58738108";
+
+    [Parameter]
+    public string CorrectAnswer2 { get; set; } = "9 8 4 1 1 2 44 8 4 5 86 2 4 4";
+
+    [Parameter]
+    public string CorrectAnswer3 { get; set; } = "lopatavremeasosindfrumosrotundurechinimenigleznecatargvislas";
+
+    [Parameter]
+    public string CorrectAnswer4 { get; set; } = "OGPTRUTSFVUJSPZPOCGGHTYNXYUTEDMXVZAETZEMWTCKIFUPCVNBPCPYLNQLSABMOGLSRCNXLKNKFSZNNRGUTFSPRINEBYYSJROBDJAQXDZUYKUEGMERFUHHXDFDQHRBLXTFMNOQPGKUCNXTHWESFMKMIWXZEWOOKSPJTWATRKHHUQSFZHVRLOAMPNHDRVAQPORHQQCQHWLDAVJSAURWFRNNISWDDJMZPGTMPRRZKIPRZGTDZBERCYTOLHPRWCVWQGDMIPWLQILCCQEWCUWRMQDLXPOOIVEVYOYDKTVRM";
+
+    [Parameter]
+    public string CorrectAnswer5 { get; set; } = @"YUY
+YXYYUrXUX
+
+TY
+
+X 
+
+TsUXY5
+XY
+YXW";
+
+    [Parameter]
+    public string CorrectAnswer5_Linux { get; set; } = @"^WY^H^X^[^\U^W^L^K^]Y^H^V^H^V
+Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
+^[^Q^Q^T^Z^P^V^]^MT^QY^K^V
+^M^Q^PX ^Y
+^M^UTs^K^PU^X^N^P^V^]X^Z^YY5^\^V^M^W^KX^Z^P^P^H^L^TY^K^X^MY^K^PX^^^T^X^K^L^TW";
+
+    public string UserAnswer { get; set; }
+    public string UserAnswer2 { get; set; }
+    public string UserAnswer3 { get; set; }
+    public string UserAnswer4 { get; set; }
+    public string UserAnswer5 { get; set; }
+
+    public bool HideAnswer = false;
+    public bool HideAnswer2 = false;
+    public bool HideAnswer3 = false;
+    public bool HideAnswer4 = false;
+    public bool HideAnswer5 = false;
+
+    public string value, value2, value3, value4, value5 = "";
+    //date;
+
+    public int sum = 0;
+
+    List<TeamTask> teamTasks1;
+    List<TeamTask> teamTasks2;
+    List<TeamTask> teamTasks3;
+    List<TeamTask> teamTasks4;
+    List<TeamTask> teamTasks5;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await load();
+    }
+
+    protected async Task load()
+    {
+        //var teamName = await httpContextAccessor.HttpContext.User.Identity.Name;
+        teamTasks1 = await teamTaskService?.GetTasksAsync(httpContextAccessor.HttpContext.User.Identity.Name, "1");
+        teamTasks2 = await teamTaskService?.GetTasksAsync(httpContextAccessor.HttpContext.User.Identity.Name, "2");
+        teamTasks3 = await teamTaskService?.GetTasksAsync(httpContextAccessor.HttpContext.User.Identity.Name, "3");
+        teamTasks4 = await teamTaskService?.GetTasksAsync(httpContextAccessor.HttpContext.User.Identity.Name, "4");
+        teamTasks5 = await teamTaskService?.GetTasksAsync(httpContextAccessor.HttpContext.User.Identity.Name, "5");
+    }
+
+    protected async Task CheckAnswer(int VerifyTask)
+    {
+        switch (VerifyTask)
+        {
+            case 1:
+                if (!string.IsNullOrEmpty(UserAnswer))
+                {
+                    if (UserAnswer.ToLower() == CorrectAnswer.ToLower())
+                    {
+                        TeamTask s = new TeamTask()
+                        {
+                            ID = Guid.NewGuid().ToString(),
+                            TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
+                            Value = "Correct",
+                            Points = 1,
+                            ItemNumber = "1",
+                            Date = DateTime.Now,
+                        };
+
+                        await teamTaskService.InsertTeamTaskAsync(s);
+                        await load();
+                    }
+                    else
+                    {
+                        value = "Incorrect";
+                    }
+                }
+                break;
+            case 2:
+                if (!string.IsNullOrEmpty(UserAnswer2))
+                {
+                    if (UserAnswer2.ToLower() == CorrectAnswer2.ToLower())
+                    {
+                        TeamTask s = new TeamTask()
+                        {
+                            ID = Guid.NewGuid().ToString(),
+                            TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
+                            Value = "Correct",
+                            Points = 1,
+                            ItemNumber = "2",
+                            Date = DateTime.Now,
+                        };
+
+                        await teamTaskService.InsertTeamTaskAsync(s);
+                        await load();
+                    }
+                    else
+                    {
+                        value2 = "Incorrect";
+                    }
+                }
+                break;
+            case 3:
+                if (!string.IsNullOrEmpty(UserAnswer3))
+                {
+                    if (UserAnswer3.ToLower() == CorrectAnswer3.ToLower())
+                    {
+                        TeamTask s = new TeamTask()
+                        {
+                            ID = Guid.NewGuid().ToString(),
+                            TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
+                            Value = "Correct",
+                            Points = 1,
+                            ItemNumber = "3",
+                            Date = DateTime.Now,
+                        };
+
+                        await teamTaskService.InsertTeamTaskAsync(s);
+                        await load();
+                    }
+                    else
+                    {
+                        value3 = "Incorrect";
+                    }
+                }
+                break;
+            case 4:
+                if (!string.IsNullOrEmpty(UserAnswer4))
+                {
+                    if (UserAnswer4.ToLower() == CorrectAnswer4.ToLower())
+                    {
+                        TeamTask s = new TeamTask()
+                        {
+                            ID = Guid.NewGuid().ToString(),
+                            TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
+                            Value = "Correct",
+                            Points = 1,
+                            ItemNumber = "4",
+                            Date = DateTime.Now,
+                        };
+
+                        await teamTaskService.InsertTeamTaskAsync(s);
+                        await load();
+                    }
+                    else
+                    {
+                        value4 = "Incorrect";
+                    }
+                }
+                break;
+            case 5:
+                if (!string.IsNullOrEmpty(UserAnswer5) && (!string.IsNullOrEmpty(UserAnswer5)))
+                {
+                    if (UserAnswer5.ToLower() == CorrectAnswer5.ToLower() || UserAnswer5.ToLower() == CorrectAnswer5_Linux.ToLower())
+                    {
+                        TeamTask s = new TeamTask()
+                        {
+                            ID = Guid.NewGuid().ToString(),
+                            TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
+                            Value = "Correct",
+                            Points = 1,
+                            ItemNumber = "5",
+                            Date = DateTime.Now,
+                        };
+
+                        await teamTaskService.InsertTeamTaskAsync(s);
+                        await load();
+                    }
+                    else
+                    {
+                        value5 = "Incorrect";
+                    }
+                }
+                break;
+            default:
+                value = "False";
+                break;
+        }
+    }
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private TeamTaskService teamTaskService { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IHttpContextAccessor httpContextAccessor { get; set; }
     }
 }
 #pragma warning restore 1591
