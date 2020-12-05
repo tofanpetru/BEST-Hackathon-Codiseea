@@ -118,7 +118,7 @@ using Microsoft.AspNetCore.Http;
     public string CorrectAnswer { get; set; } = "58738108";
 
     [Parameter]
-    public string CorrectAnswer2 { get; set; } = "9 8 4 1 1 2 44 8 4 5 86 4 2 4";
+    public string CorrectAnswer2 { get; set; } = "9 8 4 1 1 44 8 4 2 86 5 4 2 4";
 
     [Parameter]
     public string CorrectAnswer3 { get; set; } = "lopatavremeasosindfrumosrotundurechinimenigleznecatargvislas";
