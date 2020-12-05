@@ -157,7 +157,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
     public bool HideAnswer4 = false;
     public bool HideAnswer5 = false;
 
-    public string value,value2,value3,value4,value5 = "Incomplete";
+    public string value,value2,value3,value4,value5 = "";
     //date;
 
     public int sum = 0;
@@ -173,17 +173,16 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
         try
         {
             var teamName = httpContextAccessor.HttpContext.User.Identity.Name;
-            teamTasks1 = await teamTaskService.GetTasksAsync(teamName, "1");
-            teamTasks2 = await teamTaskService.GetTasksAsync(teamName, "2");
-            teamTasks3 = await teamTaskService.GetTasksAsync(teamName, "3");
-            teamTasks4 = await teamTaskService.GetTasksAsync(teamName, "4");
-            teamTasks5 = await teamTaskService.GetTasksAsync(teamName, "5");
+            teamTasks1 = await teamTaskService?.GetTasksAsync(teamName, "1");
+            teamTasks2 = await teamTaskService?.GetTasksAsync(teamName, "2");
+            teamTasks3 = await teamTaskService?.GetTasksAsync(teamName, "3");
+            teamTasks4 = await teamTaskService?.GetTasksAsync(teamName, "4");
+            teamTasks5 = await teamTaskService?.GetTasksAsync(teamName, "5");
         }
         catch (NullReferenceException)
         {
 
         }
-
     }
 
     protected override async Task OnInitializedAsync()
