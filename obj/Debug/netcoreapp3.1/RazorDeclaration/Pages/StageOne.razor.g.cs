@@ -112,7 +112,7 @@ using Microsoft.AspNetCore.Http;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 255 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
+#line 258 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
        
     [Parameter]
     public string CorrectAnswer { get; set; } = "58738108";
@@ -127,16 +127,11 @@ using Microsoft.AspNetCore.Http;
     public string CorrectAnswer4 { get; set; } = "OGPTRUTSFVUJSPZPOCGGHTYNXYUTEDMXVZAETZEMWTCKIFUPCVNBPCPYLNQLSABMOGLSRCNXLKNKFSZNNRGUTFSPRINEBYYSJROBDJAQXDZUYKUEGMERFUHHXDFDQHRBLXTFMNOQPGKUCNXTHWESFMKMIWXZEWOOKSPJTWATRKHHUQSFZHVRLOAMPNHDRVAQPORHQQCQHWLDAVJSAURWFRNNISWDDJMZPGTMPRRZKIPRZGTDZBERCYTOLHPRWCVWQGDMIPWLQILCCQEWCUWRMQDLXPOOIVEVYOYDKTVRM";
 
     [Parameter]
-    public string CorrectAnswer5 { get; set; } = @"YUY
-YXYYUrXUX
-
-TY
-
-X 
-
-TsUXY5
-XY
-YXW";
+    public string CorrectAnswer5 { get; set; } = @"^WY^H^X^[^\U^W^L^K^]Y^H^V^H^V
+Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
+^[^Q^Q^T^Z^P^V^]^MT^QY^K^V
+^M^Q^PX ^Y
+^M^UTs^K^PU^X^N^P^V^]X^Z^YY5^\^V^M^W^KX^Z^P^P^H^L^TY^K^X^MY^K^PX^^^T^X^K^L^TW";
 
     [Parameter]
     public string CorrectAnswer5_Linux { get; set; } = @"^WY^H^X^[^\U^W^L^K^]Y^H^V^H^V
@@ -192,18 +187,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                 {
                     if (UserAnswer.ToLower() == CorrectAnswer.ToLower())
                     {
-                        TeamTask s = new TeamTask()
-                        {
-                            ID = Guid.NewGuid().ToString(),
-                            TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
-                            Value = "Correct",
-                            Points = 1,
-                            ItemNumber = "1",
-                            Date = DateTime.Now,
-                        };
-
-                        await teamTaskService.InsertTeamTaskAsync(s);
-                        await load();
+                        value = "Correct";
                     }
                     else
                     {
@@ -216,22 +200,11 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                 {
                     if (UserAnswer2.ToLower() == CorrectAnswer2.ToLower())
                     {
-                        TeamTask s = new TeamTask()
-                        {
-                            ID = Guid.NewGuid().ToString(),
-                            TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
-                            Value = "Correct",
-                            Points = 1,
-                            ItemNumber = "2",
-                            Date = DateTime.Now,
-                        };
-
-                        await teamTaskService.InsertTeamTaskAsync(s);
-                        await load();
+                        value = "Correct";
                     }
                     else
                     {
-                        value2 = "Incorrect";
+                        value = "Incorrect";
                     }
                 }
                 break;
@@ -240,22 +213,11 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                 {
                     if (UserAnswer3.ToLower() == CorrectAnswer3.ToLower())
                     {
-                        TeamTask s = new TeamTask()
-                        {
-                            ID = Guid.NewGuid().ToString(),
-                            TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
-                            Value = "Correct",
-                            Points = 1,
-                            ItemNumber = "3",
-                            Date = DateTime.Now,
-                        };
-
-                        await teamTaskService.InsertTeamTaskAsync(s);
-                        await load();
+                        value = "Correct";
                     }
                     else
                     {
-                        value3 = "Incorrect";
+                        value = "Incorrect";
                     }
                 }
                 break;
@@ -264,46 +226,24 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                 {
                     if (UserAnswer4.ToLower() == CorrectAnswer4.ToLower())
                     {
-                        TeamTask s = new TeamTask()
-                        {
-                            ID = Guid.NewGuid().ToString(),
-                            TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
-                            Value = "Correct",
-                            Points = 1,
-                            ItemNumber = "4",
-                            Date = DateTime.Now,
-                        };
-
-                        await teamTaskService.InsertTeamTaskAsync(s);
-                        await load();
+                        value = "Correct";
                     }
                     else
                     {
-                        value4 = "Incorrect";
+                        value = "Incorrect";
                     }
                 }
                 break;
             case 5:
-                if (!string.IsNullOrEmpty(UserAnswer5) && (!string.IsNullOrEmpty(UserAnswer5)))
+                if (!string.IsNullOrEmpty(UserAnswer5))
                 {
-                    if (UserAnswer5.ToLower() == CorrectAnswer5.ToLower() || UserAnswer5.ToLower() == CorrectAnswer5_Linux.ToLower())
+                    if (UserAnswer5.ToLower() == CorrectAnswer5.ToLower())
                     {
-                        TeamTask s = new TeamTask()
-                        {
-                            ID = Guid.NewGuid().ToString(),
-                            TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
-                            Value = "Correct",
-                            Points = 1,
-                            ItemNumber = "5",
-                            Date = DateTime.Now,
-                        };
-
-                        await teamTaskService.InsertTeamTaskAsync(s);
-                        await load();
+                        value = "Correct";
                     }
                     else
                     {
-                        value5 = "Incorrect";
+                        value = "Incorrect";
                     }
                 }
                 break;
