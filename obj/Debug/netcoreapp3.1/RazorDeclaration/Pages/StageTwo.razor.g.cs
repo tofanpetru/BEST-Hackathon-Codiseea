@@ -119,7 +119,7 @@ using Microsoft.AspNetCore.Identity;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 81 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageTwo.razor"
+#line 82 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageTwo.razor"
        
     [Parameter]
     public string CorrectAnswer6 { get; set; } = "{FLG:B4esSFChB4esSFSnL33FM3B3g1n}";
