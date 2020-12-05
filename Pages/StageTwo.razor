@@ -5,6 +5,9 @@
 @inject IHttpContextAccessor httpContextAccessor
 @inject TeamTaskService teamTaskService
 @inject HttpClient HttpClient
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 @attribute [Authorize]
 <h6>
     Ne bucurăm că sunteţi alături de noi, pentru a începe cel mai fain drum, dar şi cel mai dificil.
@@ -314,19 +317,24 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
 
     protected override async Task OnInitializedAsync()
     {
-        await load();
+        var teamName = httpContextAccessor.HttpContext.User?.Identity.Name;
+        teamTasks1 = await teamTaskService?.GetTasksAsync(teamName, "1");
+        teamTasks2 = await teamTaskService?.GetTasksAsync(teamName, "2");
+        teamTasks3 = await teamTaskService?.GetTasksAsync(teamName, "3");
+        teamTasks4 = await teamTaskService?.GetTasksAsync(teamName, "4");
+        teamTasks5 = await teamTaskService?.GetTasksAsync(teamName, "5");
     }
-
+   
     protected async Task load()
     {
-        //var teamName = await httpContextAccessor.HttpContext.User.Identity.Name;
-        teamTasks1 = await teamTaskService?.GetTasksAsync("user2@gmail.com", "1");
-        teamTasks2 = await teamTaskService?.GetTasksAsync("user2@gmail.com", "2");
-        teamTasks3 = await teamTaskService?.GetTasksAsync("user2@gmail.com", "3");
-        teamTasks4 = await teamTaskService?.GetTasksAsync("user2@gmail.com", "4");
-        teamTasks5 = await teamTaskService?.GetTasksAsync("user2@gmail.com", "5");
+        var teamName = httpContextAccessor.HttpContext.User?.Identity.Name;
+        teamTasks1 = await teamTaskService?.GetTasksAsync(teamName, "1");
+        teamTasks2 = await teamTaskService?.GetTasksAsync(teamName, "2");
+        teamTasks3 = await teamTaskService?.GetTasksAsync(teamName, "3");
+        teamTasks4 = await teamTaskService?.GetTasksAsync(teamName, "4");
+        teamTasks5 = await teamTaskService?.GetTasksAsync(teamName, "5");
     }
-
+    
     protected async Task CheckAnswer(int VerifyTask)
     {
         switch (VerifyTask)
