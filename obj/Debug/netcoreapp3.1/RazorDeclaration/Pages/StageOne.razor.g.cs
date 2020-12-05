@@ -118,7 +118,7 @@ using Microsoft.AspNetCore.Http;
     public string CorrectAnswer { get; set; } = "58738108";
 
     [Parameter]
-    public string CorrectAnswer2 { get; set; } = "9 8 4 1 1 2 44 8 4 5 86 2 4 4";
+    public string CorrectAnswer2 { get; set; } = "9 8 4 1 1 2 44 8 4 5 86 4 2 4";
 
     [Parameter]
     public string CorrectAnswer3 { get; set; } = "lopatavremeasosindfrumosrotundurechinimenigleznecatargvislas";
@@ -187,11 +187,11 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                 {
                     if (UserAnswer2.ToLower() == CorrectAnswer2.ToLower())
                     {
-                        value = "Correct";
+                        value2 = "Correct";
                     }
                     else
                     {
-                        value = "Incorrect";
+                        value2 = "Incorrect";
                     }
                 }
                 break;
@@ -200,11 +200,11 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                 {
                     if (UserAnswer3.ToLower() == CorrectAnswer3.ToLower())
                     {
-                        value = "Correct";
+                        value3 = "Correct";
                     }
                     else
                     {
-                        value = "Incorrect";
+                        value3 = "Incorrect";
                     }
                 }
                 break;
@@ -213,11 +213,11 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                 {
                     if (UserAnswer4.ToLower() == CorrectAnswer4.ToLower())
                     {
-                        value = "Correct";
+                        value4 = "Correct";
                     }
                     else
                     {
-                        value = "Incorrect";
+                        value4 = "Incorrect";
                     }
                 }
                 break;
@@ -226,11 +226,11 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                 {
                     if (UserAnswer5.ToLower() == CorrectAnswer5.ToLower())
                     {
-                        value = "Correct";
+                        value5 = "Correct";
                     }
                     else
                     {
-                        value = "Incorrect";
+                        value5 = "Incorrect";
                     }
                 }
                 break;
