@@ -97,14 +97,14 @@ using Microsoft.AspNetCore.Http;
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageTwo.razor"
+#line 7 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageTwo.razor"
 using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageTwo.razor"
+#line 10 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageTwo.razor"
            [Authorize]
 
 #line default
@@ -119,7 +119,7 @@ using Microsoft.AspNetCore.Identity;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 263 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageTwo.razor"
+#line 262 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageTwo.razor"
        
     [Parameter]
     public string CorrectAnswer { get; set; } = "58738108";
@@ -177,24 +177,19 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
 
     protected override async Task OnInitializedAsync()
     {
-        var teamName = httpContextAccessor.HttpContext.User?.Identity.Name;
-        teamTasks1 = await teamTaskService?.GetTasksAsync(teamName, "1");
-        teamTasks2 = await teamTaskService?.GetTasksAsync(teamName, "2");
-        teamTasks3 = await teamTaskService?.GetTasksAsync(teamName, "3");
-        teamTasks4 = await teamTaskService?.GetTasksAsync(teamName, "4");
-        teamTasks5 = await teamTaskService?.GetTasksAsync(teamName, "5");
+        await load();
     }
-   
+
     protected async Task load()
     {
-        var teamName = httpContextAccessor.HttpContext.User?.Identity.Name;
+        var teamName = httpContextAccessor.HttpContext.User.Identity.Name;
         teamTasks1 = await teamTaskService?.GetTasksAsync(teamName, "1");
         teamTasks2 = await teamTaskService?.GetTasksAsync(teamName, "2");
         teamTasks3 = await teamTaskService?.GetTasksAsync(teamName, "3");
         teamTasks4 = await teamTaskService?.GetTasksAsync(teamName, "4");
         teamTasks5 = await teamTaskService?.GetTasksAsync(teamName, "5");
     }
-    
+
     protected async Task CheckAnswer(int VerifyTask)
     {
         switch (VerifyTask)
@@ -330,7 +325,6 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
 #nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private UserManager<IdentityUser> UserManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private SignInManager<IdentityUser> SignInManager { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient HttpClient { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private TeamTaskService teamTaskService { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IHttpContextAccessor httpContextAccessor { get; set; }
     }
