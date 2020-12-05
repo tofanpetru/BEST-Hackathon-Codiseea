@@ -17,28 +17,10 @@
 
 <br />
 <br />
-@if (teamTasks2 == null || teamTasks3 == null || teamTasks4 == null)
-{
-    <p><em>Loading..</em></p>
-}
-else
-{
     <div class="card">
         <div class="card-body">
             <h4>
                 1. Status : @{ if (!string.IsNullOrEmpty(value)) {<span class="text-danger">@value</span>}}
-                @foreach (var item in teamTasks1)
-                {
-                    @if (item.Value == "Correct")
-                    {
-                        <span class="text-success">@item.Value</span>
-                        HideAnswer = true;
-                    }
-                    else
-                    {
-                        HideAnswer = false;
-                    }
-                }
             </h4>
             <hr />
             <div hidden="@HideAnswer">
@@ -66,18 +48,6 @@ else
         <div class="card-body">
             <h4>
                 2. Status : @{ if (!string.IsNullOrEmpty(value2)) {<span class="text-danger">@value2</span>}}
-                @foreach (var item in teamTasks2)
-                {
-                    @if (item.Value == "Correct")
-                    {
-                        <span class="text-success">@item.Value</span>
-                        HideAnswer2 = true;
-                    }
-                    else
-                    {
-                        HideAnswer2 = false;
-                    }
-                }
             </h4>
             <hr />
             <div hidden="@HideAnswer2">
@@ -114,18 +84,6 @@ else
         <div class="card-body">
             <h4>
                 3. Status : @{ if (!string.IsNullOrEmpty(value3)) {<span class="text-danger">@value3</span>}}
-                @foreach (var item in teamTasks3)
-                {
-                    @if (item.Value == "Correct")
-                    {
-                        <span class="text-success">@item.Value</span>
-                        HideAnswer3 = true;
-                    }
-                    else
-                    {
-                        HideAnswer3 = false;
-                    }
-                }
             </h4>
             <hr />
             <div hidden="@HideAnswer3">
@@ -156,18 +114,6 @@ else
         <div class="card-body">
             <h4>
                 4. Status : @{ if (!string.IsNullOrEmpty(value4)) {<span class="text-danger">@value4</span>}}
-                @foreach (var item in teamTasks4)
-                {
-                    @if (item.Value == "Correct")
-                    {
-                        <span class="text-success">@item.Value</span>
-                        HideAnswer4 = true;
-                    }
-                    else
-                    {
-                        HideAnswer4 = false;
-                    }
-                }
             </h4>
             <hr />
             <div hidden="@HideAnswer4">
@@ -195,18 +141,6 @@ else
         <div class="card-body">
             <h4>
                 5. Status : @{ if (!string.IsNullOrEmpty(value5)) {<span>@value5</span>}}
-                @foreach (var item in teamTasks5)
-                {
-                    @if (item.Value == "Correct")
-                    {
-                        <span class="text-success">@item.Value</span>
-                        HideAnswer5 = true;
-                    }
-                    else
-                    {
-                        HideAnswer5 = false;
-                    }
-                }
             </h4>
             <hr />
             <div hidden="@HideAnswer5">
@@ -236,24 +170,13 @@ else
                 <strong>Criptarea:</strong>
                 <p>Textul propus va fi copiat în tocmai ca în sarcină. Textul variantei criptate se recomandă de a fi salvat într-un fișier de unde să fie ulterior copiat și inserat în câmpul cheii.</p>
                 <br />
-                <div class="row">
-                    <form>
-                        <div class="col-9">
-                            <textarea @bind="@UserAnswer5" style="width:36rem;"></textarea>
-                        </div>
-                        <div class="col-3">
-                            <button type="submit" class="btn btn-primary" @onclick="() => CheckAnswer(5)">Submit</button>
-                        </div>
-                    </form>
-                    
-                </div>
+                <p>Sarcina respectiva se va verifica manual</p>
 
             </div>
         </div>
     </div>
     <br />
     <br />
-}
 
 @code {
     [Parameter]
@@ -305,20 +228,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
     List<TeamTask> teamTasks4;
     List<TeamTask> teamTasks5;
 
-    protected override async Task OnInitializedAsync()
-    {
-        await load();
-    }
-
-    protected async Task load()
-    {
-        //var teamName = await httpContextAccessor.HttpContext.User.Identity.Name;
-        teamTasks1 = await teamTaskService?.GetTasksAsync(httpContextAccessor.HttpContext.User.Identity.Name, "1");
-        teamTasks2 = await teamTaskService?.GetTasksAsync(httpContextAccessor.HttpContext.User.Identity.Name, "2");
-        teamTasks3 = await teamTaskService?.GetTasksAsync(httpContextAccessor.HttpContext.User.Identity.Name, "3");
-        teamTasks4 = await teamTaskService?.GetTasksAsync(httpContextAccessor.HttpContext.User.Identity.Name, "4");
-        teamTasks5 = await teamTaskService?.GetTasksAsync(httpContextAccessor.HttpContext.User.Identity.Name, "5");
-    }
+   
 
     protected async Task CheckAnswer(int VerifyTask)
     {
