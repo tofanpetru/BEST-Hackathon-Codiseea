@@ -103,13 +103,6 @@ using Microsoft.AspNetCore.Identity;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 9 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageTwo.razor"
-           [Authorize]
-
-#line default
-#line hidden
-#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/stagetwo")]
     public partial class StageTwo : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -119,7 +112,7 @@ using Microsoft.AspNetCore.Identity;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 81 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageTwo.razor"
+#line 80 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageTwo.razor"
        
     [Parameter]
     public string CorrectAnswer6 { get; set; } = "{FLG:B4esSrChB4esSrSnL33rM3B3g1n}";
