@@ -307,6 +307,19 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
     List<TeamTask> teamTasks4;
     List<TeamTask> teamTasks5;
 
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            await load();
+        }
+        catch (NullReferenceException)
+        {
+
+            throw;
+        }
+    }
+
     protected async Task load()
     {
         try
@@ -321,19 +334,6 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
         catch (NullReferenceException)
         {
 
-        }
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        try
-        {
-            await load();
-        }
-        catch (NullReferenceException)
-        {
-
-            throw;
         }
     }
 
