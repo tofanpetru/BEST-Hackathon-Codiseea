@@ -414,11 +414,7 @@ C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codisee
 C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\obj\Debug\netcoreapp3.1\Best_Hackathon_Codiseea.RazorComponent.output.cache
 C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\obj\Debug\netcoreapp3.1\scopedcss\bundle\Best_Hackathon_Codiseea.styles.css
 C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\StageOne.razor.g.cs
-C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\StageThree.razor.g.cs
-C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\StageTwo.razor.g.cs
 C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\obj\Debug\netcoreapp3.1\Razor\Pages\StageOne.razor.g.cs
-C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\obj\Debug\netcoreapp3.1\Razor\Pages\StageThree.razor.g.cs
-C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\obj\Debug\netcoreapp3.1\Razor\Pages\StageTwo.razor.g.cs
 C:\Users\Tofan\OneDrive\Desktop\Endava\bn\Hackathon codiseea\BEST-Hackathon-Codiseea\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Tofan\OneDrive\Desktop\Endava\bn\Hackathon codiseea\BEST-Hackathon-Codiseea\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\Tofan\OneDrive\Desktop\Endava\bn\Hackathon codiseea\BEST-Hackathon-Codiseea\bin\Debug\netcoreapp3.1\Best_Hackathon_Codiseea.StaticWebAssets.xml

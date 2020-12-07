@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "no1pbrrXSnsveBP7bFiKAL+B65mEb6ynDfAY4VcWzyFZqiMdqdaofbhg3odxxoBNoLGE941bCRZ3JD53opOGPQ==",
+  "dgSpecHash": "ggw1BQAiTLJnIuQvyTg9gD9KI7pANQF8c+si4762ZBbbdhZmAYEL0iesjx2zqRP3b6xQdpRIlRyP8qFGBNrpnw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Tofan\\OneDrive\\Desktop\\Endava\\bn\\Hackathon codiseea\\BEST-Hackathon-Codiseea\\Best_Hackathon_Codiseea.csproj",
+  "projectFilePath": "C:\\Users\\Tofan\\OneDrive\\Desktop\\Endava\\Hackathon codiseea\\BEST-Hackathon-Codiseea\\Best_Hackathon_Codiseea.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Tofan\\.nuget\\packages\\microsoft.aspnetcore.connections.abstractions\\3.0.0\\microsoft.aspnetcore.connections.abstractions.3.0.0.nupkg.sha512",
     "C:\\Users\\Tofan\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.9\\microsoft.aspnetcore.cryptography.internal.3.1.9.nupkg.sha512",
