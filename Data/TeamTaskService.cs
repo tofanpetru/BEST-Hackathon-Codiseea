@@ -20,11 +20,21 @@ namespace Best_Hackathon_Codiseea.Data
             var result = _context.TeamTasks.Where(e => e.TeamName == teamName).Where(e => items.Contains(e.ItemNumber));
             return await Task.FromResult(result.ToList());
         }
-
-        public async Task<List<TeamTask>> GetTotalPointsAsync(string teamName)
+        public async Task<List<TeamTask>> GetPersonalTasksAsync(string teamName)
         {
-            //var items = new List<string> { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
-            var result = _context.TeamTasks.Where(e => e.TeamName == teamName);
+            var result = _context.TeamTasks.Where(e => e.TeamName == teamName).Where(e => e.Value == "Correct");
+            return await Task.FromResult(result.ToList());
+        }
+
+        public async Task<List<TeamTask>> GetGlobalCorrectAnswersAsync()
+        {
+            var result = _context.TeamTasks.Where(e => e.Value == "Correct");
+            return await Task.FromResult(result.ToList());
+        }
+        //
+        public async Task<List<TeamTask>> GetNumberOfTeamsWhoAnswer()
+        {
+            var result = _context.TeamTasks.Where(e => e.TeamName != null).Where(e => e.Value == "Correct");
             return await Task.FromResult(result.ToList());
         }
 

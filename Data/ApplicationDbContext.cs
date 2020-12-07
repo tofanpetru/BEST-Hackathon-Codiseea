@@ -12,6 +12,7 @@ namespace Best_Hackathon_Codiseea.Data
     public class ApplicationDbContext : IdentityDbContext
     {
         public DbSet<TeamTask> TeamTasks { get; set; }
+        public DbSet<Answer> Answers { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

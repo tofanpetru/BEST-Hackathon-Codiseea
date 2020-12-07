@@ -4,6 +4,7 @@
 @using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor httpContextAccessor
 @inject TeamTaskService teamTaskService
+@*@inject AnswerService answerService*@
 @attribute [Authorize]
 <h3>Bun venit la BEST Hackathon Codiseea !</h3>
 <h6>
@@ -17,31 +18,29 @@
 
 <br />
 <br />
-@if (teamTasks2 == null || teamTasks3 == null || teamTasks4 == null)
+@if (teamTasks2 == null || teamTasks3 == null || teamTasks4 == null || teamTasks5 == null || globalCorrectAnswers == null || personalCorrectAnswers == null)
 {
     <p><em>Loading..</em></p>
 }
 else
 {
+<div class="container-fluid">
+    <h2>Progresul personal</h2>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="@personalProgressWhoutPrecent" aria-valuemin="0" aria-valuemax="100" style="width:@PersonalProgress()">
+            @PersonalProgress()
+        </div>
+    </div>
+    <br />
+    <hr />
+    <br />
     <div class="card">
         <div class="card-body">
             <h4>
-                1. Status : @{ if (!string.IsNullOrEmpty(value)) {<span class="text-danger">@value</span>}}
-                @foreach (var item in teamTasks1)
-                {
-                    @if (item.Value == "Correct")
-                    {
-                        <span class="text-success">@item.Value</span>
-                        HideAnswer = true;
-                    }
-                    else
-                    {
-                        HideAnswer = false;
-                    }
-                }
+                1. Status : <span class="text-success">@StatusAnswer(teamTasks1)</span>
             </h4>
             <hr />
-            <div hidden="@HideAnswer">
+            <div hidden="@HideAnswer(teamTasks1)">
                 <strong>Problema:</strong>
                 <p>BEST Chișinău iubește culoarea roșu.</p>
                 <br />
@@ -65,22 +64,10 @@ else
     <div class="card">
         <div class="card-body">
             <h4>
-                2. Status : @{ if (!string.IsNullOrEmpty(value2)) {<span class="text-danger">@value2</span>}}
-                @foreach (var item in teamTasks2)
-                {
-                    @if (item.Value == "Correct")
-                    {
-                        <span class="text-success">@item.Value</span>
-                        HideAnswer2 = true;
-                    }
-                    else
-                    {
-                        HideAnswer2 = false;
-                    }
-                }
+                2. Status : <span class="text-success">@StatusAnswer(teamTasks2)</span>
             </h4>
             <hr />
-            <div hidden="@HideAnswer2">
+            <div hidden="@HideAnswer(teamTasks2)">
                 <strong>Problema succesului:</strong>
                 <p>
                     Se dă un şir de numere care ar reprezenta succesul unei persoane. Succesul este atunci când valorile din subşir sunt în ordine crescătoare. Pentru că nimeni nu este ideal, după fiecare acţiune executată cu succes, urmează insuccesul - o valoare mai mică de cât precedenta.
@@ -91,7 +78,7 @@ else
                 <p>Se va afişa succesul în ordine inversă celei de introducer, separate prin spaţiu.</p>
                 <strong>Exemplu:</strong>
                 <p>Intrare: 1 2 10 3 7 5 4 3 0</p>
-                <p>Ieşire:  10 2 1 7 3 8 4 2 2</p>
+                <p>Ieşire:  10 2 1 7 3 3 4 5 2</p>
                 <br />
                 <p>Numerele 1,2,10 reprezintă succesul, respectiv ca date de ieşire se vor inversa (10,2,1), dupa urmează nr 3 şi reprezintă eşecul, iar 7 reprezintă succesul, iar 5,4,3 reprezintă eşecul. La sfarşitul şirului de numere, în locul lui 0 va fi numărul de succese, în cazul nostru este nr 2.</p>
                 <br />
@@ -113,22 +100,10 @@ else
     <div class="card">
         <div class="card-body">
             <h4>
-                3. Status : @{ if (!string.IsNullOrEmpty(value3)) {<span class="text-danger">@value3</span>}}
-                @foreach (var item in teamTasks3)
-                {
-                    @if (item.Value == "Correct")
-                    {
-                        <span class="text-success">@item.Value</span>
-                        HideAnswer3 = true;
-                    }
-                    else
-                    {
-                        HideAnswer3 = false;
-                    }
-                }
+                3. Status : <span class="text-success">@StatusAnswer(teamTasks3)</span>
             </h4>
             <hr />
-            <div hidden="@HideAnswer3">
+            <div hidden="@HideAnswer(teamTasks3)">
                 <strong>Problema:</strong>
                 <p>Sunt date <a href="https://drive.google.com/u/0/uc?id=13Uuo0yslwXKzi1b0bL3SzIdJRE5OznKq&export=download">două fișiere</a> care conțin cuvinte. Primul fișier conține mai multe cuvinte. Al doilea conține câteva din cuvintele din primul fișier dar literele sunt schimbare cu locul în interiorul cuvintelor.</p>
                 <br />
@@ -155,22 +130,10 @@ else
     <div class="card">
         <div class="card-body">
             <h4>
-                4. Status : @{ if (!string.IsNullOrEmpty(value4)) {<span class="text-danger">@value4</span>}}
-                @foreach (var item in teamTasks4)
-                {
-                    @if (item.Value == "Correct")
-                    {
-                        <span class="text-success">@item.Value</span>
-                        HideAnswer4 = true;
-                    }
-                    else
-                    {
-                        HideAnswer4 = false;
-                    }
-                }
+                4. Status : <span class="text-success">@StatusAnswer(teamTasks4)</span>
             </h4>
             <hr />
-            <div hidden="@HideAnswer4">
+            <div hidden="@HideAnswer(teamTasks4)">
                 <strong>Problema:</strong>
                 <p>Pe pagina <a href="https://www.instagram.com/best_chisinau/">BEST Chişinău</a> de instagram sunt ascunse bucăți de cheie.</p>
                 <br />
@@ -191,50 +154,43 @@ else
         </div>
     </div>
     <br />
-   <div class="card">
+    <div class="card">
         <div class="card-body">
             <h4>
-                5. Status : @{ if (!string.IsNullOrEmpty(value5)) {<span class="text-danger">@value5</span>}}
-                @foreach (var item in teamTasks5)
-                {
-                    @if (item.Value == "Correct")
-                    {
-                        <span class="text-success">@item.Value</span>
-                        HideAnswer5 = true;
-                    }
-                    else
-                    {
-                        HideAnswer5 = false;
-                    }
-                }
+                5. Status : <span class="text-success">@StatusAnswer(teamTasks5)</span>
             </h4>
             <hr />
-            <div hidden="@HideAnswer5">
+            <div hidden="@HideAnswer(teamTasks5)">
                 <strong>Problema:</strong>
-                <p>Mai jos este atașat un fișier text, care conține un fragment din Odiseea lui Homer. Acest <a href="https://drive.google.com/u/0/uc?id=1y8NS47bNU0umd6jhWMLCqwCFhiTImoNX&export=download">fișier</a> a fost criptat în două etape, utilizând doi algoritmi de criptare diferiți.</p>
-                <br />
-                <strong>Sarcina</strong>
-                <br />
-                <p>Să se descifreze fragmentul inițial. După ce a fost descifrat, utilizând aceiași algoritmi se va cripta următoarea secvență:</p>
-                <br />
                 <p>
-                    o pace-ntre popor si el a pus,<br />
-                    atene deci, schimbindu-i sortii pasul,<br />
-                    si-avind ca Mentor chipul sau si glasul.<br />
+                    În orașul Piticot locuiesc N pitici, fiecare într-o casă pe o stradă cu sens unic. Casele sunt așezate de-a lungul străzii, în sensul în care se circulă începând cu casa numerotată cu 1 până la casa numerotată cu N. În orașul Piticot piticii nu au un nume obișnuit! Ei poartă ca nume numărul casei în care stau. Neobișnuite sunt și casele lor! Dacă suni la soneria oricărei case depui atâta efort încât slăbești pe loc un număr de pitic-kilograme.
+                    Pentru că au constatat că în timpul pandemiei s-au îngrășat, fiecare și-a propus să slăbească un număr de pitic-kilograme, într-o singură zi. Pentru asta fiecare pitic va alerga pe stradă, plecând din propria casă și respectând sensul de deplasare al străzii iar în timpul alergării va suna la fiecare casă întâlnită, inclusiv la propria casă, o singură dată la fiecare. Ca regulă, suplimentară ei se vor opri din alergare în următoarele situații:
+                </p>
+                <p>
+                    1. Orice pitic se va opri la prima casă la care, după ce a sunat, a constatat că a slăbit de când a pornit alergarea, cel puțin cât și-a propus; <br />
+                    2. Orice pitic se va opri din alergare dacă a sunat la ultima casă (casa N), chiar dacă nu a reușit să slăbească cât și-a propus.
                 </p>
                 <br />
-                <strong>Note:</strong>
-                <p>Prima etapă de decriptare:</p>
-                <p>Se folosește un algoritm simetric, iar lungimea cheii este de 16 biți. În rezultatul decriptării va trebui să obțineți un text care conține doar caractere afișabile.</p>
+                <strong>Sarcina:</strong>
+                <p>Să se afle care este numărul maxim de pitici  care au sunat la o casă și la câte case s-a sunat de acest număr maxim de ori.</p>
+                <strong>Date de intrare</strong>
+                <p>Conține pe prima linie numărul natural N. Pe a doua linie se găsesc N numere naturale A[i], reprezentând numărul de pitic-kilograme cu care orice pitic slăbește dacă sună la casa cu numărul i (1 ≤ i ≤ N). A treia linie conține N numere naturale B[i], reprezentând numărul de pitic-kilograme pe care piticul i dorește să îl slăbească. În cadrul unei linii datele sunt separate prin câte un spațiu.</p>
+                <strong>Exemplu:</strong>
                 <p>
-                    A doua etapă: <br />
-                    i = i <br />
-                    v = a, dar a != v <br />
+                    Intrare:
+                    7 <br />
+                    1 2 4 5 6 6 6 <br />
+                    4 2 8 10 14 6 17 <br />
                 </p>
-                <p>Textul inițial conține nume de personaje, munți și alte substantive proprii din Odiseea. Toate sunt scrise cu litere minuscule.</p>
-
-                <strong>Criptarea:</strong>
-                <p>Textul propus va fi copiat în tocmai ca în sarcină. Textul variantei criptate se recomandă de a fi salvat într-un fișier de unde să fie ulterior copiat și inserat în câmpul cheii.</p>
+                <p>
+                    Ieşire:<br />
+                    Fiind Max și Nr, separate prin-un spațiu, care reprezintă numărul maxim de pitici care au sunat la o casă, respectiv la câte case s-a sunat de număr maxim de ori.
+                </p>
+                <br />
+                <p>Exemplu: Piticul 1 ca să slăbeasca cel puțin 4 pitic-kilograme sună la casele 1, 2 și 3. Piticul 2 sună doar la casa 2. Piticul 3 sună la casele 3 și 4. Piticul 4 sună la casele 4 și 5. Piticul 5 sună la casele 5, 6 și 7. Piticul 6 sună la casa 6 iar piticul 7 sună doar la casa 7 și nu reușește să slăbească cât și-a propus. Se observă că la casele 2, 3, 4, 5, 6, 7, s-a sunat de 2 ori, care este și numărul maxim de ori.</p>
+                <br />
+                <p>Sarcina respectiva se va verifica manual de catre organizatori</p>
+                <br />
                 <br />
                 <div class="row">
                     <div class="col-9">
@@ -250,39 +206,19 @@ else
     </div>
     <br />
     <br />
+</div>
 }
 
 @code {
-    [Parameter]
-    public string CorrectAnswer { get; set; } = "58738108";
+    public string CorrectAnswer { get; set; } = "59008105";
 
-    [Parameter]
-    public string CorrectAnswer2 { get; set; } = "9 8 4 1 1 2 44 8 4 5 86 2 4 4";
+    public string CorrectAnswer2 { get; set; } = "9 8 4 1 1 44 8 4 2 86 5 4 2 4";
 
-    [Parameter]
     public string CorrectAnswer3 { get; set; } = "lopatavremeasosindfrumosrotundurechinimenigleznecatargvislas";
 
-    [Parameter]
     public string CorrectAnswer4 { get; set; } = "OGPTRUTSFVUJSPZPOCGGHTYNXYUTEDMXVZAETZEMWTCKIFUPCVNBPCPYLNQLSABMOGLSRCNXLKNKFSZNNRGUTFSPRINEBYYSJROBDJAQXDZUYKUEGMERFUHHXDFDQHRBLXTFMNOQPGKUCNXTHWESFMKMIWXZEWOOKSPJTWATRKHHUQSFZHVRLOAMPNHDRVAQPORHQQCQHWLDAVJSAURWFRNNISWDDJMZPGTMPRRZKIPRZGTDZBERCYTOLHPRWCVWQGDMIPWLQILCCQEWCUWRMQDLXPOOIVEVYOYDKTVRM";
 
-    [Parameter]
-    public string CorrectAnswer5 { get; set; } = @"YUY
-YXYYUrXUX
-
-TY
-
-X 
-
-TsUXY5
-XY
-YXW";
-
-    [Parameter]
-    public string CorrectAnswer5_Linux { get; set; } = @"^WY^H^X^[^\U^W^L^K^]Y^H^V^H^V
-Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
-^[^Q^Q^T^Z^P^V^]^MT^QY^K^V
-^M^Q^PX ^Y
-^M^UTs^K^PU^X^N^P^V^]X^Z^YY5^\^V^M^W^KX^Z^P^P^H^L^TY^K^X^MY^K^PX^^^T^X^K^L^TW";
+    public string CorrectAnswer5 { get; set; } = "2 6";
 
     public string UserAnswer { get; set; }
     public string UserAnswer2 { get; set; }
@@ -290,22 +226,18 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
     public string UserAnswer4 { get; set; }
     public string UserAnswer5 { get; set; }
 
-    public bool HideAnswer = false;
-    public bool HideAnswer2 = false;
-    public bool HideAnswer3 = false;
-    public bool HideAnswer4 = false;
-    public bool HideAnswer5 = false;
-
-    public string value,value2,value3,value4,value5 = "";
     //date;
-
-    public int sum = 0;
 
     List<TeamTask> teamTasks1;
     List<TeamTask> teamTasks2;
     List<TeamTask> teamTasks3;
     List<TeamTask> teamTasks4;
     List<TeamTask> teamTasks5;
+
+    List<TeamTask> globalCorrectAnswers;
+    List<TeamTask> personalCorrectAnswers;
+
+    //List<Answer> Answers;
 
     protected override async Task OnInitializedAsync()
     {
@@ -314,12 +246,48 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
 
     protected async Task load()
     {
-        //var teamName = await httpContextAccessor.HttpContext.User.Identity.Name;
-        teamTasks1 = await teamTaskService?.GetTasksAsync(httpContextAccessor.HttpContext.User.Identity.Name, "1");
-        teamTasks2 = await teamTaskService?.GetTasksAsync(httpContextAccessor.HttpContext.User.Identity.Name, "2");
-        teamTasks3 = await teamTaskService?.GetTasksAsync(httpContextAccessor.HttpContext.User.Identity.Name, "3");
-        teamTasks4 = await teamTaskService?.GetTasksAsync(httpContextAccessor.HttpContext.User.Identity.Name, "4");
-        teamTasks5 = await teamTaskService?.GetTasksAsync(httpContextAccessor.HttpContext.User.Identity.Name, "5");
+        var teamName = httpContextAccessor.HttpContext.User.Identity.Name;
+
+        teamTasks1 = await teamTaskService?.GetTasksAsync(teamName, "1");
+        teamTasks2 = await teamTaskService?.GetTasksAsync(teamName, "2");
+        teamTasks3 = await teamTaskService?.GetTasksAsync(teamName, "3");
+        teamTasks4 = await teamTaskService?.GetTasksAsync(teamName, "4");
+        teamTasks5 = await teamTaskService?.GetTasksAsync(teamName, "5");
+
+        globalCorrectAnswers = await teamTaskService.GetGlobalCorrectAnswersAsync();
+        personalCorrectAnswers = await teamTaskService.GetPersonalTasksAsync(teamName);
+
+        //Answers = await teamTaskService?.GetAnswersAsync();
+    }
+    public double personalProgressWhoutPrecent;
+    public string PersonalProgress()
+    {
+        int TotalTasks = 5;
+        double result = ((personalCorrectAnswers.Count * 100) / TotalTasks);
+        personalProgressWhoutPrecent = result;
+        return Convert.ToString(((personalCorrectAnswers.Count*100)/TotalTasks)+"%");
+    }
+
+    protected string StatusAnswer(List<TeamTask> Task)
+    {
+        string result = null;
+
+        foreach (var item in Task)
+        {
+            result = (item.Value == "Correct") ? item.Value : "Incorrect";
+        }
+        return result;
+    }
+
+    protected bool HideAnswer(List<TeamTask> Task)
+    {
+        bool result = false;
+
+        foreach (var item in Task)
+        {
+            result = (item.Value == "Correct") ? true : false;
+        }
+        return result;
     }
 
     protected async Task CheckAnswer(int VerifyTask)
@@ -338,6 +306,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                             Value = "Correct",
                             Points = 1,
                             ItemNumber = "1",
+                            Attempts = 0,
                             Date = DateTime.Now,
                         };
 
@@ -346,7 +315,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                     }
                     else
                     {
-                        value = "Incorrect";
+                        //value = "Incorrect";
                     }
                 }
                 break;
@@ -360,7 +329,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                             ID = Guid.NewGuid().ToString(),
                             TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
                             Value = "Correct",
-                            Points = 1,
+                            Points = 3,
                             ItemNumber = "2",
                             Date = DateTime.Now,
                         };
@@ -370,7 +339,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                     }
                     else
                     {
-                        value2 = "Incorrect";
+                        //value2 = "Incorrect";
                     }
                 }
                 break;
@@ -384,7 +353,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                             ID = Guid.NewGuid().ToString(),
                             TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
                             Value = "Correct",
-                            Points = 1,
+                            Points = 5,
                             ItemNumber = "3",
                             Date = DateTime.Now,
                         };
@@ -394,7 +363,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                     }
                     else
                     {
-                        value3 = "Incorrect";
+                        //value3 = "Incorrect";
                     }
                 }
                 break;
@@ -408,7 +377,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                             ID = Guid.NewGuid().ToString(),
                             TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
                             Value = "Correct",
-                            Points = 1,
+                            Points = 7,
                             ItemNumber = "4",
                             Date = DateTime.Now,
                         };
@@ -418,21 +387,21 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                     }
                     else
                     {
-                        value4 = "Incorrect";
+                        //value4 = "Incorrect";
                     }
                 }
                 break;
             case 5:
-                if (!string.IsNullOrEmpty(UserAnswer5) && (!string.IsNullOrEmpty(UserAnswer5)))
+                if (!string.IsNullOrEmpty(UserAnswer5))
                 {
-                    if (UserAnswer5.ToLower() == CorrectAnswer5.ToLower() || UserAnswer5.ToLower() == CorrectAnswer5_Linux.ToLower())
+                    if (UserAnswer5.Contains(CorrectAnswer5))
                     {
                         TeamTask s = new TeamTask()
                         {
                             ID = Guid.NewGuid().ToString(),
                             TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
                             Value = "Correct",
-                            Points = 1,
+                            Points = 9,
                             ItemNumber = "5",
                             Date = DateTime.Now,
                         };
@@ -442,12 +411,12 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                     }
                     else
                     {
-                        value5 = "Incorrect";
+                        //value5 = "Incorrect";
                     }
                 }
                 break;
             default:
-                value = "False";
+                //value = "Answers not found";
                 break;
         }
     }

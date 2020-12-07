@@ -13,91 +13,91 @@ namespace Best_Hackathon_Codiseea.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\_Imports.razor"
+#line 1 "C:\Users\Tofan\OneDrive\Desktop\Endava\bn\Hackathon codiseea\BEST-Hackathon-Codiseea\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\_Imports.razor"
+#line 2 "C:\Users\Tofan\OneDrive\Desktop\Endava\bn\Hackathon codiseea\BEST-Hackathon-Codiseea\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\_Imports.razor"
+#line 3 "C:\Users\Tofan\OneDrive\Desktop\Endava\bn\Hackathon codiseea\BEST-Hackathon-Codiseea\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\_Imports.razor"
+#line 4 "C:\Users\Tofan\OneDrive\Desktop\Endava\bn\Hackathon codiseea\BEST-Hackathon-Codiseea\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\_Imports.razor"
+#line 5 "C:\Users\Tofan\OneDrive\Desktop\Endava\bn\Hackathon codiseea\BEST-Hackathon-Codiseea\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\_Imports.razor"
+#line 6 "C:\Users\Tofan\OneDrive\Desktop\Endava\bn\Hackathon codiseea\BEST-Hackathon-Codiseea\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\_Imports.razor"
+#line 7 "C:\Users\Tofan\OneDrive\Desktop\Endava\bn\Hackathon codiseea\BEST-Hackathon-Codiseea\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\_Imports.razor"
+#line 8 "C:\Users\Tofan\OneDrive\Desktop\Endava\bn\Hackathon codiseea\BEST-Hackathon-Codiseea\_Imports.razor"
 using Best_Hackathon_Codiseea;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\_Imports.razor"
+#line 9 "C:\Users\Tofan\OneDrive\Desktop\Endava\bn\Hackathon codiseea\BEST-Hackathon-Codiseea\_Imports.razor"
 using Best_Hackathon_Codiseea.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
+#line 2 "C:\Users\Tofan\OneDrive\Desktop\Endava\bn\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
 using Best_Hackathon_Codiseea.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
+#line 3 "C:\Users\Tofan\OneDrive\Desktop\Endava\bn\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
 using Best_Hackathon_Codiseea.Data;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
+#line 4 "C:\Users\Tofan\OneDrive\Desktop\Endava\bn\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
 using Microsoft.AspNetCore.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
+#line 8 "C:\Users\Tofan\OneDrive\Desktop\Endava\bn\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
            [Authorize]
 
 #line default
@@ -112,38 +112,17 @@ using Microsoft.AspNetCore.Http;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 255 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
+#line 212 "C:\Users\Tofan\OneDrive\Desktop\Endava\bn\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
        
-    [Parameter]
-    public string CorrectAnswer { get; set; } = "58738108";
+    public string CorrectAnswer { get; set; } = "59008105";
 
-    [Parameter]
-    public string CorrectAnswer2 { get; set; } = "9 8 4 1 1 2 44 8 4 5 86 2 4 4";
+    public string CorrectAnswer2 { get; set; } = "9 8 4 1 1 44 8 4 2 86 5 4 2 4";
 
-    [Parameter]
     public string CorrectAnswer3 { get; set; } = "lopatavremeasosindfrumosrotundurechinimenigleznecatargvislas";
 
-    [Parameter]
     public string CorrectAnswer4 { get; set; } = "OGPTRUTSFVUJSPZPOCGGHTYNXYUTEDMXVZAETZEMWTCKIFUPCVNBPCPYLNQLSABMOGLSRCNXLKNKFSZNNRGUTFSPRINEBYYSJROBDJAQXDZUYKUEGMERFUHHXDFDQHRBLXTFMNOQPGKUCNXTHWESFMKMIWXZEWOOKSPJTWATRKHHUQSFZHVRLOAMPNHDRVAQPORHQQCQHWLDAVJSAURWFRNNISWDDJMZPGTMPRRZKIPRZGTDZBERCYTOLHPRWCVWQGDMIPWLQILCCQEWCUWRMQDLXPOOIVEVYOYDKTVRM";
 
-    [Parameter]
-    public string CorrectAnswer5 { get; set; } = @"YUY
-YXYYUrXUX
-
-TY
-
-X 
-
-TsUXY5
-XY
-YXW";
-
-    [Parameter]
-    public string CorrectAnswer5_Linux { get; set; } = @"^WY^H^X^[^\U^W^L^K^]Y^H^V^H^V
-Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
-^[^Q^Q^T^Z^P^V^]^MT^QY^K^V
-^M^Q^PX ^Y
-^M^UTs^K^PU^X^N^P^V^]X^Z^YY5^\^V^M^W^KX^Z^P^P^H^L^TY^K^X^MY^K^PX^^^T^X^K^L^TW";
+    public string CorrectAnswer5 { get; set; } = "2 6";
 
     public string UserAnswer { get; set; }
     public string UserAnswer2 { get; set; }
@@ -151,22 +130,18 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
     public string UserAnswer4 { get; set; }
     public string UserAnswer5 { get; set; }
 
-    public bool HideAnswer = false;
-    public bool HideAnswer2 = false;
-    public bool HideAnswer3 = false;
-    public bool HideAnswer4 = false;
-    public bool HideAnswer5 = false;
-
-    public string value,value2,value3,value4,value5 = "";
     //date;
-
-    public int sum = 0;
 
     List<TeamTask> teamTasks1;
     List<TeamTask> teamTasks2;
     List<TeamTask> teamTasks3;
     List<TeamTask> teamTasks4;
     List<TeamTask> teamTasks5;
+
+    List<TeamTask> globalCorrectAnswers;
+    List<TeamTask> personalCorrectAnswers;
+
+    //List<Answer> Answers;
 
     protected override async Task OnInitializedAsync()
     {
@@ -175,12 +150,48 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
 
     protected async Task load()
     {
-        //var teamName = await httpContextAccessor.HttpContext.User.Identity.Name;
-        teamTasks1 = await teamTaskService?.GetTasksAsync(httpContextAccessor.HttpContext.User.Identity.Name, "1");
-        teamTasks2 = await teamTaskService?.GetTasksAsync(httpContextAccessor.HttpContext.User.Identity.Name, "2");
-        teamTasks3 = await teamTaskService?.GetTasksAsync(httpContextAccessor.HttpContext.User.Identity.Name, "3");
-        teamTasks4 = await teamTaskService?.GetTasksAsync(httpContextAccessor.HttpContext.User.Identity.Name, "4");
-        teamTasks5 = await teamTaskService?.GetTasksAsync(httpContextAccessor.HttpContext.User.Identity.Name, "5");
+        var teamName = httpContextAccessor.HttpContext.User.Identity.Name;
+
+        teamTasks1 = await teamTaskService?.GetTasksAsync(teamName, "1");
+        teamTasks2 = await teamTaskService?.GetTasksAsync(teamName, "2");
+        teamTasks3 = await teamTaskService?.GetTasksAsync(teamName, "3");
+        teamTasks4 = await teamTaskService?.GetTasksAsync(teamName, "4");
+        teamTasks5 = await teamTaskService?.GetTasksAsync(teamName, "5");
+
+        globalCorrectAnswers = await teamTaskService.GetGlobalCorrectAnswersAsync();
+        personalCorrectAnswers = await teamTaskService.GetPersonalTasksAsync(teamName);
+
+        //Answers = await teamTaskService?.GetAnswersAsync();
+    }
+    public double personalProgressWhoutPrecent;
+    public string PersonalProgress()
+    {
+        int TotalTasks = 5;
+        double result = ((personalCorrectAnswers.Count * 100) / TotalTasks);
+        personalProgressWhoutPrecent = result;
+        return Convert.ToString(((personalCorrectAnswers.Count*100)/TotalTasks)+"%");
+    }
+
+    protected string StatusAnswer(List<TeamTask> Task)
+    {
+        string result = null;
+
+        foreach (var item in Task)
+        {
+            result = (item.Value == "Correct") ? item.Value : "Incorrect";
+        }
+        return result;
+    }
+
+    protected bool HideAnswer(List<TeamTask> Task)
+    {
+        bool result = false;
+
+        foreach (var item in Task)
+        {
+            result = (item.Value == "Correct") ? true : false;
+        }
+        return result;
     }
 
     protected async Task CheckAnswer(int VerifyTask)
@@ -199,6 +210,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                             Value = "Correct",
                             Points = 1,
                             ItemNumber = "1",
+                            Attempts = 0,
                             Date = DateTime.Now,
                         };
 
@@ -207,7 +219,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                     }
                     else
                     {
-                        value = "Incorrect";
+                        //value = "Incorrect";
                     }
                 }
                 break;
@@ -221,7 +233,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                             ID = Guid.NewGuid().ToString(),
                             TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
                             Value = "Correct",
-                            Points = 1,
+                            Points = 3,
                             ItemNumber = "2",
                             Date = DateTime.Now,
                         };
@@ -231,7 +243,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                     }
                     else
                     {
-                        value2 = "Incorrect";
+                        //value2 = "Incorrect";
                     }
                 }
                 break;
@@ -245,7 +257,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                             ID = Guid.NewGuid().ToString(),
                             TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
                             Value = "Correct",
-                            Points = 1,
+                            Points = 5,
                             ItemNumber = "3",
                             Date = DateTime.Now,
                         };
@@ -255,7 +267,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                     }
                     else
                     {
-                        value3 = "Incorrect";
+                        //value3 = "Incorrect";
                     }
                 }
                 break;
@@ -269,7 +281,7 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                             ID = Guid.NewGuid().ToString(),
                             TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
                             Value = "Correct",
-                            Points = 1,
+                            Points = 7,
                             ItemNumber = "4",
                             Date = DateTime.Now,
                         };
@@ -279,21 +291,21 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                     }
                     else
                     {
-                        value4 = "Incorrect";
+                        //value4 = "Incorrect";
                     }
                 }
                 break;
             case 5:
-                if (!string.IsNullOrEmpty(UserAnswer5) && (!string.IsNullOrEmpty(UserAnswer5)))
+                if (!string.IsNullOrEmpty(UserAnswer5))
                 {
-                    if (UserAnswer5.ToLower() == CorrectAnswer5.ToLower() || UserAnswer5.ToLower() == CorrectAnswer5_Linux.ToLower())
+                    if (UserAnswer5.Contains(CorrectAnswer5))
                     {
                         TeamTask s = new TeamTask()
                         {
                             ID = Guid.NewGuid().ToString(),
                             TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
                             Value = "Correct",
-                            Points = 1,
+                            Points = 9,
                             ItemNumber = "5",
                             Date = DateTime.Now,
                         };
@@ -303,12 +315,12 @@ Y^K^PX^\^TY^YY^H^L^KUr^X^L^\^V^\X^]^]^Z^QUX
                     }
                     else
                     {
-                        value5 = "Incorrect";
+                        //value5 = "Incorrect";
                     }
                 }
                 break;
             default:
-                value = "False";
+                //value = "Answers not found";
                 break;
         }
     }
