@@ -86,7 +86,7 @@ else
                 <br />
                 <div class="row">
                     <div class="col-9">
-                        <input class="form-control" @bind="@UserAnswer2">
+                        <input class="form-control" @bind="@UserAnswer">
                     </div>
                     <div class="col-3">
                         <button type="submit" class="btn btn-primary" @onclick="() => CheckAnswer(2)">Submit</button>
@@ -115,7 +115,7 @@ else
                 <br />
                 <div class="row">
                     <div class="col-9">
-                        <input class="form-control" @bind="@UserAnswer3">
+                        <input class="form-control" @bind="@UserAnswer">
                     </div>
                     <div class="col-3">
                         <button type="submit" class="btn btn-primary" @onclick="() => CheckAnswer(3)">Submit</button>
@@ -143,7 +143,7 @@ else
                 <br />
                 <div class="row">
                     <div class="col-9">
-                        <input class="form-control" @bind="@UserAnswer4">
+                        <input class="form-control" @bind="@UserAnswer">
                     </div>
                     <div class="col-3">
                         <button type="submit" class="btn btn-primary" @onclick="() => CheckAnswer(4)">Submit</button>
@@ -194,7 +194,7 @@ else
                 <br />
                 <div class="row">
                     <div class="col-9">
-                        <textarea class="form-control" @bind="@UserAnswer5" style="width:36rem;"></textarea>
+                        <textarea class="form-control" @bind="@UserAnswer" style="width:36rem;"></textarea>
                     </div>
                     <div class="col-3">
                         <button type="submit" class="btn btn-primary" @onclick="() => CheckAnswer(5)">Submit</button>
@@ -210,21 +210,9 @@ else
 }
 
 @code {
-    public string CorrectAnswer { get; set; } = "59008105";
 
-    public string CorrectAnswer2 { get; set; } = "9 8 4 1 1 44 8 4 2 86 5 4 2 4";
-
-    public string CorrectAnswer3 { get; set; } = "lopatavremeasosindfrumosrotundurechinimenigleznecatargvislas";
-
-    public string CorrectAnswer4 { get; set; } = "OGPTRUTSFVUJSPZPOCGGHTYNXYUTEDMXVZAETZEMWTCKIFUPCVNBPCPYLNQLSABMOGLSRCNXLKNKFSZNNRGUTFSPRINEBYYSJROBDJAQXDZUYKUEGMERFUHHXDFDQHRBLXTFMNOQPGKUCNXTHWESFMKMIWXZEWOOKSPJTWATRKHHUQSFZHVRLOAMPNHDRVAQPORHQQCQHWLDAVJSAURWFRNNISWDDJMZPGTMPRRZKIPRZGTDZBERCYTOLHPRWCVWQGDMIPWLQILCCQEWCUWRMQDLXPOOIVEVYOYDKTVRM";
-
-    public string CorrectAnswer5 { get; set; } = "2 6";
 
     public string UserAnswer { get; set; }
-    public string UserAnswer2 { get; set; }
-    public string UserAnswer3 { get; set; }
-    public string UserAnswer4 { get; set; }
-    public string UserAnswer5 { get; set; }
 
     //date;
 
@@ -290,134 +278,84 @@ else
         return result;
     }
 
+
+    public List<Answer> CorrectAnswers1 = new List<Answer>()
+    {//urmeaza sa o fac cu bd
+        new Answer()
+        {
+            ID=1,
+            Task="59008105"
+        },
+        new Answer()
+        {
+            ID=2,
+            Task="9 8 4 1 1 44 8 4 2 86 5 4 2 4"
+        },
+        new Answer()
+        {
+            ID=3,
+            Task="lopatavremeasosindfrumosrotundurechinimenigleznecatargvislas"
+        },
+        new Answer()
+        {
+            ID=4,
+            Task="OGPTRUTSFVUJSPZPOCGGHTYNXYUTEDMXVZAETZEMWTCKIFUPCVNBPCPYLNQLSABMOGLSRCNXLKNKFSZNNRGUTFSPRINEBYYSJROBDJAQXDZUYKUEGMERFUHHXDFDQHRBLXTFMNOQPGKUCNXTHWESFMKMIWXZEWOOKSPJTWATRKHHUQSFZHVRLOAMPNHDRVAQPORHQQCQHWLDAVJSAURWFRNNISWDDJMZPGTMPRRZKIPRZGTDZBERCYTOLHPRWCVWQGDMIPWLQILCCQEWCUWRMQDLXPOOIVEVYOYDKTVRM"},
+        new Answer()
+        {
+            ID=5,
+            Task="2 6"
+        }
+    };
+
+    public List<string> userAnswer1 = new List<string>();
+
     protected async Task CheckAnswer(int VerifyTask)
     {
-        switch (VerifyTask)
+        try
         {
-            case 1:
-                if (!string.IsNullOrEmpty(UserAnswer))
-                {
-                    if (UserAnswer.ToLower() == CorrectAnswer.ToLower())
-                    {
-                        TeamTask s = new TeamTask()
-                        {
-                            ID = Guid.NewGuid().ToString(),
-                            TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
-                            Value = "Correct",
-                            Points = 1,
-                            ItemNumber = "1",
-                            Attempts = 0,
-                            Date = DateTime.Now,
-                        };
+            DateTime now = DateTime.Now;
 
-                        await teamTaskService.InsertTeamTaskAsync(s);
-                        await load();
-                    }
-                    else
+            var totalAnswers = CorrectAnswers1.Count;
+            @*
+                Itemii sunt au o valoare(ca puncte) mai mare atunci cand sunt rezolvati mai inainte de ora 12, iar cei mai slabi punctati sunt dupa 12    
+            *@
+            userAnswer1.Add(UserAnswer);
+            var points = (now.Hour >= 24 / 2) ? ((int)((now.Hour * VerifyTask) / 2) / totalAnswers) : ((int)(now.Hour * VerifyTask) / totalAnswers);
+
+            if (CorrectAnswers1.Any()) 
+            {
+                foreach (var item in CorrectAnswers1)
+                {
+                    foreach (var answer in userAnswer1)
                     {
-                        //value = "Incorrect";
+                        if (answer.Contains(item.Task) && item.ID == VerifyTask)
+                        {
+                            TeamTask s = new TeamTask()
+                            {
+                                ID = Guid.NewGuid().ToString(),
+                                TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
+                                Value = "Correct",
+                                Points = points,
+                                ItemNumber = Convert.ToString(VerifyTask),
+                                Attempts = 0,
+                                Date = DateTime.Now,
+                            };
+
+                            await teamTaskService.InsertTeamTaskAsync(s);
+                            await load();
+                        }
                     }
                 }
-                break;
-            case 2:
-                if (!string.IsNullOrEmpty(UserAnswer2))
-                {
-                    if (UserAnswer2.ToLower() == CorrectAnswer2.ToLower())
-                    {
-                        TeamTask s = new TeamTask()
-                        {
-                            ID = Guid.NewGuid().ToString(),
-                            TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
-                            Value = "Correct",
-                            Points = 3,
-                            ItemNumber = "2",
-                            Date = DateTime.Now,
-                        };
+            }
+            else
+            {
+                //value = "Incorrect";
+            }
+        }
+        catch (Exception e)
+        {
 
-                        await teamTaskService.InsertTeamTaskAsync(s);
-                        await load();
-                    }
-                    else
-                    {
-                        //value2 = "Incorrect";
-                    }
-                }
-                break;
-            case 3:
-                if (!string.IsNullOrEmpty(UserAnswer3))
-                {
-                    if (UserAnswer3.ToLower() == CorrectAnswer3.ToLower())
-                    {
-                        TeamTask s = new TeamTask()
-                        {
-                            ID = Guid.NewGuid().ToString(),
-                            TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
-                            Value = "Correct",
-                            Points = 5,
-                            ItemNumber = "3",
-                            Date = DateTime.Now,
-                        };
-
-                        await teamTaskService.InsertTeamTaskAsync(s);
-                        await load();
-                    }
-                    else
-                    {
-                        //value3 = "Incorrect";
-                    }
-                }
-                break;
-            case 4:
-                if (!string.IsNullOrEmpty(UserAnswer4))
-                {
-                    if (UserAnswer4.ToLower() == CorrectAnswer4.ToLower())
-                    {
-                        TeamTask s = new TeamTask()
-                        {
-                            ID = Guid.NewGuid().ToString(),
-                            TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
-                            Value = "Correct",
-                            Points = 7,
-                            ItemNumber = "4",
-                            Date = DateTime.Now,
-                        };
-
-                        await teamTaskService.InsertTeamTaskAsync(s);
-                        await load();
-                    }
-                    else
-                    {
-                        //value4 = "Incorrect";
-                    }
-                }
-                break;
-            case 5:
-                if (!string.IsNullOrEmpty(UserAnswer5))
-                {
-                    if (UserAnswer5.Contains(CorrectAnswer5))
-                    {
-                        TeamTask s = new TeamTask()
-                        {
-                            ID = Guid.NewGuid().ToString(),
-                            TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
-                            Value = "Correct",
-                            Points = 9,
-                            ItemNumber = "5",
-                            Date = DateTime.Now,
-                        };
-
-                        await teamTaskService.InsertTeamTaskAsync(s);
-                        await load();
-                    }
-                    else
-                    {
-                        //value5 = "Incorrect";
-                    }
-                }
-                break;
-            default:
-                //value = "Answers not found";
-                break;
+            throw new Exception(e.ToString());
         }
     }
 }

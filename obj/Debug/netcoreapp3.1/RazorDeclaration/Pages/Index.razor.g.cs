@@ -98,7 +98,7 @@ using Best_Hackathon_Codiseea.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 65 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\Index.razor"
+#line 67 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\Index.razor"
       
     List<TeamTask> globalCorrectAnswers;
     List<TeamTask> numberOfTeams;

@@ -114,21 +114,9 @@ using Microsoft.AspNetCore.Http;
 #nullable restore
 #line 212 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
        
-    public string CorrectAnswer { get; set; } = "59008105";
 
-    public string CorrectAnswer2 { get; set; } = "9 8 4 1 1 44 8 4 2 86 5 4 2 4";
-
-    public string CorrectAnswer3 { get; set; } = "lopatavremeasosindfrumosrotundurechinimenigleznecatargvislas";
-
-    public string CorrectAnswer4 { get; set; } = "OGPTRUTSFVUJSPZPOCGGHTYNXYUTEDMXVZAETZEMWTCKIFUPCVNBPCPYLNQLSABMOGLSRCNXLKNKFSZNNRGUTFSPRINEBYYSJROBDJAQXDZUYKUEGMERFUHHXDFDQHRBLXTFMNOQPGKUCNXTHWESFMKMIWXZEWOOKSPJTWATRKHHUQSFZHVRLOAMPNHDRVAQPORHQQCQHWLDAVJSAURWFRNNISWDDJMZPGTMPRRZKIPRZGTDZBERCYTOLHPRWCVWQGDMIPWLQILCCQEWCUWRMQDLXPOOIVEVYOYDKTVRM";
-
-    public string CorrectAnswer5 { get; set; } = "2 6";
 
     public string UserAnswer { get; set; }
-    public string UserAnswer2 { get; set; }
-    public string UserAnswer3 { get; set; }
-    public string UserAnswer4 { get; set; }
-    public string UserAnswer5 { get; set; }
 
     //date;
 
@@ -194,9 +182,75 @@ using Microsoft.AspNetCore.Http;
         return result;
     }
 
+
+    public List<Answer> CorrectAnswers1 = new List<Answer>()
+    {
+        new Answer(){ID=1,Task="59008105"},
+        new Answer(){ID=2,Task="9 8 4 1 1 44 8 4 2 86 5 4 2 4"},
+        new Answer(){ID=3,Task="lopatavremeasosindfrumosrotundurechinimenigleznecatargvislas"},
+        new Answer(){ID=4,Task="OGPTRUTSFVUJSPZPOCGGHTYNXYUTEDMXVZAETZEMWTCKIFUPCVNBPCPYLNQLSABMOGLSRCNXLKNKFSZNNRGUTFSPRINEBYYSJROBDJAQXDZUYKUEGMERFUHHXDFDQHRBLXTFMNOQPGKUCNXTHWESFMKMIWXZEWOOKSPJTWATRKHHUQSFZHVRLOAMPNHDRVAQPORHQQCQHWLDAVJSAURWFRNNISWDDJMZPGTMPRRZKIPRZGTDZBERCYTOLHPRWCVWQGDMIPWLQILCCQEWCUWRMQDLXPOOIVEVYOYDKTVRM"},
+        new Answer(){ID=5,Task="2 6"}
+    };
+
+    public List<string> userAnswer1 = new List<string>();
+
     protected async Task CheckAnswer(int VerifyTask)
     {
-        switch (VerifyTask)
+        try
+        {
+            DateTime now = DateTime.Now;
+
+            var totalAnswers = CorrectAnswers1.Count;
+            
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 302 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
+              
+            userAnswer1.Add(UserAnswer);
+            var points = (now.Hour >= 24 / 2) ? ((int)((now.Hour * VerifyTask) / 2) / totalAnswers) : ((int)(now.Hour * VerifyTask) / totalAnswers);
+
+            if (CorrectAnswers1.Any()) 
+            {
+                foreach (var item in CorrectAnswers1)
+                {
+                    foreach (var answer in userAnswer1)
+                    {
+                        if (answer.Contains(item.Task) && item.ID == VerifyTask)
+                        {
+                            TeamTask s = new TeamTask()
+                            {
+                                ID = Guid.NewGuid().ToString(),
+                                TeamName = httpContextAccessor.HttpContext.User.Identity.Name,
+                                Value = "Correct",
+                                Points = points,
+                                ItemNumber = Convert.ToString(VerifyTask),
+                                Attempts = 0,
+                                Date = DateTime.Now,
+                            };
+
+                            await teamTaskService.InsertTeamTaskAsync(s);
+                            await load();
+                        }
+                    }
+                }
+            }
+            else
+            {
+                //value = "Incorrect";
+            }
+        }
+        catch (Exception e)
+        {
+
+            throw new Exception(e.ToString());
+        }
+
+        //--------------
+
+        /*switch (VerifyTask)
         {
             case 1:
                 if (!string.IsNullOrEmpty(UserAnswer))
@@ -322,7 +376,7 @@ using Microsoft.AspNetCore.Http;
             default:
                 //value = "Answers not found";
                 break;
-        }
+        }*/
     }
 
 #line default
