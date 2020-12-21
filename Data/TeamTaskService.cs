@@ -34,7 +34,7 @@ namespace Best_Hackathon_Codiseea.Data
         //
         public async Task<List<TeamTask>> GetNumberOfTeamsWhoAnswer()
         {
-            var result = _context.TeamTasks.Where(e => e.TeamName != null).Where(e => e.Value == "Correct");
+            var result = _context.TeamTasks.Where(e => e.TeamName != null);
             return await Task.FromResult(result.ToList());
         }
 

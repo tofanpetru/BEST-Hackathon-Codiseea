@@ -89,6 +89,13 @@ using Best_Hackathon_Codiseea.Data;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\Index.razor"
+using Microsoft.AspNetCore.Http;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/panel")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -98,7 +105,7 @@ using Best_Hackathon_Codiseea.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 67 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\Index.razor"
+#line 71 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\Index.razor"
       
     List<TeamTask> globalCorrectAnswers;
     List<TeamTask> numberOfTeams;
@@ -114,6 +121,7 @@ using Best_Hackathon_Codiseea.Data;
         numberOfTeams = await teamTaskService.GetNumberOfTeamsWhoAnswer();
     }
     public double AllUserProgress;
+    public double _teams = 0;
 
     public string Remaning()
     {
@@ -125,9 +133,11 @@ using Best_Hackathon_Codiseea.Data;
         int TotalEventTasks = 5;
         double precent = 0;
 
+        var teamWhoAnswer = _teams;
+
         if(numberOfTeams.Count !=0)
         {
-            precent = (((globalCorrectAnswers.Count / numberOfTeams.Count) * 100) / TotalEventTasks);
+            precent = (((globalCorrectAnswers.Count / teamWhoAnswer) * 100) / TotalEventTasks);
             AllUserProgress = precent;
             return (Convert.ToString(precent) + "%");
         }
@@ -140,6 +150,7 @@ using Best_Hackathon_Codiseea.Data;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IHttpContextAccessor httpContextAccessor { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private TeamTaskService teamTaskService { get; set; }
     }
 }

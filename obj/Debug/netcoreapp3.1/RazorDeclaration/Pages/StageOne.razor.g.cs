@@ -229,6 +229,7 @@ using Microsoft.AspNetCore.Http;
 #line 321 "C:\Users\Tofan\OneDrive\Desktop\Endava\Hackathon codiseea\BEST-Hackathon-Codiseea\Pages\StageOne.razor"
               
             userAnswer1.Add(UserAnswer);
+            userAnswer1.Add("");
             var points = (now.Hour >= 24 / 2) ? ((int)((now.Hour * VerifyTask) / 2) / totalAnswers) : ((int)(now.Hour * VerifyTask) / totalAnswers);
 
             if (CorrectAnswers1.Any()) 

@@ -2,6 +2,8 @@
 @using Best_Hackathon_Codiseea.Models;
 @using Best_Hackathon_Codiseea.Data;
 @inject TeamTaskService teamTaskService
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor httpContextAccessor
 
 @if (globalCorrectAnswers == null || numberOfTeams == null)
 {
@@ -36,13 +38,15 @@ else
                         }
                     }
                 </p>
-                <hr />
-                @*
-                Trebuie de facut query-ul pentru determinarea tuturor echipelor care au minim o solutie corecta
-           <p> @numberOfTeams.Count   team number</p>
-        <p>@globalCorrectAnswers.Count  glabal answers</p>
-        <p>@AllUserProgress</p>
-                *@
+ 
+                @foreach (var item in numberOfTeams.GroupBy(i => i.TeamName).Select(g => g.First()).ToList())
+                {
+                    @if (item.TeamName != null)
+                    {
+                        _teams++;
+                    };
+                }
+                
                 <h5>Aici puteți vedea progresul global al evenimentului</h5>
                 <hr />
                 <br />
@@ -79,6 +83,7 @@ else
         numberOfTeams = await teamTaskService.GetNumberOfTeamsWhoAnswer();
     }
     public double AllUserProgress;
+    public double _teams = 0;
 
     public string Remaning()
     {
@@ -90,9 +95,11 @@ else
         int TotalEventTasks = 5;
         double precent = 0;
 
+        var teamWhoAnswer = _teams;
+
         if(numberOfTeams.Count !=0)
         {
-            precent = (((globalCorrectAnswers.Count / numberOfTeams.Count) * 100) / TotalEventTasks);
+            precent = (((globalCorrectAnswers.Count / teamWhoAnswer) * 100) / TotalEventTasks);
             AllUserProgress = precent;
             return (Convert.ToString(precent) + "%");
         }
